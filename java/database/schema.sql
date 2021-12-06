@@ -2,6 +2,13 @@ BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS seq_user_id;
+DROP TABLE IF EXISTS prizes;
+DROP SEQUENCE IF EXISTS seq_prize_id;
+DROP TABLE IF EXISTS books;
+DROP TABLE IF EXISTS reading_projects;
+DROP SEQUENCE IF EXISTS seq_project_id;
+DROP TABLE IF EXISTS families;
+DROP SEQUENCE IF EXISTS seq_family_id;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -21,14 +28,28 @@ CREATE SEQUENCE seq_project_id
   NO MINVALUE
   CACHE 1;
 
+CREATE SEQUENCE seq_family_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+
+CREATE TABLE families (
+    family_id int DEFAULT nextval('seq_family_id'::regclass) NOT NULL,
+    name varchar(50),
+    CONSTRAINT PK_family_id PRIMARY KEY (family_id)
+);
+
 CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
 	username varchar(50) NOT NULL,
 	password_hash varchar(200) NOT NULL,
 	role varchar(50) NOT NULL,
-	family int,
+	family_id int,
 	family_role boolean,
-	CONSTRAINT PK_user PRIMARY KEY (user_id)
+	CONSTRAINT PK_user PRIMARY KEY (user_id),
+	CONSTRAINT FK_family_id FOREIGN KEY (family_id) REFERENCES families (family_id)
 );
 
 CREATE TABLE prizes (
@@ -46,7 +67,7 @@ CREATE TABLE books (
     isbn varchar(16) NOT NULL,
     title varchar(100) NOT NULL,
     author varchar(100),
-    CONSTRAINT PK_isbn PRIMARY KEY (prize_id)
+    CONSTRAINT PK_isbn PRIMARY KEY (isbn)
 );
 
 CREATE TABLE reading_projects (
