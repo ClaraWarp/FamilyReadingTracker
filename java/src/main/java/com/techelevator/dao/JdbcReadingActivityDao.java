@@ -3,11 +3,13 @@ package com.techelevator.dao;
 import com.techelevator.model.Book;
 import com.techelevator.model.ReadingActivity;
 import com.techelevator.model.ReadingActivity;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class JdbcReadingActivityDao implements ReadingActivityDao {
 
     private JdbcTemplate jdbcTemplate;
