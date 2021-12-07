@@ -14,6 +14,8 @@ import java.util.List;
 public class JdbcPrizeDao implements PrizeDao {
 
     private JdbcTemplate jdbcTemplate;
+
+    @Override
     public List<Prize> findAllPrizesByFamily(Integer familyId){
         List<Prize> prizes = new ArrayList<>();
         String sql = "SELECT * FROM prizes JOIN families_prizes ON prizes.prize_id = families_prizes.prize_id WHERE family_id = ?";
@@ -25,12 +27,14 @@ public class JdbcPrizeDao implements PrizeDao {
         return prizes;
     }
 
+    @Override
     public Prize getPrizeById(Integer prizeId){
         String sql = "SELECT * FROM prizes WHERE prize_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, prizeId);
         return mapRowToPrize(results);
     }
 
+    @Override
     public boolean create(String name, String description, Integer time_requirement, Integer maxPrize, Date startDate, Date endDate){
         boolean userCreated = false;
         String sql = "INSERT INTO prizes ('name', 'description', 'time_requirement', 'max_prizes', 'start_date', 'end_date') VALUES (?, ?, ?, ?, ?, ?)";
@@ -39,7 +43,6 @@ public class JdbcPrizeDao implements PrizeDao {
         userCreated = jdbcTemplate.update(sql, name, description, time_requirement, maxPrize, startDate, endDate) == 1;
         return userCreated;
     }
-
     private Prize mapRowToPrize(SqlRowSet rs){
         Prize prize = new Prize();
         prize.setPrizeId(rs.getInt("prize_id"));
