@@ -1,25 +1,34 @@
 package com.techelevator.model;
 
 //This class holds data for Reading Projects to be retrieved via DAO
-public class ReadingProject {
-    int projectId;
+public class ReadingActivity {
+    int activityId;
     int userId;
     String ISBN;
     String format;
     int timeRead;
-    int prizeId;
 
-    public ReadingProject(int projectId, int userId, String ISBN, String format, int timeRead, int prizeId) {
-        this.projectId = projectId;
+// add setter for activity ID
+
+    public ReadingActivity(int activityId, int userId, String ISBN, String format, int timeRead) {
+        this.activityId = activityId;
         this.userId = userId;
         this.ISBN = ISBN;
         this.format = format;
         this.timeRead = timeRead;
-        this.prizeId = prizeId;
     }
 
-    public int getProjectId() {
-        return projectId;
+
+    public ReadingActivity() {
+
+    }
+
+    public int getActivityId() {
+        return activityId;
+    }
+
+    public void setActivityId(int activityId) {
+        this.activityId = activityId;
     }
 
     public int getUserId() {
@@ -52,13 +61,5 @@ public class ReadingProject {
 
     public void setTimeRead(int timeRead) {
         this.timeRead = timeRead;
-    }
-
-    public int getPrizeId() {
-        return prizeId;
-    }
-
-    public void setPrizeId(int prizeId) {
-        this.prizeId = prizeId;
     }
 }
