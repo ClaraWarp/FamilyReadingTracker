@@ -1,6 +1,9 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
+      <div class="imgcontainer">
+        <img src="@/assets/login.png" alt="Avatar" class="avatar" />
+      </div>
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
@@ -90,4 +93,57 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color:#7400b8;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 45%;
+  border-radius: 50%;
+}
+
+.text-center {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../assets/book.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Nunito', sans-serif;
+}
+
+.form-register{
+  width: 30%;
+  padding: 100px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap');
+
+</style>
