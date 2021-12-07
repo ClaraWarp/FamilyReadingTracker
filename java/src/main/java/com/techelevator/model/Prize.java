@@ -4,22 +4,32 @@ import java.util.Date;
 
 public class Prize {
 
+    private Integer prizeId;
     private String name;
     private String description;
-    private Integer milestone;
+    private Integer timeRequirement;
     private Integer maxPrize;
     private Date startDate;
     private Date endDate;
 
     public Prize(){}
 
-    public Prize(String name, String description, Integer milestone, Integer maxPrize, Date startDate, Date endDate){
+    public Prize(Integer prizeId, String name, String description, Integer timeRequirement, Integer maxPrize, Date startDate, Date endDate){
+        this.prizeId = prizeId;
         this.name = name;
         this.description = description;
-        this.milestone = milestone;
+        this.timeRequirement = timeRequirement;
         this.maxPrize = maxPrize;
         this.startDate = startDate;
         this.endDate = endDate;
+    }
+
+    public void setPrizeId(Integer prizeId) {
+        this.prizeId = prizeId;
+    }
+
+    public Integer getPrizeId() {
+        return prizeId;
     }
 
     public String getName() {
@@ -38,12 +48,12 @@ public class Prize {
         this.description = description;
     }
 
-    public Integer getMilestone() {
-        return milestone;
+    public Integer getTimeRequirement() {
+        return timeRequirement;
     }
 
-    public void setMilestone(Integer milestone) {
-        this.milestone = milestone;
+    public void setTimeRequirement(Integer timeRequirement) {
+        this.timeRequirement = timeRequirement;
     }
 
     public Integer getMaxPrize() {
