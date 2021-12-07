@@ -1,5 +1,8 @@
 package com.techelevator.model;
 
+//This class holds the the data for a user. It is separate from the User class which handles security.
+//This is how information is stored as an object post login.
+
 public class Reader {
     private int userId;
     private int familyId;
