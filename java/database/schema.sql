@@ -3,6 +3,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS families_users;
 DROP TABLE IF EXISTS reading_activity;
 DROP TABLE IF EXISTS families_prizes;
+DROP TABLE IF EXISTS reading_activity_bank;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS prizes;
 DROP TABLE IF EXISTS books;
@@ -84,7 +85,7 @@ CREATE TABLE books (
     CONSTRAINT PK_isbn            PRIMARY KEY (isbn)
 );
 
-CREATE TABLE reading_activity (
+CREATE TABLE reading_activity_log (
     activity_id int DEFAULT nextval('seq_activity_id'::regclass) NOT NULL,
     user_id int NOT NULL,
     isbn varchar(16) NOT NULL,
@@ -93,6 +94,13 @@ CREATE TABLE reading_activity (
     CONSTRAINT PK_activity_id     PRIMARY KEY (activity_id),
     CONSTRAINT FK_user_id         FOREIGN KEY (user_id) REFERENCES users (user_id),
     CONSTRAINT FK_isbn            FOREIGN KEY (isbn) REFERENCES books (isbn)
+);
+
+/* this would normally just be attached to user */
+CREATE TABLE reading_activity_bank (
+    user_id int,
+    minutes_read_bank int,
+    CONSTRAINT FK_RAB_user_id     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
