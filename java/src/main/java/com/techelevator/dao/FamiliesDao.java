@@ -4,5 +4,5 @@ import com.techelevator.model.Family;
 
 public interface FamiliesDao {
 
-    Family getFamilyByName(String familyName);
+    Family getFamilyByName(String name);
 }
