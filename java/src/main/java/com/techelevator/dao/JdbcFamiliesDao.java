@@ -19,22 +19,22 @@ public class JdbcFamiliesDao implements FamiliesDao {
     }
 
     @Override
-    public Family getFamilyByName(String familyName) {
+    public Family getFamilyByName(String name) {
 
-        String name = "SELECT * FROM families WHERE name = ?";
-        SqlRowSet result = jdbcTemplate.queryForRowSet(name, familyName);
+        String findName = "SELECT * FROM families WHERE name = ?";
+        SqlRowSet result = jdbcTemplate.queryForRowSet(findName, name);
 
         if(result.next()) {
             return mapRowToFamily(result);
         }
-        throw new RuntimeException("Account not found for family name: " + familyName);
+        throw new RuntimeException("Account not found for family name: " + name);
     }
 
     public Family mapRowToFamily(SqlRowSet rowSet) {
         Family family = new Family();
 
         family.setFamilyId(rowSet.getInt("family_id"));
-        family.setFamilyName(rowSet.getString("family_name"));
+        family.setName(rowSet.getString("family_name"));
 
         return family;
     }
