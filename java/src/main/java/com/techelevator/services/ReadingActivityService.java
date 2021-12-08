@@ -1,17 +1,19 @@
 package com.techelevator.services;
 
-import com.techelevator.model.User;
-import org.springframework.web.client.RestTemplate;
+
+import com.techelevator.dao.ReadingActivityDao;
+
+import com.techelevator.model.ReadingActivity;
+
+
 
 public class ReadingActivityService {
 
-    private static String API_BASE_URL;
+    private ReadingActivityDao readingActivityDao;
 
-    private RestTemplate restTemplate = new RestTemplate();
+    public void createActivity(ReadingActivity readingActivity) { readingActivityDao.createActivity(readingActivity);};
 
-    private User currentUser;
-
-
-
-
+    public ReadingActivity getActivityById (int activityId) {
+        return readingActivityDao.getActivityById(activityId);
+    }
 }
