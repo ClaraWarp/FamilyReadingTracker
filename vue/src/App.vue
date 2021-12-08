@@ -15,12 +15,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
 #nav {
   font-family: "Nunito", sans-serif;
-  display: inline;
+  display: ;
   padding: 15px;
   top:0%;
   font-size: 20px;
-  
- 
+  background-color: #BEE1E6;
 }
   
 </style>
