@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <div id="nav" >
-      <router-link class="active" v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+    <div id="nav" v-if="$store.state.token != ''">
+      <router-link class="active" 
+        v-bind:to="{ name: 'home' }" 
+        >Home</router-link>&nbsp;|&nbsp;
       <router-link class="active"
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
@@ -11,6 +13,7 @@
     <router-view />
   </div>
 </template>
+
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
 #nav {
@@ -19,7 +22,20 @@
   padding: 15px;
   top:0%;
   font-size: 20px;
-  background-color: #BEE1E6;
 }
-  
+
+#app {
+  background-color: #53a6d9;
+}
+
+a.active {
+  color: white;
+  text-decoration: none;
+  border: 1px solid #6939c3;
+  border-radius: 5px;
+  padding: 0px 10px;
+  background-color: #6939c3;
+  font-family: "Nunito", sans-serif;
+}
+
 </style>

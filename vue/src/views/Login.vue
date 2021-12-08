@@ -35,7 +35,7 @@
         required
       />
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <button type="submit">Sign In</button>
     </form>
   </div>
 </template>
@@ -78,7 +78,6 @@ export default {
 };
 </script>
 <style scoped>
-
 /* Full-width inputs */
 input[type="text"],
 input[type="password"] {
@@ -123,12 +122,13 @@ img.avatar {
   background-image: url("../assets/book.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
-.form-signin{
+.form-signin {
   width: 30%;
   padding: 100px;
 }
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
 </style>

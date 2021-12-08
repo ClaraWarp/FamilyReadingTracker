@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
     <span class="homeNav">
     <div id="family">Family Navigation</div>
     <div id="reading">Reading Activity</div>
@@ -49,7 +47,7 @@ export default {
   border: none;
   border-radius: 20px;
   justify-content: center;
-  background-color: #5e60ce;
+  background-color: #53a6d9;
   font-size: 35px;
   
   
@@ -61,7 +59,7 @@ export default {
   border: none;
   border-radius: 20px;
   justify-content: center;
-  background-color: #48bfe3;
+  background-color: #a9d3ec;
   font-size: 35px;
   
 }
