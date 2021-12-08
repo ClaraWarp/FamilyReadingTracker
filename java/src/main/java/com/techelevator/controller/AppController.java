@@ -3,6 +3,8 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.*;
 import com.techelevator.model.*;
+import com.techelevator.services.PrizeService;
+import com.techelevator.services.UserService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,68 +14,68 @@ import java.util.List;
 @PreAuthorize("isAuthenticated()")
 public class AppController {
 
-    private BookDao bookDao;
-    private FamiliesDao familiesDao;
-    private PrizeDao prizeDao;
-    private ReadingActivityDao readingActivityDao;
-    private UserDao userDao;
+    private BookService bookService;
+    private FamiliesService familiesService;
+    private PrizeService prizeService;
+    private ReadingActivityService readingActivityService;
+    private UserService userService;
 
     //Constructor
 
-    public AppController(BookDao bookDao, FamiliesDao familiesDao, PrizeDao prizeDao, ReadingActivityDao readingActivityDao, UserDao userDao) {
-        this.bookDao = bookDao;
-        this.familiesDao = familiesDao;
-        this.prizeDao = prizeDao;
-        this.readingActivityDao = readingActivityDao;
-        this.userDao = userDao;
+    public AppController(BookService bookService, FamiliesService familiesService, PrizeService prizeService, ReadingActivityService readingActivityService, UserService userService) {
+        this.bookService = bookService;
+        this.familiesService = familiesService;
+        this.prizeService = prizeService;
+        this.readingActivityService = readingActivityService;
+        this.userService = userService;
     }
 
     //Book Methods
 
     @RequestMapping(path = "books/{isbn}", method = RequestMethod.GET)
     public Book getBookByISBN(@PathVariable String isbn) {
-        return bookDao.getBookByISBN(isbn);
+        return bookService.getBookByISBN(isbn);
     }
 
     @RequestMapping(path = "books", method = RequestMethod.POST)
     public boolean addBook(@RequestBody Book book) {
-        return bookDao.addBook(book);
+        return bookService.addBook(book);
     }
 
     //Families Methods
 
     @RequestMapping(path = "families/{name}", method = RequestMethod.GET)
     public Family getFamilyByName(@PathVariable String name) {
-        return familiesDao.getFamilyByName(name);
+        return familiesService.getFamilyByName(name);
     }
 
     //Prize Methods
 
     @RequestMapping(path = "prizes/{familyId}", method = RequestMethod.GET)
     public List<Prize> getListOfPrizesByFamily(@PathVariable Integer familyId) {
-        return prizeDao.getListOfPrizesByFamily(familyId);
+        return prizeService.getListOfPrizesByFamily(familyId);
     }
 
     @RequestMapping(path = "prizes/{id}", method = RequestMethod.GET)
     public Prize getPrizeById(@PathVariable Integer id) {
-        return prizeDao.getPrizeById(id);
+        return prizeService.getPrizeById(id);
     }
 
     @RequestMapping(path = "prizes/", method = RequestMethod.POST)
     public boolean createPrize(@RequestBody Prize prize) {
-        return prizeDao.createPrize(prize);
+        return prizeService.createPrize(prize);
     }
 
     //Reading Activity Methods
 
     @RequestMapping(path = "activity/{id}", method = RequestMethod.GET)
     public ReadingActivity getActivityById (@PathVariable int id) {
-        return readingActivityDao.getActivityById(id);
+        return readingActivityService.getActivityById(id);
     }
 
     @RequestMapping(path = "activity/", method = RequestMethod.POST)
     public void createActivity(@RequestBody ReadingActivity readingActivity) {
-         readingActivityDao.createActivity(readingActivity);
+         readingActivityService.createActivity(readingActivity);
     }
 
 //    @RequestMapping(path = "activity/", method = RequestMethod.PUT)
@@ -90,17 +92,17 @@ public class AppController {
 
     @RequestMapping(path = "users/", method = RequestMethod.GET)
     public List<User> findAll() {
-        return userDao.findAll();
+        return userService.findAll();
     } //Not sure what method is for
 
     @RequestMapping(path = "users/{id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable Long id) {
-        return userDao.getUserById(id);
+        return userService.getUserById(id);
     }
 
     @RequestMapping(path = "users/{username}", method = RequestMethod.GET)
     public User findByUsername(@PathVariable String username) {
-        return userDao.findByUsername(username);
+        return userService.findByUsername(username);
     }
 
 //    @RequestMapping(path = "users/", method = RequestMethod.POST)
