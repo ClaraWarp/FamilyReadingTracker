@@ -1,12 +1,9 @@
 package com.techelevator.controller;
 
 
-import com.techelevator.dao.*;
+
 import com.techelevator.model.*;
-<<<<<<< HEAD
-=======
 import com.techelevator.services.BookService;
->>>>>>> 79eb94159a254e8eb809632e133a02ad4b303ab5
 import com.techelevator.services.FamiliesService;
 import com.techelevator.services.PrizeService;
 import com.techelevator.services.ReadingActivityService;
@@ -17,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@PreAuthorize("isAuthenticated()")
+//@PreAuthorize("isAuthenticated()")
 public class AppController {
 
     private BookService bookService;

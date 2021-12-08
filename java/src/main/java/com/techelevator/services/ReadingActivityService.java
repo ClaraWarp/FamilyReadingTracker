@@ -4,9 +4,10 @@ package com.techelevator.services;
 import com.techelevator.dao.ReadingActivityDao;
 
 import com.techelevator.model.ReadingActivity;
+import org.springframework.stereotype.Service;
 
 
-
+@Service
 public class ReadingActivityService {
 
     private ReadingActivityDao readingActivityDao;
