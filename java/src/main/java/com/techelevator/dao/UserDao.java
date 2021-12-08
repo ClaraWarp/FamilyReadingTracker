@@ -12,7 +12,7 @@ public interface UserDao {
 
     User findByUsername(String username);
 
-    int findIdByUsername(String username);
+    int findIdByUsername(String username); //Might be able to get with findByUsername; wouldn't ID be included?
 
     boolean create(String username, String password, String role);
 }

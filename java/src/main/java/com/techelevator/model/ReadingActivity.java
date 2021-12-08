@@ -4,16 +4,16 @@ package com.techelevator.model;
 public class ReadingActivity {
     int activityId;
     int userId;
-    String ISBN;
+    String isbn;
     String format;
     int timeRead;
 
 // add setter for activity ID
 
-    public ReadingActivity(int activityId, int userId, String ISBN, String format, int timeRead) {
+    public ReadingActivity(int activityId, int userId, String isbn, String format, int timeRead) {
         this.activityId = activityId;
         this.userId = userId;
-        this.ISBN = ISBN;
+        this.isbn = isbn;
         this.format = format;
         this.timeRead = timeRead;
     }
@@ -39,12 +39,12 @@ public class ReadingActivity {
         this.userId = userId;
     }
 
-    public String getISBN() {
-        return ISBN;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setISBN(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getFormat() {

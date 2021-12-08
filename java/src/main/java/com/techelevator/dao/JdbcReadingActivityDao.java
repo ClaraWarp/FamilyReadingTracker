@@ -9,7 +9,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+@Component
 public class JdbcReadingActivityDao implements ReadingActivityDao {
 
     private JdbcTemplate jdbcTemplate;
@@ -19,25 +19,26 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
     }
 
     @Override
-    public void createActivity (int activityId, int userId, String isbn, String format, int timeRead) {
+    public void createActivity (ReadingActivity readingActivity) {
 
         String newActivity = "INSERT INTO reading_activity_log (user_id, isbn, format, time_read) values (?, ?, ?, ?) \n" +
                 " RETURNING activity_id";
 
-        jdbcTemplate.update(newActivity, activityId, userId, isbn, format, timeRead);
+        jdbcTemplate.update(newActivity, readingActivity.getActivityId(), readingActivity.getUserId(), readingActivity.getIsbn(), readingActivity.getFormat()
+                , readingActivity.getTimeRead());
     }
 
     @Override
-    public ReadingActivity getActivityById(int projectId) {
+    public ReadingActivity getActivityById(int activityId) {
 
         String getActivity = "SELECT * FROM reading_activity_log WHERE activity_id = ?";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(getActivity, projectId);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(getActivity, activityId);
 
         if(results.next()) {
             return mapRowToReadingActivity(results);
         } else {
-            throw new RuntimeException("Reading activity was not found for project id: " + projectId);
+            throw new RuntimeException("Reading activity was not found for project id: " + activityId);
         }
     }
 

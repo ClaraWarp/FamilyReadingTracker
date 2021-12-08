@@ -8,7 +8,7 @@ public interface BookDao {
 
     Book getBookByISBN(String isbn);
 
-    void addBook(String title, String author, String isbn);
+    boolean addBook(Book book);
 
 //    String getISBNByBook();
 

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.techelevator.model.Book;
 
-@Service
+@Component
 public class JdbcBookDao implements BookDao {
 
     private JdbcTemplate jdbcTemplate;
@@ -37,13 +37,14 @@ public class JdbcBookDao implements BookDao {
     }
 
     @Override
-    public void addBook(String title, String author, String isbn) {
+    public boolean addBook(Book book) {
+        boolean bookCreated = false;
 
         String insertBook = "insert into books(title, author, isbn) values(?, ?, ?)";
 
-        jdbcTemplate.update(insertBook, title, author, isbn);
+        bookCreated = jdbcTemplate.update(insertBook, book.getTitle(), book.getAuthor(), book.getIsbn()) == 1;
 
-        //
+        return bookCreated;
     }
 
     private Book mapRowToBook(SqlRowSet rs) {

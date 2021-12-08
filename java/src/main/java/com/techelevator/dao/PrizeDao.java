@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface PrizeDao {
 
-    List<Prize> findAllPrizesByFamily(Integer familyId);
+    List<Prize> getListOfPrizesByFamily(Integer familyId);
 
     Prize getPrizeById(Integer prizeId);
 
-    boolean create(String name, String description, Integer milestone, Integer maxPrize, Date startDate, Date endDate);
+    boolean createPrize(Prize prize);
 
 }

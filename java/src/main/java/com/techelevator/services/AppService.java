@@ -4,5 +4,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
-public class familiesService {
+public class AppService {
+
+    //Handles logic on what to display based on given info.
+    //
 }

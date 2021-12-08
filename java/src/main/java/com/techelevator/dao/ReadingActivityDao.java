@@ -5,10 +5,9 @@ import com.techelevator.model.ReadingActivity;
 
 public interface ReadingActivityDao {
 
+    void createActivity(ReadingActivity readingActivity);
 
-    void createActivity (int activityId, int userId, String isbn, String format, int timeRead);
-
-    ReadingActivity getActivityById (int projectId);
+    ReadingActivity getActivityById (int activityId);
 
 
 }
