@@ -18,10 +18,19 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    book: [],
+    bookIsbn: null,
+
     token: currentToken || '',
     user: currentUser || {}
   },
   mutations: {
+    SET_BOOK(state, book){
+      state.book = book;
+    },
+    SET_BOOK_ISBN(state, bookIsbn){
+      state.bookIsbn = bookIsbn;
+    },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
