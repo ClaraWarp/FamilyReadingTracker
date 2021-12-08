@@ -13,6 +13,10 @@ public class UserService {
 
     private UserDao userDao;
 
+    public UserService(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
     public List<User> findAll() {
         return userDao.findAll();
     } //Not sure what method is for
