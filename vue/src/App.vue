@@ -18,7 +18,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
 #nav {
   font-family: "Nunito", sans-serif;
-  display: ;
+  display: inline-block;
   padding: 15px;
   top:0%;
   font-size: 20px;
