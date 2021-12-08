@@ -3,6 +3,8 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.*;
 import com.techelevator.model.*;
+import com.techelevator.services.BookService;
+import com.techelevator.services.FamiliesService;
 import com.techelevator.services.PrizeService;
 import com.techelevator.services.UserService;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -33,8 +35,8 @@ public class AppController {
     //Book Methods
 
     @RequestMapping(path = "books/{isbn}", method = RequestMethod.GET)
-    public Book getBookByISBN(@PathVariable String isbn) {
-        return bookService.getBookByISBN(isbn);
+    public Book getBookByIsbn(@PathVariable String isbn) {
+        return bookService.getBookByIsbn(isbn);
     }
 
     @RequestMapping(path = "books", method = RequestMethod.POST)
