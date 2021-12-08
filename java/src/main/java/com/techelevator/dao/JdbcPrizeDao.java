@@ -16,6 +16,11 @@ public class JdbcPrizeDao implements PrizeDao {
 
     private JdbcTemplate jdbcTemplate;
 
+    public JdbcPrizeDao(JdbcTemplate jdbcTemplate){
+        this.jdbcTemplate = jdbcTemplate;
+
+    }
+
     @Override
     public List<Prize> getListOfPrizesByFamily(Integer familyId){
         List<Prize> prizes = new ArrayList<>();
