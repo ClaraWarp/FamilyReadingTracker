@@ -15,6 +15,10 @@ public class BookService {
 
     private BookDao bookDao;
 
+    public BookService (BookDao bookDao) {
+        this.bookDao = bookDao;
+    }
+
     public boolean addBook(Book newBook) {
         return bookDao.addBook(newBook);
     }

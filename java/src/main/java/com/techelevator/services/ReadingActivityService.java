@@ -12,6 +12,10 @@ public class ReadingActivityService {
 
     private ReadingActivityDao readingActivityDao;
 
+    public ReadingActivityService(ReadingActivityDao readingActivityDao) {
+        this.readingActivityDao = readingActivityDao;
+    }
+
     public void createActivity(ReadingActivity readingActivity) { readingActivityDao.createActivity(readingActivity);};
 
     public ReadingActivity getActivityById (int activityId) {

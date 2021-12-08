@@ -9,6 +9,10 @@ public class PrizeService {
 
     private PrizeDao prizeDao;
 
+    public PrizeService(PrizeDao prizeDao) {
+        this.prizeDao = prizeDao;
+    }
+
     public List<Prize> getListOfPrizesByFamily(Integer familyId) {
         return prizeDao.getListOfPrizesByFamily(familyId);
     }
