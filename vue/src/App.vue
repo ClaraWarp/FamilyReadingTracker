@@ -33,7 +33,7 @@ a.active {
   text-decoration: none;
   border: 1px solid #6939c3;
   border-radius: 5px;
-  padding: 0px 10px;
+  padding: 0px 7px;
   background-color: #6939c3;
   font-family: "Nunito", sans-serif;
 }
