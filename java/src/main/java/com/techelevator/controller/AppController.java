@@ -3,6 +3,10 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.*;
 import com.techelevator.model.*;
+<<<<<<< HEAD
+=======
+import com.techelevator.services.BookService;
+>>>>>>> 79eb94159a254e8eb809632e133a02ad4b303ab5
 import com.techelevator.services.FamiliesService;
 import com.techelevator.services.PrizeService;
 import com.techelevator.services.ReadingActivityService;
@@ -35,8 +39,8 @@ public class AppController {
     //Book Methods
 
     @RequestMapping(path = "books/{isbn}", method = RequestMethod.GET)
-    public Book getBookByISBN(@PathVariable String isbn) {
-        return bookService.getBookByISBN(isbn);
+    public Book getBookByIsbn(@PathVariable String isbn) {
+        return bookService.getBookByIsbn(isbn);
     }
 
     @RequestMapping(path = "books", method = RequestMethod.POST)
