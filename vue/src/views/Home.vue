@@ -1,15 +1,21 @@
 <template>
   <div class="home">
     <span class="homeNav">
-    <div id="family">
-      <h2 class="twoLines">Family<br>Navigation</h2>
-      <div class="bookSection"></div>
-    </div>
-    <div id="reading"><h2>Reading Activity</h2></div>
-    <div id="prizes">
-      <h2 class="prizeTitle">Prizes</h2>
-      <div class="prizeSection"></div>
-    </div>
+      <div id="family">
+        <div class="twoLines">
+          <h2 id="familyTitle">Family</h2>
+          <div id="familyDetails">
+            <div id="isParent"></div>
+            <button id="joinFamilyButton">Join Family</button>
+          </div>
+        </div>
+        <div class="bookSection"></div>
+      </div>
+      <div id="reading"><h2>Reading Activity</h2></div>
+      <div id="prizes">
+        <h2 class="prizeTitle">Prizes</h2>
+        <div class="prizeSection"></div>
+      </div>
     </span>
   </div>
 </template>
@@ -29,7 +35,7 @@ h2 {
 }
 
 .prizeTitle {
-  background-color: #F5CB5C;
+  background-color: #f5cb5c;
   border-radius: 20px 0px 0px 20px;
   margin: 10px 0px 5px 10px;
   padding: 24px;
@@ -39,7 +45,7 @@ h2 {
   flex-grow: 1;
   margin: 5px 0px 10px 10px;
   border-radius: 20px 0px 0px 20px;
-  background-color: #F5CB5C;
+  background-color: #f5cb5c;
 }
 
 .bookSection {
@@ -59,7 +65,6 @@ h2 {
 
 .home {
   font-family: "Nunito", sans-serif;
-  
 }
 
 .homeNav {
@@ -67,12 +72,37 @@ h2 {
   column-gap: 5px;
   height: 100vh;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas: 
-  "familyNav readingNav readingNav prizeNav"
-
+  grid-template-areas: "familyNav readingNav readingNav prizeNav";
 }
 
-#family{
+#joinFamilyButton {
+  color: white;
+  background-color: #6939c3;
+  border: 1px solid #6939c3;
+  border-radius: 5px;
+  padding: 2px 7px;
+  margin: 2px 5px 5px 0px;
+  font-size: 16px;
+}
+
+#joinFamilyButton:hover {
+  color: #6930c3;
+  background-color: white;
+}
+
+#isParent {
+  flex-grow: 3;
+}
+
+#familyTitle {
+  margin: 20px 20px 5px 20px;
+}
+
+#familyDetails {
+  display: flex;
+}
+
+#family {
   grid-area: familyNav;
   display: flex;
   border: none;
@@ -83,7 +113,7 @@ h2 {
   flex-direction: column;
 }
 
-#reading{
+#reading {
   grid-area: readingNav;
   display: flex;
   border: none;
@@ -91,13 +121,11 @@ h2 {
   justify-content: center;
   background-color: #53a6d9;
   font-size: 35px;
-  
-  
 }
 
-#prizes{
+#prizes {
   grid-area: prizeNav;
-  display:flex;
+  display: flex;
   border: none;
   border-radius: 20px 0px 0px 0px;
   background-color: #353535;

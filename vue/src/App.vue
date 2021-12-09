@@ -38,4 +38,9 @@ a.active {
   font-family: "Nunito", sans-serif;
 }
 
+a.active:hover {
+  color: #6930c3;
+  background-color: white;
+}
+
 </style>
