@@ -11,6 +11,6 @@ public interface PrizeDao {
 
     Prize getPrizeById(Integer prizeId);
 
-    boolean createPrize(Prize prize);
+    boolean addPrize(Prize prize);
 
 }

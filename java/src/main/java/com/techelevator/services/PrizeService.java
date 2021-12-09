@@ -21,8 +21,8 @@ public class PrizeService {
         return prizeDao.getPrizeById(id);
     }
 
-    public boolean createPrize(Prize prize) {
-        return prizeDao.createPrize(prize);
+    public boolean addPrize(Prize prize) {
+        return prizeDao.addPrize(prize);
     }
 
 

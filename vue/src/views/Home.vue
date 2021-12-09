@@ -6,7 +6,7 @@
           <h2 id="familyTitle">Family</h2>
           <div id="familyDetails">
             <div id="isParent"></div>
-            <button id="joinFamilyButton" v-on:click = "addBook">Join Family</button>
+            <button id="joinFamilyButton">Join Family</button>
           </div>
         </div>
         <div class="bookSection"></div>
@@ -25,19 +25,19 @@
 //import familiesService from '@/services/FamiliesService.js'
 import bookService from '@/services/BookService.js'
 export default {
-  name: "home",
-  methods:{
-    addBook(){
-      const dummyBook = {
-        title: "newBook",
-        author: "genius",
-        isbn: "laskjdf"
-      }
-      bookService.addBook(dummyBook).then(response=>{
-        console.log(response.data)
-      } )
-    }
-  }
+  name: "home"
+  // methods:{
+  //   addBook(){
+  //     const dummyBook = {
+  //       title: "newBook",
+  //       author: "genius",
+  //       isbn: "laskjdf"
+  //     }
+  //     bookService.addBook(dummyBook).then(response=>{
+  //       console.log(response.data)
+  //     } )
+  //   }
+  // }
 };
 </script>
 

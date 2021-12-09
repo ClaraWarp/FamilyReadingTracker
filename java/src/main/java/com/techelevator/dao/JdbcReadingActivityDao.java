@@ -28,6 +28,24 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
                 , readingActivity.getTimeRead());
     }
 
+//    @Override
+//    public void updateActivity (ReadingActivity readingActivity) {
+//
+//        String newActivity = "INSERT INTO reading_activity_log (user_id, isbn, format, time_read) values (?, ?, ?, ?) \n" +
+//                " RETURNING activity_id";
+//
+//        jdbcTemplate.update(newActivity, readingActivity.getActivityId(), readingActivity.getUserId(), readingActivity.getIsbn(), readingActivity.getFormat()
+//                , readingActivity.getTimeRead());
+//    }
+//
+//    @Override
+//    public void deleteActivity (int id) {
+//
+//        String sql = "DELETE FROM reading_activity_log WHERE activity_id = ?";
+//
+//        jdbcTemplate.update(sql, id);
+//    }
+
     @Override
     public ReadingActivity getActivityById(int activityId) {
 
