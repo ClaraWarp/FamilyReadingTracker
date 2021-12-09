@@ -14,7 +14,8 @@
       <div id="reading"><h2>Reading Activity</h2><add-book/></div>
         <div>Add Book</div>
       <div id="prizes">
-        <h2 class="prizeTitl">Prizes</h2>
+        <h2 class="prizeTitle">Prizes</h2>
+        <a href="../components/CreatePrize.vue" id="createPrizeButton" target="_blank"><button>Create Prize</button></a>
         <div class="prizeSection"></div>
       </div>
     </span>
@@ -26,7 +27,9 @@
 import bookService from '@/services/BookService.js'
 import AddBook from '../components/AddBook.vue';
 export default {
-  components: { AddBook },
+  components: { 
+    AddBook,
+    },
   name: "home",
   methods:{
     addBook(){
@@ -40,6 +43,7 @@ export default {
         console.log(response.data)
       } )
     }
+
   }
 };
 </script>
@@ -151,5 +155,15 @@ h2 {
   font-size: 35px;
   justify-content: flex-start;
   flex-direction: column;
+}
+
+#createPrizeButton {
+  color: white;
+  background-color: #353535;
+  border: 1px solid #353535;
+  border-radius: 5px;
+  padding: 2px 7px;
+  margin: 2px 5px 5px 0px;
+  font-size: 16px;
 }
 </style>
