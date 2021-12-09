@@ -17,7 +17,7 @@
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
 #nav {
-  font-family: "Nunito", sans-serif;
+  font-family: "Proxima Nova", sans-serif;
   display: inline-block;
   padding: 15px;
   top:0%;
