@@ -82,6 +82,7 @@ CREATE TABLE books (
     isbn varchar(16) NOT NULL,
     title varchar(100) NOT NULL,
     author varchar(100),
+    description varchar(400),
     CONSTRAINT PK_isbn            PRIMARY KEY (isbn)
 );
 

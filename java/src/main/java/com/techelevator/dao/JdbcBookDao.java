@@ -40,9 +40,10 @@ public class JdbcBookDao implements BookDao {
     public boolean addBook(Book book) {
         boolean bookCreated = false;
 
-        String insertBook = "insert into books(title, author, isbn) values(?, ?, ?)";
+        String insertBook = "insert into books(title, author, isbn, description) values(?, ?, ?, ?)";
 
-        bookCreated = jdbcTemplate.update(insertBook, book.getTitle(), book.getAuthor(), book.getIsbn()) == 1;
+        bookCreated = jdbcTemplate.update(insertBook, book.getTitle(), book.getAuthor(), book.getIsbn(),
+                book.getDescription()) == 1;
 
         return bookCreated;
     }
@@ -52,6 +53,7 @@ public class JdbcBookDao implements BookDao {
         book.setTitle(rs.getString("title"));
         book.setAuthor(rs.getString("author"));
         book.setIsbn(rs.getString("isbn"));
+        book.setDescription(rs.getString("description"));
 
         return book;
     }
