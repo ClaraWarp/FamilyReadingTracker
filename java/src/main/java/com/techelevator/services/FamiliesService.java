@@ -20,4 +20,8 @@ public class FamiliesService {
     public Family getFamilyByName(String name) {
         return familiesDao.getFamilyByName(name);
     }
+
+    public void createFamily(Family family) {
+        familiesDao.createFamily(family);
+    }
 }
