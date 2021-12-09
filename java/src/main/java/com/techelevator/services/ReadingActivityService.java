@@ -18,9 +18,9 @@ public class ReadingActivityService {
 
     public void createActivity(ReadingActivity readingActivity) { readingActivityDao.createActivity(readingActivity);};
 
-    public void updateActivity(ReadingActivity readingActivity) { readingActivityDao.updateActivity(readingActivity);}
+//    public void updateActivity(ReadingActivity readingActivity) { readingActivityDao.updateActivity(readingActivity);}
 
-    public void deleteActivity(ReadingActivity readingActivity) { readingActivityDao.deleteActivity(readingActivity);}
+//    public void deleteActivity(ReadingActivity readingActivity) { readingActivityDao.deleteActivity(readingActivity);}
 
     public ReadingActivity getActivityById (int activityId) {
         return readingActivityDao.getActivityById(activityId);
