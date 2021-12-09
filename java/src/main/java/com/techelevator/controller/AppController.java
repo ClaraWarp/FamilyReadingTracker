@@ -54,6 +54,11 @@ public class AppController {
         return familiesService.getFamilyByName(name);
     }
 
+    @RequestMapping(path = "families", method = RequestMethod.POST)
+    public void createFamily(@RequestBody Family family) {
+        familiesService.createFamily(family);
+    }
+
     //Prize Methods
 
     @RequestMapping(path = "prizes/{familyId}", method = RequestMethod.GET)
@@ -66,7 +71,7 @@ public class AppController {
         return prizeService.getPrizeById(id);
     }
 
-    @RequestMapping(path = "prizes/", method = RequestMethod.POST)
+    @RequestMapping(path = "prizes", method = RequestMethod.POST)
     public boolean createPrize(@RequestBody Prize prize) {
         return prizeService.createPrize(prize);
     }
@@ -78,7 +83,7 @@ public class AppController {
         return readingActivityService.getActivityById(id);
     }
 
-    @RequestMapping(path = "activity/", method = RequestMethod.POST)
+    @RequestMapping(path = "activity", method = RequestMethod.POST)
     public void createActivity(@RequestBody ReadingActivity readingActivity) {
          readingActivityService.createActivity(readingActivity);
     }
