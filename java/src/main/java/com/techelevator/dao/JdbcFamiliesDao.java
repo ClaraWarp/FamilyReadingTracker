@@ -6,6 +6,9 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class JdbcFamiliesDao implements FamiliesDao {
 
@@ -28,6 +31,28 @@ public class JdbcFamiliesDao implements FamiliesDao {
             return mapRowToFamily(result);
         }
         throw new RuntimeException("Account not found for family name: " + name);
+    }
+
+    @Override
+    public List<Family> getFamilies() {
+        String sql = "SELECT * FROM families";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
+        List<Family> families = new ArrayList<>();
+
+        if (results.next()) {
+            families.add(mapRowToFamily(results));
+        }
+
+        return families;
+    }
+
+    @Override
+    public void createFamily(Family family) {
+
+        String newFamily = "INSERT INTO families (family_id, name) VALUES (?, ?)";
+
+        jdbcTemplate.update(newFamily, family.getFamilyId(), family.getName());
     }
 
     public Family mapRowToFamily(SqlRowSet rowSet) {

@@ -7,11 +7,11 @@ const http = axios.create({
 export default {
 
     getBook(isbn){
-        return http.get(`/books/${isbn}`);
+        return http.get(`/api/v1/books/${isbn}`);
     },
 
     addBook(book){
-        return http.post('/books', book);
+        return http.post('/api/v1/books', book);
     }
 
 

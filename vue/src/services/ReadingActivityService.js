@@ -7,11 +7,11 @@ const http = axios.create({
 export default {
 
     getActivityById(id) {
-        return http.get(`/activity/${id}`);
+        return http.get(`/api/v1/activity/${id}`);
     },
 
     createActivity(readingActivity) {
-        return http.post('/activity', readingActivity);
+        return http.post('/api/v1/activity', readingActivity);
     }
 
 }
