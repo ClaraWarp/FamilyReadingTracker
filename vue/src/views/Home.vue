@@ -2,11 +2,14 @@
   <div class="home">
     <span class="homeNav">
     <div id="family">
-      <h2 class="twoLines">Family Navigation</h2>
+      <h2 class="twoLines">Family<br>Navigation</h2>
       <div class="bookSection"></div>
     </div>
     <div id="reading"><h2>Reading Activity</h2></div>
-    <div id="prizes"><h2>Prizes</h2></div>
+    <div id="prizes">
+      <h2 class="prizeTitle">Prizes</h2>
+      <div class="prizeSection"></div>
+    </div>
     </span>
   </div>
 </template>
@@ -25,8 +28,21 @@ h2 {
   margin: 20px;
 }
 
+.prizeTitle {
+  background-color: #F5CB5C;
+  border-radius: 20px 0px 0px 20px;
+  margin: 10px 0px 5px 10px;
+  padding: 24px;
+}
+
+.prizeSection {
+  flex-grow: 1;
+  margin: 5px 0px 10px 10px;
+  border-radius: 20px 0px 0px 20px;
+  background-color: #F5CB5C;
+}
+
 .bookSection {
-  border: 1px solid;
   flex-grow: 1;
   margin: 5px 10px 10px 0px;
   border-radius: 0px 20px 20px 0px;
@@ -36,7 +52,6 @@ h2 {
 .twoLines {
   line-height: 55px;
   margin: 10px 10px 5px 0px;
-  border: 1px solid;
   border-radius: 0px 20px 20px 0px;
   padding: 5px;
   background-color: #a9d3ec;
@@ -62,7 +77,6 @@ h2 {
   display: flex;
   border: none;
   border-radius: 0px 20px 0px 0px;
-  justify-content: center;
   background-color: #6939c3;
   font-size: 35px;
   justify-content: flex-start;
@@ -86,9 +100,9 @@ h2 {
   display:flex;
   border: none;
   border-radius: 20px 0px 0px 0px;
-  justify-content: center;
-  background-color: #a9d3ec;
+  background-color: #353535;
   font-size: 35px;
-  
+  justify-content: flex-start;
+  flex-direction: column;
 }
 </style>
