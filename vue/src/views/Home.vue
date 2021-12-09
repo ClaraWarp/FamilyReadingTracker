@@ -11,7 +11,7 @@
         </div>
         <div class="bookSection"></div>
       </div>
-      <div id="reading"><h2>Reading Activity</h2></div>
+      <div id="reading"><h2>Reading Activity</h2><add-book/></div>
         <div>Add Book</div>
       <div id="prizes">
         <h2 class="prizeTitl">Prizes</h2>
@@ -24,7 +24,9 @@
 <script>
 //import familiesService from '@/services/FamiliesService.js'
 import bookService from '@/services/BookService.js'
+import AddBook from '../components/AddBook.vue';
 export default {
+  components: { AddBook },
   name: "home",
   methods:{
     addBook(){
