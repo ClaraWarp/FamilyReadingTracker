@@ -90,12 +90,12 @@ public class AppController {
 
 //    @RequestMapping(path = "activity/", method = RequestMethod.PUT)
 //    public void updateActivity(@RequestBody ReadingActivity readingActivity) {
-//        readingActivityDao.updateActivity(readingActivity);
+//        readingActivityService.updateActivity(readingActivity);
 //    }
 
 //    @RequestMapping(path = "activity/{id}", method = RequestMethod.DELETE)
 //    public void deleteActivity(@PathVariable int id) {
-//        readingActivityDao.deleteActivity(id);
+//        readingActivityService.deleteActivity(id);
 //    }
 
     //User Methods

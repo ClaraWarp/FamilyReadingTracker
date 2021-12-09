@@ -7,15 +7,15 @@ const http = axios.create ({
 export default {
 
     getListOfPrizesByFamily(familyId){
-        return http.get(`/prizes/${familyId}`);
+        return http.get(`/api/v1/prizes/${familyId}`);
     },
 
     getPrizeById(id){
-        return http.get(`/prizes/${id}`);
+        return http.get(`/api/v1/prizes/${id}`);
     },
 
     createPrize(prize){
-        return http.post('/prizes', prize);
+        return http.post('/api/v1/prizes', prize);
     }
-    
+
 }
