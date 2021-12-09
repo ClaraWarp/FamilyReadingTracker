@@ -11,7 +11,7 @@ export default {
     },
 
     addBook(book){
-        return http.post('/books', book);
+        return http.post('/api/v1/books', book);
     }
 
 

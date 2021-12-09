@@ -30,6 +30,14 @@ public class JdbcFamiliesDao implements FamiliesDao {
         throw new RuntimeException("Account not found for family name: " + name);
     }
 
+    @Override
+    public void createFamily(Family family) {
+
+        String newFamily = "INSERT INTO families (family_id, name) VALUES (?, ?)";
+
+        jdbcTemplate.update(newFamily, family.getFamilyId(), family.getName());
+    }
+
     public Family mapRowToFamily(SqlRowSet rowSet) {
         Family family = new Family();
 

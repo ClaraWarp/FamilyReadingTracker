@@ -7,6 +7,10 @@ const http = axios.create({
 export default {
 
     getFamilyByName(name){
-        return http.get(`/families/${name}`);
+        return http.get(`/api/v1/families/${name}`);
+    },
+
+    createFamily(family) {
+        return http.post('/api/v1/families', family);
     }
 }
