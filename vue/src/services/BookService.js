@@ -7,7 +7,7 @@ const http = axios.create({
 export default {
 
     getBook(isbn){
-        return http.get(`/books/${isbn}`);
+        return http.get(`/api/v1/books/${isbn}`);
     },
 
     addBook(book){
