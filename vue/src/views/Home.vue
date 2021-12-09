@@ -13,7 +13,7 @@
       </div>
       <div id="reading"><h2>Reading Activity</h2></div>
       <div id="prizes">
-        <h2 class="prizeTitle">Prizes</h2>
+        <h2 class="prizeTitl">Prizes</h2>
         <div class="prizeSection"></div>
       </div>
     </span>
@@ -25,6 +25,7 @@ export default {
   name: "home",
 };
 </script>
+
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
 

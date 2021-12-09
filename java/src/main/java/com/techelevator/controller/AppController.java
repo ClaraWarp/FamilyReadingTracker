@@ -82,15 +82,15 @@ public class AppController {
          readingActivityService.createActivity(readingActivity);
     }
 
-//    @RequestMapping(path = "activity/", method = RequestMethod.PUT)
-//    public void updateActivity(@RequestBody ReadingActivity readingActivity) {
-//        readingActivityDao.updateActivity(readingActivity);
-//    }
+    @RequestMapping(path = "activity/", method = RequestMethod.PUT)
+    public void updateActivity(@RequestBody ReadingActivity readingActivity) {
+        readingActivityService.updateActivity(readingActivity);
+    }
 
-//    @RequestMapping(path = "activity/{id}", method = RequestMethod.DELETE)
-//    public void deleteActivity(@PathVariable int id) {
-//        readingActivityDao.deleteActivity(id);
-//    }
+    @RequestMapping(path = "activity/{id}", method = RequestMethod.DELETE)
+    public void deleteActivity(@PathVariable int id) {
+        readingActivityService.deleteActivity(id);
+    }
 
     //User Methods
 
