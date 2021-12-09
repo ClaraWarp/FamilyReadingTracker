@@ -31,7 +31,8 @@ export default {
       const dummyBook = {
         title: "newBook",
         author: "genius",
-        isbn: "laskjdf"
+        isbn: "laskjdf",
+        description: "my favorite book"
       }
       bookService.addBook(dummyBook).then(response=>{
         console.log(response.data)
