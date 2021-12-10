@@ -9,9 +9,6 @@
   </thead>
   <tbody>
     <tr v-for="book in books" v-bind:key="book.isbn"  class="book">
-      <!-- <router-link v-bind:to="{ name: 'books', params: {isbn: book.isbn}}">
-        {{book.title}}
-      </router-link> -->
       <td class="book-font">
         <i class="fas fa-book"></i>
       </td>
@@ -34,7 +31,7 @@ export default {
     };
   },
   created() {
-    bookService.getBookByUserId(this.$route.params.user).then((response) => {
+    bookService.getBookByUserId(this.user.id).then((response) => {
       if (response.status === 200) {
          this.$store.commit('SET_BOOK', response.data);
          this.$store.commit('SET_USER', response.data);
