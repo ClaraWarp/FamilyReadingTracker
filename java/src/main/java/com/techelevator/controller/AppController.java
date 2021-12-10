@@ -48,6 +48,11 @@ public class AppController {
         return bookService.addBook(book);
     }
 
+    @RequestMapping(path = "{userID}/books", method = RequestMethod.GET)
+    public List<Book> getListOfBooksByUserID(@PathVariable int userID) {
+        return bookService.getListOfBooksByUserID(userID);
+    }
+
     //Families Methods
 
     @RequestMapping(path = "families/{name}", method = RequestMethod.GET)
