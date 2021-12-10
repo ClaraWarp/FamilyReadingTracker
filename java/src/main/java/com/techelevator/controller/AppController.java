@@ -48,6 +48,16 @@ public class AppController {
         return bookService.addBook(book);
     }
 
+    @RequestMapping(path = "books", method = RequestMethod.GET)
+    public List<Book> getAllBooks() {
+        return bookService.getAllBooks();
+    }
+
+    @RequestMapping(path = "{userID}/books", method = RequestMethod.GET)
+    public List<Book> getListOfBooksByUserID(@PathVariable int userID) {
+        return bookService.getListOfBooksByUserID(userID);
+    }
+
     //Families Methods
 
     @RequestMapping(path = "families/{name}", method = RequestMethod.GET)
@@ -125,10 +135,6 @@ public class AppController {
         return userService.findByUsername(username);
     }
 
-//    @RequestMapping(path = "users/", method = RequestMethod.POST)
-//    public boolean addUser(@RequestBody User user) {
-//        return userDao.addUser(user.getUsername(), user.getPassword(), user.getRole());
-//    }
 
 
 

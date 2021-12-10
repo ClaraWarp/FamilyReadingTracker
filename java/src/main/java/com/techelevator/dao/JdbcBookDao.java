@@ -65,6 +65,20 @@ public class JdbcBookDao implements BookDao {
         return bookList;
     }
 
+    @Override
+    public List<Book> getAllBooks() {
+
+        String sql = "SELECT * FROM books";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
+        List<Book> bookList = new ArrayList<>();
+
+        if (results.next()) {
+            bookList.add(mapRowToBook(results));
+        }
+        return bookList;
+    }
+
     private Book mapRowToBook(SqlRowSet rs) {
         Book book = new Book();
         book.setTitle(rs.getString("title"));
