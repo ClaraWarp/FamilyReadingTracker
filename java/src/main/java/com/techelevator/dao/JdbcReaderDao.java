@@ -4,7 +4,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class JdbcReaderDao {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e2d40560a2418bfd63a864b8f7237f3865dc5dc5
     private JdbcTemplate jdbcTemplate;
 
     public JdbcReaderDao(JdbcTemplate jdbcTemplate) {
@@ -12,7 +15,10 @@ public class JdbcReaderDao {
     }
 
     public int getReadingBankById(int id) {
+<<<<<<< HEAD
 
+=======
+>>>>>>> e2d40560a2418bfd63a864b8f7237f3865dc5dc5
 //    private JdbcTemplate jdbcTemplate;
 //
 //    public JdbcReaderDao(JdbcTemplate jdbcTemplate) {
