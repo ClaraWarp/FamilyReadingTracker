@@ -125,10 +125,6 @@ public class AppController {
         return userService.findByUsername(username);
     }
 
-//    @RequestMapping(path = "users/", method = RequestMethod.POST)
-//    public boolean addUser(@RequestBody User user) {
-//        return userDao.addUser(user.getUsername(), user.getPassword(), user.getRole());
-//    }
 
 
 

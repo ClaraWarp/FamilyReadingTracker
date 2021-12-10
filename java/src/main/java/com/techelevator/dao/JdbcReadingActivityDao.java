@@ -9,6 +9,8 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Component
 public class JdbcReadingActivityDao implements ReadingActivityDao {
 
@@ -19,13 +21,13 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
     }
 
     @Override
-    public void createActivity (ReadingActivity readingActivity) {
+    public void addActivity (ReadingActivity readingActivity) {
 
         String newActivity = "INSERT INTO reading_activity_log (user_id, isbn, format, time_read) values (?, ?, ?, ?) \n" +
                 " RETURNING activity_id";
 
         jdbcTemplate.update(newActivity, readingActivity.getActivityId(), readingActivity.getUserId(), readingActivity.getIsbn(), readingActivity.getFormat()
-                , readingActivity.getTimeRead());
+                , readingActivity.getTimeRead()) ;
     }
 
 //    @Override
@@ -50,6 +52,21 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
     public ReadingActivity getActivityByUserId(int userId) {
 
         String sql = "SELECT * FROM reading_activity_log rag " +
+                "WHERE user_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+
+        if(results.next()) {
+            return mapRowToReadingActivity(results);
+        } else {
+            throw new RuntimeException("Reading activity was not found for project id: " + userId);
+        }
+    }
+
+    @Override
+    public List<ReadingActivity> getListActivitiesByUser(int userId) {
+
+        String sql = "SELECT * FROM reading_activity_log ral " +
                 "WHERE user_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);

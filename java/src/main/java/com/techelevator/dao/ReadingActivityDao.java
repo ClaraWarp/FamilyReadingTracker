@@ -5,7 +5,7 @@ import com.techelevator.model.ReadingActivity;
 
 public interface ReadingActivityDao {
 
-    void createActivity(ReadingActivity readingActivity);
+    void addActivity(ReadingActivity readingActivity);
 
 //    void updateActivity (ReadingActivity readingActivity);
 
