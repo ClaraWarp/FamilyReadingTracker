@@ -96,7 +96,7 @@ public class AppController {
 
     @RequestMapping(path = "activity/{id}", method = RequestMethod.GET)
     public ReadingActivity getActivityById (@PathVariable int id) {
-        return readingActivityService.getActivityById(id);
+        return readingActivityService.getActivityByUserId(id);
     }
 
     @RequestMapping(path = "activity", method = RequestMethod.POST)

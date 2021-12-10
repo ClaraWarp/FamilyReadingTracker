@@ -4,6 +4,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class JdbcReaderDao {
 
+<<<<<<< HEAD
     private JdbcTemplate jdbcTemplate;
 
     public JdbcReaderDao(JdbcTemplate jdbcTemplate) {
@@ -11,6 +12,14 @@ public class JdbcReaderDao {
     }
 
     public int getReadingBankById(int id) {
+=======
+//    private JdbcTemplate jdbcTemplate;
+//
+//    public JdbcReaderDao(JdbcTemplate jdbcTemplate) {
+//        this.jdbcTemplate = jdbcTemplate;
+//    }
+//
+>>>>>>> 9864cb42778c5bd7999fb9c6266bd6e9d479a410
 
         String sql = "UPDATE reading_activity_bank SET minutes_read_bank = (\n" +
                 "SELECT SUM(time_read) FROM reading_activity_log WHERE user_id = ?)\n" +
