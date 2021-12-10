@@ -12,6 +12,8 @@ public interface BookDao {
 
     List<Book> getListOfBooksByUserID(int userID);
 
+    List<Book> getAllBooks();
+
 //    String getISBNByBook();
 
 //    List<Book> listOfBooks();
