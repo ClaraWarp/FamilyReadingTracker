@@ -110,8 +110,13 @@ public class AppController {
     }
 
     @RequestMapping(path = "activity", method = RequestMethod.POST)
-    public void createActivity(@RequestBody ReadingActivity readingActivity) {
-         readingActivityService.createActivity(readingActivity);
+    public void addActivity(@RequestBody ReadingActivity readingActivity) {
+         readingActivityService.addActivity(readingActivity);
+    }
+
+    @RequestMapping(path = "{userId}/activities", method = RequestMethod.GET)
+    public List<ReadingActivity> getListOfActivitiesByUserId(@PathVariable int userId) {
+        return readingActivityService.getListOfActivitiesByUserId(userId);
     }
 
     //Reader Methods
