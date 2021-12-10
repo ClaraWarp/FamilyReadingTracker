@@ -24,7 +24,9 @@ public class JdbcPrizeDao implements PrizeDao {
     @Override
     public List<Prize> getListOfPrizesByFamily(Integer familyId){
         List<Prize> prizes = new ArrayList<>();
-        String sql = "SELECT * FROM prizes JOIN families_prizes ON prizes.prize_id = families_prizes.prize_id WHERE family_id = ?";
+        String sql = "SELECT * FROM prizes " +
+                "JOIN families_prizes ON prizes.prize_id = families_prizes.prize_id " +
+                "WHERE family_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, familyId);
         while(results.next()) {
             Prize prize = mapRowToPrize(results);
