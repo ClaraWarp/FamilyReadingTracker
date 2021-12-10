@@ -1,66 +1,88 @@
 <template>
-    <form>
-        <input
-            class="name-input"
-            type="text"
-            placeholder="Prize Name"
-            v-model="prizes.name"
-            /> <br/>
-        <input
-            class="description-input"
-            type="text"
-            placeholder="Description"
-            v-model="prizes.description"
-            /> <br/>
-        <input
-            class="time-requirement-input"
-            type="text"
-            placeholder="Time Requirement"
-            v-model="prizes.time_requirement"
-            /> <br/>
-        <input
-            class="max-prizes-input"
-            type="text"
-            placeholder="Maximum Prize Recipients"
-            v-model="prizes.max_prizes"
-            /> <br/>
-        <input
-            class="start_date-input"
-            type="text"
-            placeholder="Start Date"
-            v-model="prizes.start_date"
-            /> <br/>
-        <input
-            class="end-date-input"
-            type="text"
-            placeholder="End Date"
-            v-model="prizes.end_date"
-            /> <br/>
-        <button type="submit">Create Prize</button>
-    </form>
+  <form @submit.prevent="savePrize">
+      <input
+      class="prize-id"
+      type="text"
+      placeholder="Prize Id"
+      v-model="prizes.prizeId"
+      />
+      <br/>
+    <input
+      class="name-input"
+      type="text"
+      placeholder="Prize Name"
+      v-model="prizes.name"
+    />
+    <br />
+    <input
+      class="description-input"
+      type="text"
+      placeholder="Description"
+      v-model="prizes.description"
+    />
+    <br />
+    <input
+      class="time-requirement-input"
+      type="text"
+      placeholder="Time Requirement"
+      v-model="prizes.timeRequirement"
+    />
+    <br />
+    <input
+      class="max-prizes-input"
+      type="text"
+      placeholder="Maximum Prize Recipients"
+      v-model="prizes.maxPrizes"
+    />
+    <br />
+    <input
+      class="start_date-input"
+      type="text"
+      placeholder="Start Date"
+      v-model="prizes.startDate"
+    />
+    <br />
+    <input
+      class="end-date-input"
+      type="text"
+      placeholder="End Date"
+      v-model="prizes.endDate"
+    />
+    <br />
+    <button type="submit" @click="savePrize()">Create Prize</button>
+  </form>
 </template>
 
 <script>
-// import PrizeService from "@/services/PrizeService";
+import prizeService from "@/services/PrizeService";
 
 export default {
-    name: "created-prize",
-    data() {
-        return{
-            prize: {
-                name: "",
-                description: "",
-                time_requirement: "",
-                max_prizes: "",
-                start_date: "",
-                end_date: "",
-            },
-        };
-    }
+  name: "CreatePrize",
+  data() {
+    return {
+      prizes: {
+        prizeId: "",
+        name: "",
+        description: "",
+        timeRequirement: "",
+        maxPrizes: "",
+        startDate: "",
+        endDate: "",
+      },
+    };
+  },
 
-}
+  methods: {
+    savePrize() {
+      prizeService.createPrize(this.prize).then(response => {
+        if (response.status === 201) {
+          this.$router.push("/prizes");
+        }
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

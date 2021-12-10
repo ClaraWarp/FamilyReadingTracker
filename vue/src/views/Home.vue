@@ -19,12 +19,9 @@
       </div>
       <div id="prizes">
         <h2 class="prizeTitle">Prizes</h2>
-        <a
-          href="../components/CreatePrize.vue"
-          id="createPrizeButton"
-          target="_blank"
-          ><button>Create Prize</button></a
-        >
+
+        <router-link :to="{ name: 'AddNewPrize'}">Create New Prize</router-link>
+
         <div class="prizeSection"></div>
       </div>
     </span>

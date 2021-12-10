@@ -47,16 +47,17 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
 //    }
 
     @Override
-    public ReadingActivity getActivityById(int activityId) {
+    public ReadingActivity getActivityByUserId(int userId) {
 
-        String getActivity = "SELECT * FROM reading_activity_log WHERE activity_id = ?";
+        String sql = "SELECT * FROM reading_activity_log rag " +
+                "WHERE user_id = ?";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(getActivity, activityId);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 
         if(results.next()) {
             return mapRowToReadingActivity(results);
         } else {
-            throw new RuntimeException("Reading activity was not found for project id: " + activityId);
+            throw new RuntimeException("Reading activity was not found for project id: " + userId);
         }
     }
 
