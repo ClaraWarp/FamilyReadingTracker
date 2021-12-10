@@ -18,7 +18,7 @@
       placeholder="ISBN"
       v-model="book.isbn"
     /><br />
-    <router-link to="/books/:isbn">Add Book to Reading List</router-link><br>
+    <button type="submit" v-on:click="saveBook()">Add Book</button>
   </form>
 </template>
 
@@ -26,7 +26,7 @@
 import bookService from "@/services/BookService";
 
 export default {
-  name: "book",
+  name: "added-book",
   data() {
     return {
       book: {
@@ -38,8 +38,8 @@ export default {
   },
   methods: {
     saveBook() {
-      const addedBook = this.$router.push({ name: "book" });
-      this.$store.commit("SAVE_BOOK", addedBook);
+      const addedBook = this.$router.push("/");
+      this.$store.commit("SET_BOOK", addedBook);
       this.book = {
         title: "",
         author: "",
@@ -48,7 +48,7 @@ export default {
     },
   },
   created() {
-    bookService.getBook().then((response) => {
+    bookService.getBook(this.book).then((response) => {
       if (response.status === 200) {
         this.$store.commit("SET_BOOK", response.data);
       }
