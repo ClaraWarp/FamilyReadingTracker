@@ -9,7 +9,7 @@
             <button id="joinFamilyButton">Join Family</button>
           </div>
         </div>
-        <div class="bookSection"></div>
+        <div class="bookSection"><book-list/></div>
       </div>
       <div id="reading">
         <h2>Reading Activity</h2>
@@ -34,8 +34,10 @@
 <script>
 //import familiesService from '@/services/FamiliesService.js'
 import bookService from "@/services/BookService.js";
+import BookList from '../components/BookList.vue';
 export default {
   components: {
+    BookList
   },
   name: "home",
   methods: {

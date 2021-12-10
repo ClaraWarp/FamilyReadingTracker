@@ -18,15 +18,15 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
-    book: [],
+    books: [],
     bookIsbn: null,
 
     token: currentToken || '',
     user: currentUser || {}
   },
   mutations: {
-    SET_BOOK(state, book){
-      state.book = book;
+    SET_BOOK(state, books){
+      state.books.push(books);
     },
     SET_BOOK_ISBN(state, bookIsbn){
       state.bookIsbn = bookIsbn;
