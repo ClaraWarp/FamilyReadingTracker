@@ -18,42 +18,42 @@
       placeholder="ISBN"
       v-model="book.isbn"
     /><br />
+    <input
+      class="description-input"
+      type="text"
+      placeholder="DESCRIPTION"
+      v-model="book.description"
+    /><br />
     <button type="submit" v-on:click="saveBook()">Add Book</button>
   </form>
 </template>
 
 <script>
-import bookService from "@/services/BookService";
+import bookService from '@/services/BookService'
 
 export default {
-  name: "added-book",
+  name: "AddBook",
+ 
   data() {
     return {
       book: {
         title: "",
         author: "",
         isbn: "",
+        description: "",
       },
     };
   },
   methods: {
     saveBook() {
-      const addedBook = this.$router.push("/");
-      this.$store.commit("SET_BOOK", addedBook);
-      this.book = {
-        title: "",
-        author: "",
-        isbn: "",
-      };
+      bookService.addBook(this.book).then(response => {
+        if(response.status === 201){
+          this.$router.push("/books")
+        }
+      })
     },
   },
-  created() {
-    bookService.getBook(this.book).then((response) => {
-      if (response.status === 200) {
-        this.$store.commit("SET_BOOK", response.data);
-      }
-    });
-  },
+ 
 };
 </script>
 

@@ -11,10 +11,10 @@
         </div>
         <div class="bookSection"></div>
       </div>
-      <div id="reading"><h2>Reading Activity</h2><add-book/></div>
-        <div>Add Book</div>
+      <div id="reading"><h2>Reading Activity</h2><add-book/><book-list/></div>
       <div id="prizes">
-        <h2 class="prizeTitl">Prizes</h2>
+        <h2 class="prizeTitle">Prizes</h2>
+        <a href="../components/CreatePrize.vue" id="createPrizeButton" target="_blank"><button>Create Prize</button></a>
         <div class="prizeSection"></div>
       </div>
     </span>
@@ -25,7 +25,9 @@
 //import familiesService from '@/services/FamiliesService.js'
 import bookService from '@/services/BookService.js'
 import AddBook from '../components/AddBook.vue';
+import BookList from '../components/BookList.vue';
 export default {
+<<<<<<< HEAD
 <<<<<<< HEAD
   name: "home"
   // methods:{
@@ -42,24 +44,29 @@ export default {
   // }
 =======
   components: { AddBook },
+=======
+  components: { 
+    AddBook,
+    BookList,
+    },
+>>>>>>> 909942a5aba450838d0c5ed94abd76e5ee2fafdf
   name: "home",
   methods:{
     addBook(){
       const dummyBook = {
         title: "newBook",
         author: "genius",
-        isbn: "laskjdf",
-        description: "my favorite book"
+        isbn: "laskjdf"
       }
       bookService.addBook(dummyBook).then(response=>{
         console.log(response.data)
       } )
     }
+
   }
 >>>>>>> c4d8ae6c84443d82e6712535d707a69a650fd94c
 };
 </script>
-
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
 
@@ -167,5 +174,15 @@ h2 {
   font-size: 35px;
   justify-content: flex-start;
   flex-direction: column;
+}
+
+#createPrizeButton {
+  color: white;
+  background-color: #353535;
+  border: 1px solid #353535;
+  border-radius: 5px;
+  padding: 2px 7px;
+  margin: 2px 5px 5px 0px;
+  font-size: 16px;
 }
 </style>
