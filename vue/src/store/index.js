@@ -26,7 +26,7 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_BOOK(state, books){
-      state.books.push(books);
+      state.books = books;
     },
     SET_BOOK_ISBN(state, bookIsbn){
       state.bookIsbn = bookIsbn;
