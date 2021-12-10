@@ -3,12 +3,14 @@ package com.techelevator.dao;
 import com.techelevator.model.Book;
 import com.techelevator.model.ReadingActivity;
 import com.techelevator.model.ReadingActivity;
+import com.techelevator.model.User;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -30,24 +32,6 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
                 , readingActivity.getTimeRead()) ;
     }
 
-//    @Override
-//    public void updateActivity (ReadingActivity readingActivity) {
-//
-//        String newActivity = "INSERT INTO reading_activity_log (user_id, isbn, format, time_read) values (?, ?, ?, ?) \n" +
-//                " RETURNING activity_id";
-//
-//        jdbcTemplate.update(newActivity, readingActivity.getActivityId(), readingActivity.getUserId(), readingActivity.getIsbn(), readingActivity.getFormat()
-//                , readingActivity.getTimeRead());
-//    }
-//
-//    @Override
-//    public void deleteActivity (int id) {
-//
-//        String sql = "DELETE FROM reading_activity_log WHERE activity_id = ?";
-//
-//        jdbcTemplate.update(sql, id);
-//    }
-
     @Override
     public ReadingActivity getActivityByUserId(int userId) {
 
@@ -64,18 +48,21 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
     }
 
     @Override
-    public List<ReadingActivity> getListActivitiesByUser(int userId) {
+    public List<ReadingActivity> getListOfActivitiesByUserId(int userId) {
+
+        List<ReadingActivity> readingActivities = new ArrayList<>();
 
         String sql = "SELECT * FROM reading_activity_log ral " +
                 "WHERE user_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 
-        if(results.next()) {
-            return mapRowToReadingActivity(results);
-        } else {
-            throw new RuntimeException("Reading activity was not found for project id: " + userId);
+        while(results.next()) {
+            ReadingActivity readingActivity = mapRowToReadingActivity(results);
+            readingActivities.add(readingActivity);
         }
+
+        return readingActivities;
     }
 
     private ReadingActivity mapRowToReadingActivity(SqlRowSet rowSet) {

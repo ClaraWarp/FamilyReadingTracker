@@ -6,6 +6,8 @@ import com.techelevator.dao.ReadingActivityDao;
 import com.techelevator.model.ReadingActivity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class ReadingActivityService {
@@ -16,13 +18,13 @@ public class ReadingActivityService {
         this.readingActivityDao = readingActivityDao;
     }
 
-    public void createActivity(ReadingActivity readingActivity) { readingActivityDao.createActivity(readingActivity);};
-
-//    public void updateActivity(ReadingActivity readingActivity) { readingActivityDao.updateActivity(readingActivity);}
-//
-//    public void deleteActivity(int id) { readingActivityDao.deleteActivity(id);}
+    public void addActivity(ReadingActivity readingActivity) { readingActivityDao.addActivity(readingActivity);};
 
     public ReadingActivity getActivityByUserId (int userId) {
         return readingActivityDao.getActivityByUserId(userId);
+    }
+
+    public List<ReadingActivity> getListOfActivitiesByUserId(int userId) {
+        return readingActivityDao.getListOfActivitiesByUserId(userId);
     }
 }

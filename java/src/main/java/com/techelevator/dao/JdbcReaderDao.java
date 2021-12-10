@@ -14,13 +14,6 @@ public class JdbcReaderDao implements ReaderDao {
 
     public int getReadingBankById(int id) {
 
-//    private JdbcTemplate jdbcTemplate;
-//
-//    public JdbcReaderDao(JdbcTemplate jdbcTemplate) {
-//        this.jdbcTemplate = jdbcTemplate;
-//    }
-//
-
         String sql = "UPDATE reading_activity_bank SET minutes_read_bank = (\n" +
                 "SELECT SUM(time_read) FROM reading_activity_log WHERE user_id = ?)\n" +
                 "WHERE user_id = ?;";
