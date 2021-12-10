@@ -14,7 +14,7 @@
       <div id="reading"><h2>Reading Activity</h2><add-book/></div>
         <div>Add Book</div>
       <div id="prizes">
-        <h2 class="prizeTitl">Prizes</h2>
+        <h2 class="prizeTitle">Prizes</h2>
         <div class="prizeSection"></div>
       </div>
     </span>
@@ -33,8 +33,7 @@ export default {
       const dummyBook = {
         title: "newBook",
         author: "genius",
-        isbn: "laskjdf",
-        description: "my favorite book"
+        isbn: "laskjdf"
       }
       bookService.addBook(dummyBook).then(response=>{
         console.log(response.data)
@@ -43,7 +42,6 @@ export default {
   }
 };
 </script>
-
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
 
