@@ -8,6 +8,7 @@ import com.techelevator.services.FamiliesService;
 import com.techelevator.services.PrizeService;
 import com.techelevator.services.ReadingActivityService;
 import com.techelevator.services.UserService;
+import com.techelevator.services.ReaderService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,9 +62,14 @@ public class AppController {
 
     //Prize Methods
 
-    @RequestMapping(path = "prizes/{familyId}", method = RequestMethod.GET)
+    @RequestMapping(path = "prizes/family/{familyId}", method = RequestMethod.GET)
     public List<Prize> getListOfPrizesByFamily(@PathVariable Integer familyId) {
         return prizeService.getListOfPrizesByFamily(familyId);
+    }
+
+    @RequestMapping(path = "prizes/user/{userId}", method = RequestMethod.GET)
+    public List<Prize> getListOfPrizesByUser(@PathVariable Integer userId) {
+        return prizeService.getListOfPrizesByUser(userId);
     }
 
     @RequestMapping(path = "prizes/{id}", method = RequestMethod.GET)
@@ -76,11 +82,21 @@ public class AppController {
         return prizeService.addPrize(prize);
     }
 
+    @RequestMapping(path = "prizes", method = RequestMethod.PUT)
+    public boolean editPrize(@RequestBody Prize prize) {
+        return prizeService.editPrize(prize);
+    }
+
+    @RequestMapping(path = "prizes/{id}", method = RequestMethod.DELETE)
+    public boolean removePrize(@PathVariable int id) {
+        return prizeService.removePrize(id);
+    }
+
     //Reading Activity Methods
 
     @RequestMapping(path = "activity/{id}", method = RequestMethod.GET)
     public ReadingActivity getActivityById (@PathVariable int id) {
-        return readingActivityService.getActivityById(id);
+        return readingActivityService.getActivityByUserId(id);
     }
 
     @RequestMapping(path = "activity", method = RequestMethod.POST)
@@ -88,15 +104,9 @@ public class AppController {
          readingActivityService.createActivity(readingActivity);
     }
 
-//    @RequestMapping(path = "activity/", method = RequestMethod.PUT)
-//    public void updateActivity(@RequestBody ReadingActivity readingActivity) {
-//        readingActivityService.updateActivity(readingActivity);
-//    }
-//
-//    @RequestMapping(path = "activity/{id}", method = RequestMethod.DELETE)
-//    public void deleteActivity(@PathVariable int id) {
-//        readingActivityService.deleteActivity(id);
-//    }
+    //Reader Methods
+
+
 
     //User Methods
 

@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Family;
+import com.techelevator.model.User;
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ public interface FamiliesDao {
     void createFamily (Family family);
 
     List<Family> getFamilies();
+
+//    boolean addUserToFamily(User accountHolder, User accountToAdd);
 }

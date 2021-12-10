@@ -24,7 +24,9 @@ public class JdbcPrizeDao implements PrizeDao {
     @Override
     public List<Prize> getListOfPrizesByFamily(Integer familyId){
         List<Prize> prizes = new ArrayList<>();
-        String sql = "SELECT * FROM prizes JOIN families_prizes ON prizes.prize_id = families_prizes.prize_id WHERE family_id = ?";
+        String sql = "SELECT * FROM prizes " +
+                "JOIN families_prizes ON prizes.prize_id = families_prizes.prize_id " +
+                "WHERE family_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, familyId);
         while(results.next()) {
             Prize prize = mapRowToPrize(results);
@@ -32,6 +34,24 @@ public class JdbcPrizeDao implements PrizeDao {
         }
         return prizes;
     }
+
+    @Override
+    public List<Prize> getListOfPrizesByUser(Integer userId){
+        List<Prize> prizes = new ArrayList<>();
+        String sql = "SELECT * FROM prizes " +
+                "JOIN families_prizes ON prizes.prize_id = families_prizes.prize_id " +
+                "JOIN families_users ON families_prizes.family_id = families_users.family_id" +
+                "JOIN users ON families_users.user_id = user.user_id" +
+                "WHERE user.user_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while(results.next()) {
+            Prize prize = mapRowToPrize(results);
+            prizes.add(prize);
+        }
+        return prizes;
+    }
+
 
     @Override
     public Prize getPrizeById(Integer prizeId){
@@ -50,6 +70,28 @@ public class JdbcPrizeDao implements PrizeDao {
                 prize.getMaxPrize(), prize.getStartDate(), prize.getEndDate()) == 1;
         return prizeCreated;
     }
+
+    @Override
+    public boolean editPrize(Prize prize){
+
+        String sql = "UPDATE prizes SET name = ?, description = ?, time_requirement = ?, max_prizes = ?, start_date = ?, end_date = ? WHERE prize_id = ?";
+
+        //This line checks the number of rows affected by the jdbcTemplate.update(). It should affect 1 row if executed correctly.
+        return jdbcTemplate.update(sql, prize.getName(), prize.getDescription(), prize.getTimeRequirement(),
+                prize.getMaxPrize(), prize.getStartDate(), prize.getEndDate(), prize.getPrizeId()) == 1;
+
+    }
+
+    @Override
+    public boolean removePrize(int id){
+        boolean prizeDeleted = false;
+        String sql = "DELETE FROM prizes WHERE prize_id = ?";
+
+        //This line checks the number of rows affected by the jdbcTemplate.update(). It should affect 1 row if executed correctly.
+        prizeDeleted = jdbcTemplate.update(sql, id) == 1;
+        return prizeDeleted;
+    }
+
     private Prize mapRowToPrize(SqlRowSet rs){
         Prize prize = new Prize();
         prize.setPrizeId(rs.getInt("prize_id"));

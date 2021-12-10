@@ -4,16 +4,19 @@ package com.techelevator.model;
 //This is how information is stored as an object post login.
 
 public class Reader {
+
     private int userId;
     private int familyId;
     private boolean isAdmin;
     private boolean isParent;
+    private int readingBank;
 
     public Reader(int userId, int familyId, boolean isAdmin, boolean isParent) {
         this.userId = userId;
         this.familyId = familyId;
         this.isAdmin = isAdmin;
         this.isParent = isParent;
+        this.readingBank = 0;
     }
 
     public int getUserId() {
@@ -43,4 +46,11 @@ public class Reader {
     public void setParent(boolean parent) {
         isParent = parent;
     }
+
+    public int getReadingBank() { return readingBank;}
+
+    public void addToReadingBank(int readingMinutes) {
+        readingBank += readingMinutes;
+    }
+
 }

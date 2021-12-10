@@ -17,6 +17,10 @@ public class PrizeService {
         return prizeDao.getListOfPrizesByFamily(familyId);
     }
 
+    public List<Prize> getListOfPrizesByUser(Integer userId) {
+        return prizeDao.getListOfPrizesByUser(userId);
+    }
+
     public Prize getPrizeById(Integer id) {
         return prizeDao.getPrizeById(id);
     }
@@ -25,7 +29,13 @@ public class PrizeService {
         return prizeDao.addPrize(prize);
     }
 
+    public boolean editPrize(Prize prize) {
+        return prizeDao.editPrize(prize);
+    }
 
+    public boolean removePrize(int id) {
+        return prizeDao.removePrize(id);
+    }
 
 
 
