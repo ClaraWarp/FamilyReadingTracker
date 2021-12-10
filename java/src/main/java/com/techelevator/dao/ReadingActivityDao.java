@@ -9,7 +9,7 @@ public interface ReadingActivityDao {
 
 //    void updateActivity (ReadingActivity readingActivity);
 
-    ReadingActivity getActivityById (int activityId);
+    ReadingActivity getActivityByUserId (int userId);
 
 //    void deleteActivity (int id);
 

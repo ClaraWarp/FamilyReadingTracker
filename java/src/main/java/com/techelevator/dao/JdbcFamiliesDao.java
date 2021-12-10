@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Family;
+import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -63,4 +64,14 @@ public class JdbcFamiliesDao implements FamiliesDao {
 
         return family;
     }
+
+//    public boolean addUserToFamily(User accountHolder, User accountToAdd) {
+//        boolean userAdded = false;
+//
+//        //want to check if accountHolder is parent and in a family
+//
+//        String sql = "INSERT INTO families_users (family_id, user_id) VALUES (?, ?)";
+//
+//
+//    };
 }
