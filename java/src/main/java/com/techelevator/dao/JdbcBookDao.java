@@ -48,6 +48,23 @@ public class JdbcBookDao implements BookDao {
         return bookCreated;
     }
 
+    @Override
+    public List<Book> getListOfBooksByUserID(int userID) {
+
+        String sql = "SELECT * FROM books b " +
+                "JOIN reading_activity_log ral ON b.isbn = ral.isbn " +
+                "WHERE user_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userID);
+        List<Book> bookList = new ArrayList<>();
+
+        if (results.next()) {
+            bookList.add(mapRowToBook(results));
+        }
+
+        return bookList;
+    }
+
     private Book mapRowToBook(SqlRowSet rs) {
         Book book = new Book();
         book.setTitle(rs.getString("title"));

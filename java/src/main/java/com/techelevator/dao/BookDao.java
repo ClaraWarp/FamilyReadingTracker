@@ -10,6 +10,8 @@ public interface BookDao {
 
     boolean addBook(Book book);
 
+    List<Book> getListOfBooksByUserID(int userID);
+
 //    String getISBNByBook();
 
 //    List<Book> listOfBooks();
