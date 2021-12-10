@@ -11,10 +11,20 @@
         </div>
         <div class="bookSection"></div>
       </div>
-      <div id="reading"><h2>Reading Activity</h2><add-book/><book-list/></div>
+      <div id="reading">
+        <h2>Reading Activity</h2>
+    
+          <router-link :to="{ name: 'AddNewBook' }">Add New Book</router-link>
+        
+      </div>
       <div id="prizes">
         <h2 class="prizeTitle">Prizes</h2>
-        <a href="../components/CreatePrize.vue" id="createPrizeButton" target="_blank"><button>Create Prize</button></a>
+        <a
+          href="../components/CreatePrize.vue"
+          id="createPrizeButton"
+          target="_blank"
+          ><button>Create Prize</button></a
+        >
         <div class="prizeSection"></div>
       </div>
     </span>
@@ -23,27 +33,23 @@
 
 <script>
 //import familiesService from '@/services/FamiliesService.js'
-import bookService from '@/services/BookService.js'
-import AddBook from '../components/AddBook.vue';
-import BookList from '../components/BookList.vue';
+import bookService from "@/services/BookService.js";
 export default {
+  components: {
+  },
   name: "home",
-  methods:{
-    addBook(){
+  methods: {
+    addBook() {
       const dummyBook = {
         title: "newBook",
         author: "genius",
-        isbn: "laskjdf"
-      }
-      bookService.addBook(dummyBook).then(response=>{
-        console.log(response.data)
-      } )
-    }
+        isbn: "laskjdf",
+      };
+      bookService.addBook(dummyBook).then((response) => {
+        console.log(response.data);
+      });
+    },
   },
-  components: { 
-    AddBook,
-    BookList,
-    }
 };
 </script>
 <style scoped>
