@@ -22,7 +22,7 @@ public class ReadingActivityService {
 //
 //    public void deleteActivity(int id) { readingActivityDao.deleteActivity(id);}
 
-    public ReadingActivity getActivityById (int activityId) {
-        return readingActivityDao.getActivityById(activityId);
+    public ReadingActivity getActivityByUserId (int userId) {
+        return readingActivityDao.getActivityByUserId(userId);
     }
 }
