@@ -12,6 +12,10 @@ export default {
 
     addBook(book){
         return http.post('/api/v1/books', book);
+    },
+
+    getBookByUserId(id){
+        return http.get(`/api/v1/${id}/books`);
     }
 
 
