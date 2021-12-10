@@ -29,18 +29,15 @@ export default {
   
   data() {
     return {
+      user: this.$store.state.user,
       books: this.$store.state.books,
     };
   },
-  // methods: {
-  //   bookInfo(isbn){
-  //     this.$router.push(`/books/${isbn}`);
-  //   }
-  // },
   created() {
-    bookService.getBook("ILTOV").then((response) => {
+    bookService.getBookByUserId(this.$route.params.user).then((response) => {
       if (response.status === 200) {
          this.$store.commit('SET_BOOK', response.data);
+         this.$store.commit('SET_USER', response.data);
       }
     });
   },
