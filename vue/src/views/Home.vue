@@ -27,29 +27,6 @@ import bookService from '@/services/BookService.js'
 import AddBook from '../components/AddBook.vue';
 import BookList from '../components/BookList.vue';
 export default {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  name: "home"
-  // methods:{
-  //   addBook(){
-  //     const dummyBook = {
-  //       title: "newBook",
-  //       author: "genius",
-  //       isbn: "laskjdf"
-  //     }
-  //     bookService.addBook(dummyBook).then(response=>{
-  //       console.log(response.data)
-  //     } )
-  //   }
-  // }
-=======
-  components: { AddBook },
-=======
-  components: { 
-    AddBook,
-    BookList,
-    },
->>>>>>> 909942a5aba450838d0c5ed94abd76e5ee2fafdf
   name: "home",
   methods:{
     addBook(){
@@ -62,9 +39,11 @@ export default {
         console.log(response.data)
       } )
     }
-
-  }
->>>>>>> c4d8ae6c84443d82e6712535d707a69a650fd94c
+  },
+  components: { 
+    AddBook,
+    BookList,
+    }
 };
 </script>
 <style scoped>
