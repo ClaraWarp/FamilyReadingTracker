@@ -21,11 +21,11 @@ public class UserService {
         return userDao.findAll();
     } //Not sure what method is for
 
-    public User getUserById(@PathVariable Long id) {
+    public User getUserById(Long id) {
         return userDao.getUserById(id);
     }
 
-    public User findByUsername(@PathVariable String username) {
+    public User findByUsername(String username) {
         return userDao.findByUsername(username);
     }
 }
