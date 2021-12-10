@@ -20,6 +20,7 @@ export default new Vuex.Store({
   state: {
     books: [],
     bookIsbn: null,
+    prizes: [],
 
     token: currentToken || '',
     user: currentUser || {}
@@ -30,6 +31,9 @@ export default new Vuex.Store({
     },
     SET_BOOK_ISBN(state, bookIsbn){
       state.bookIsbn = bookIsbn;
+    },
+    SET_PRIZE(state, prizes) {
+      state.prizes = prizes;
     },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;

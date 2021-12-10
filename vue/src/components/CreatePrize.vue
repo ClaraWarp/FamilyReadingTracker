@@ -1,12 +1,5 @@
 <template>
   <form @submit.prevent="savePrize">
-      <input
-      class="prize-id"
-      type="text"
-      placeholder="Prize Id"
-      v-model="prizes.prizeId"
-      />
-      <br/>
     <input
       class="name-input"
       type="text"
@@ -61,7 +54,6 @@ export default {
   data() {
     return {
       prizes: {
-        prizeId: "",
         name: "",
         description: "",
         timeRequirement: "",
