@@ -15,10 +15,7 @@
         <div>Add Book</div>
       <div id="prizes">
         <h2 class="prizeTitle">Prizes</h2>
-<<<<<<< HEAD
-=======
         <a href="../components/CreatePrize.vue" id="createPrizeButton" target="_blank"><button>Create Prize</button></a>
->>>>>>> 6dc9e3113befef55d96fec8ca805e44287d289f4
         <div class="prizeSection"></div>
       </div>
     </span>
