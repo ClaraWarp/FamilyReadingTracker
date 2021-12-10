@@ -27,17 +27,21 @@ export default {
   data() {
     return {
       user: this.$store.state.user,
-      books: this.$store.state.books,
     };
   },
   created() {
     bookService.getBookByUserId(this.user.id).then((response) => {
       if (response.status === 200) {
          this.$store.commit('SET_BOOK', response.data);
-         this.$store.commit('SET_USER', response.data);
       }
     });
   },
+  computed: {
+    
+    books(){
+      return this.$store.state.books;
+    }
+  }
 };
 </script>
 
