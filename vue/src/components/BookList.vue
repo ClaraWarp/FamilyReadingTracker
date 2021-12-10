@@ -1,8 +1,24 @@
 <template>
-  <div class="book-list">
-    <div v-for="book in $store.state.book" v-bind:key="book.isbn" class="book">
-    </div>
-  </div>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Book In Progress
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="book in books" v-bind:key="book.isbn"  class="book">
+      <!-- <router-link v-bind:to="{ name: 'books', params: {isbn: book.isbn}}">
+        {{book.title}}
+      </router-link> -->
+      <td class="book-font">
+        <i class="fas fa-book"></i>
+      </td>
+      <td class="book-info">{{book.title}}<br>{{book.author}}<br>{{book.isbn}}<br>{{book.description}}</td>
+    </tr>
+  </tbody>
+</table>
 </template>
 
 <script>
@@ -13,13 +29,18 @@ export default {
   
   data() {
     return {
-      books: [],
+      books: this.$store.state.books,
     };
   },
+  // methods: {
+  //   bookInfo(isbn){
+  //     this.$router.push(`/books/${isbn}`);
+  //   }
+  // },
   created() {
-    bookService.getBook().then((response) => {
+    bookService.getBook("ILTOV").then((response) => {
       if (response.status === 200) {
-        this.$store.commit("SET_BOOK", response.data);
+         this.$store.commit('SET_BOOK', response.data);
       }
     });
   },
