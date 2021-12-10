@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import PrizeService from "@/services/PrizeService";
+// import PrizeService from "@/services/PrizeService";
 
 export default {
     name: "created-prize",
