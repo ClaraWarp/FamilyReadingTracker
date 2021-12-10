@@ -18,11 +18,6 @@ public class ReadingActivity {
         this.timeRead = timeRead;
     }
 
-
-    public ReadingActivity() {
-
-    }
-
     public int getActivityId() {
         return activityId;
     }

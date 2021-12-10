@@ -65,13 +65,5 @@ public class JdbcFamiliesDao implements FamiliesDao {
         return family;
     }
 
-//    public boolean addUserToFamily(User accountHolder, User accountToAdd) {
-//        boolean userAdded = false;
-//
-//        //want to check if accountHolder is parent and in a family
-//
-//        String sql = "INSERT INTO families_users (family_id, user_id) VALUES (?, ?)";
-//
-//
-//    };
+
 }

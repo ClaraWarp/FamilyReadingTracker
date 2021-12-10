@@ -10,5 +10,16 @@ public class JdbcReaderDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public int getReadingBankById(int id) {
 
+        String sql = "UPDATE reading_activity_bank SET minutes_read_bank = (\n" +
+                "SELECT SUM(time_read) FROM reading_activity_log WHERE user_id = ?)\n" +
+                "WHERE user_id = ?;";
+
+        String sql1 = "SELECT minutes_read_bank FROM reading_activity_bank WHERE user_id = ?";
+
+        jdbcTemplate.update(sql, id, id);
+
+        return jdbcTemplate.queryForObject(sql1, int.class, id);
+    }
 }

@@ -89,6 +89,7 @@ public class JdbcPrizeDao implements PrizeDao {
         prizeDeleted = jdbcTemplate.update(sql, id) == 1;
         return prizeDeleted;
     }
+
     private Prize mapRowToPrize(SqlRowSet rs){
         Prize prize = new Prize();
         prize.setPrizeId(rs.getInt("prize_id"));
