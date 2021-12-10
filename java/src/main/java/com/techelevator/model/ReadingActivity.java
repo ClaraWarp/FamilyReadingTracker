@@ -18,9 +18,11 @@ public class ReadingActivity {
         this.timeRead = timeRead;
     }
 
-    public int getActivityId() {
-        return activityId;
+    public ReadingActivity() {
+
     }
+
+    public int getActivityId() { return activityId; }
 
     public void setActivityId(int activityId) {
         this.activityId = activityId;
