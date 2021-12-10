@@ -72,8 +72,8 @@ public class AppController {
     }
 
     @RequestMapping(path = "prizes", method = RequestMethod.POST)
-    public boolean createPrize(@RequestBody Prize prize) {
-        return prizeService.createPrize(prize);
+    public boolean addPrize(@RequestBody Prize prize) {
+        return prizeService.addPrize(prize);
     }
 
     //Reading Activity Methods
@@ -92,7 +92,7 @@ public class AppController {
 //    public void updateActivity(@RequestBody ReadingActivity readingActivity) {
 //        readingActivityService.updateActivity(readingActivity);
 //    }
-
+//
 //    @RequestMapping(path = "activity/{id}", method = RequestMethod.DELETE)
 //    public void deleteActivity(@PathVariable int id) {
 //        readingActivityService.deleteActivity(id);

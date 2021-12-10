@@ -41,7 +41,7 @@ public class JdbcPrizeDao implements PrizeDao {
     }
 
     @Override
-    public boolean createPrize(Prize prize){
+    public boolean addPrize(Prize prize){
         boolean prizeCreated = false;
         String sql = "INSERT INTO prizes ('name', 'description', 'time_requirement', 'max_prizes', 'start_date', 'end_date') VALUES (?, ?, ?, ?, ?, ?)";
 

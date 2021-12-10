@@ -6,9 +6,7 @@
           <h2 id="familyTitle">Family</h2>
           <div id="familyDetails">
             <div id="isParent"></div>
-            <button id="joinFamilyButton" v-on:click="addBook">
-              Join Family
-            </button>
+            <button id="joinFamilyButton">Join Family</button>
           </div>
         </div>
         <div class="bookSection"></div>
@@ -18,7 +16,6 @@
     
           <router-link :to="{ name: 'AddNewBook' }">Add New Book</router-link>
         
-        <book-list />
       </div>
       <div id="prizes">
         <h2 class="prizeTitle">Prizes</h2>
@@ -37,10 +34,8 @@
 <script>
 //import familiesService from '@/services/FamiliesService.js'
 import bookService from "@/services/BookService.js";
-import BookList from "../components/BookList.vue";
 export default {
   components: {
-    BookList,
   },
   name: "home",
   methods: {
