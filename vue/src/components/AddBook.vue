@@ -18,6 +18,12 @@
       placeholder="ISBN"
       v-model="book.isbn"
     /><br />
+    <input
+      class="description-input"
+      type="text"
+      placeholder="DESCRIPTION"
+      v-model="book.description"
+    /><br />
     <button type="submit" v-on:click="saveBook()">Add Book</button>
   </form>
 </template>
@@ -34,25 +40,17 @@ export default {
         title: "",
         author: "",
         isbn: "",
+        description: "",
       },
     };
   },
   methods: {
     saveBook() {
-
       bookService.addBook(this.book).then(response => {
         if(response.status === 201){
           this.$router.push("/books")
         }
       })
-      
-      // const addedBook = this.$router.push(`/books/${isbn}`);
-      // this.$store.commit("SET_BOOK", addedBook);
-      // this.book = {
-      //   title: "",
-      //   author: "",
-      //   isbn: "",
-      // }
     },
   },
  

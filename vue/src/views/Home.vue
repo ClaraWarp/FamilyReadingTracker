@@ -12,7 +12,6 @@
         <div class="bookSection"></div>
       </div>
       <div id="reading"><h2>Reading Activity</h2><add-book/><book-list/></div>
-        <div>Add Book</div>
       <div id="prizes">
         <h2 class="prizeTitle">Prizes</h2>
         <a href="../components/CreatePrize.vue" id="createPrizeButton" target="_blank"><button>Create Prize</button></a>
