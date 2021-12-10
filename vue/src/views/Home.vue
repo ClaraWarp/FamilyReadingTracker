@@ -6,15 +6,28 @@
           <h2 id="familyTitle">Family</h2>
           <div id="familyDetails">
             <div id="isParent"></div>
-            <button id="joinFamilyButton" v-on:click = "addBook">Join Family</button>
+            <button id="joinFamilyButton" v-on:click="addBook">
+              Join Family
+            </button>
           </div>
         </div>
         <div class="bookSection"></div>
       </div>
-      <div id="reading"><h2>Reading Activity</h2><add-book/><book-list/></div>
+      <div id="reading">
+        <h2>Reading Activity</h2>
+    
+          <router-link :to="{ name: 'AddNewBook' }">Add New Book</router-link>
+        
+        <book-list />
+      </div>
       <div id="prizes">
         <h2 class="prizeTitle">Prizes</h2>
-        <a href="../components/CreatePrize.vue" id="createPrizeButton" target="_blank"><button>Create Prize</button></a>
+        <a
+          href="../components/CreatePrize.vue"
+          id="createPrizeButton"
+          target="_blank"
+          ><button>Create Prize</button></a
+        >
         <div class="prizeSection"></div>
       </div>
     </span>
@@ -23,28 +36,25 @@
 
 <script>
 //import familiesService from '@/services/FamiliesService.js'
-import bookService from '@/services/BookService.js'
-import AddBook from '../components/AddBook.vue';
-import BookList from '../components/BookList.vue';
+import bookService from "@/services/BookService.js";
+import BookList from "../components/BookList.vue";
 export default {
-  components: { 
-    AddBook,
+  components: {
     BookList,
-    },
+  },
   name: "home",
-  methods:{
-    addBook(){
+  methods: {
+    addBook() {
       const dummyBook = {
         title: "newBook",
         author: "genius",
-        isbn: "laskjdf"
-      }
-      bookService.addBook(dummyBook).then(response=>{
-        console.log(response.data)
-      } )
-    }
-
-  }
+        isbn: "laskjdf",
+      };
+      bookService.addBook(dummyBook).then((response) => {
+        console.log(response.data);
+      });
+    },
+  },
 };
 </script>
 <style scoped>
