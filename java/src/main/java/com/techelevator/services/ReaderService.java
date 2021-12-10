@@ -14,4 +14,13 @@ public class ReaderService {
     }
 
 
+    public int getReadingBankById(int userId) {
+        return readerDao.getReadingBankById(userId);
+    }
+
+    public String getFamilyRoleById(int userId) {
+        return readerDao.getFamilyRoleById(userId);
+    }
+
+
 }

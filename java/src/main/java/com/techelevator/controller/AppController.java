@@ -25,15 +25,18 @@ public class AppController {
     private PrizeService prizeService;
     private ReadingActivityService readingActivityService;
     private UserService userService;
+    private ReaderService readerService;
 
     //Constructor
 
-    public AppController(BookService bookService, FamiliesService familiesService, PrizeService prizeService, ReadingActivityService readingActivityService, UserService userService) {
+    public AppController(BookService bookService, FamiliesService familiesService, PrizeService prizeService, ReadingActivityService readingActivityService
+            , UserService userService, ReaderService readerService) {
         this.bookService = bookService;
         this.familiesService = familiesService;
         this.prizeService = prizeService;
         this.readingActivityService = readingActivityService;
         this.userService = userService;
+        this.readerService = readerService;
     }
 
     //Book Methods
@@ -121,7 +124,19 @@ public class AppController {
 
     //Reader Methods
 
+    //getTotalReadTimeById(int userId)
 
+    @RequestMapping(path = "readers/reading-bank/{userId}", method = RequestMethod.GET)
+    public int getReadingBankById(@PathVariable int userId) {
+        return readerService.getReadingBankById(userId);
+    }
+
+    //getRoleById(int userId)
+
+    @RequestMapping(path = "readers/family-role/{userId}", method = RequestMethod.GET)
+    public String getFamilyRoleById(@PathVariable int userId) {
+        return readerService.getFamilyRoleById(userId);
+    }
 
     //User Methods
 
