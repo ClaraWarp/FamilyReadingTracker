@@ -4,7 +4,7 @@
       <h2 id="familyTitle">Family</h2>
       <div id="familyDetails">
         <div id="isParent"></div>
-        <button class="leftButton">Join Family</button>
+        <button class="leftButton">Create New Family</button>
       </div>
     </div>
   </div>
