@@ -1,13 +1,7 @@
 <template>
   <div class="home homeNav">
     <div id="leftBar">
-      <div class="titleWithSubLine">
-        <h2 id="familyTitle">Family</h2>
-        <div id="familyDetails">
-          <div id="isParent"></div>
-          <button class="leftButton">Join Family</button>
-        </div>
-      </div>
+      <family-well />
       <div id="bookSection">
           <button class="leftButton" id="addNewBookButton">
             <router-link :to="{ name: 'AddNewBook' }">Add New</router-link>
@@ -32,9 +26,12 @@
 //import familiesService from '@/services/FamiliesService.js'
 import bookService from "@/services/BookService.js";
 import BookList from "../components/BookList.vue";
+import FamilyWell from "@/components/FamilyWell.vue";
+
 export default {
   components: {
     BookList,
+    FamilyWell
   },
   name: "home",
   methods: {
@@ -90,14 +87,6 @@ h2 {
   background-color: #a9d3ec;
 }
 
-.titleWithSubLine {
-  line-height: 55px;
-  margin: 10px 10px 5px 0px;
-  border-radius: 0px 20px 20px 0px;
-  padding: 5px;
-  background-color: #a9d3ec;
-}
-
 .home {
   font-family: "Nunito", sans-serif;
 }
@@ -123,18 +112,6 @@ h2 {
 .leftButton:hover {
   color: #6930c3;
   background-color: white;
-}
-
-#isParent {
-  flex-grow: 3;
-}
-
-#familyTitle {
-  margin: 20px 20px 5px 20px;
-}
-
-#familyDetails {
-  display: flex;
 }
 
 #leftBar {
