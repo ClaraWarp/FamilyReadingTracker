@@ -5,8 +5,9 @@
             <label>
                 Enter Family Name:
                 <input type="text">
-            <label>
+            </label>
             <button>Create</button>
+            <button type="button">Back</button>
         </form>
     </div>
 </template>
