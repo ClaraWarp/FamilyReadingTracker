@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="savePrize">
+  <form id="prizeForm" @submit.prevent="savePrize">
     <input
       class="name-input"
       type="text"
@@ -29,7 +29,7 @@
     />
     <br />
     <input
-      class="start_date-input"
+      class="start-date-input"
       type="text"
       placeholder="Start Date"
       v-model="prizes.startDate"
@@ -42,7 +42,7 @@
       v-model="prizes.endDate"
     />
     <br />
-    <button type="submit" @click="savePrize()">Create Prize</button>
+    <button type="submit" id="submit-button" @click="savePrize()">Create Prize</button>
   </form>
 </template>
 
@@ -77,4 +77,52 @@ export default {
 </script>
 
 <style scoped>
+
+#prizeForm{
+    padding: 10px;
+    text-align: center;
+}
+
+.name-input {
+    text-align: center;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.description-input {
+    text-align: center;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.time-requirement-input {
+    text-align: center;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.max-prizes-input {
+    text-align: center;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.start-date-input {
+    text-align: center;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.end-date-input {
+    text-align: center;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.submit-button {
+    font-size: 20px;
+    margin: 5px;
+    padding: 5px;
+}
+
 </style>
