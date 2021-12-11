@@ -1,40 +1,40 @@
 <template>
-  <div class="home">
-    <span class="homeNav">
-      <div id="family">
-        <div class="twoLines">
-          <h2 id="familyTitle">Family</h2>
-          <div id="familyDetails">
-            <div id="isParent"></div>
-            <button id="joinFamilyButton">Join Family</button>
-          </div>
+  <div class="home homeNav">
+    <div id="leftBar">
+      <div class="TitleWithSubLine">
+        <h2 id="familyTitle">Family</h2>
+        <div id="familyDetails">
+          <div id="isParent"></div>
+          <button class="leftButton">Join Family</button>
         </div>
-        <div class="bookSection"><book-list/></div>
       </div>
-      <div id="reading">
-        <h2>Reading Activity</h2>
-    
+      <div class="bookSection">
+        <button class="leftButton">
           <router-link :to="{ name: 'AddNewBook' }">Add New Book</router-link>
-        
+        </button>
+        <book-list />
       </div>
-      <div id="prizes">
-        <h2 class="prizeTitle">Prizes</h2>
+    </div>
+    <div id="reading">
+      <h2>Reading Activity</h2>
+    </div>
+    <div id="prizes">
+      <h2 class="prizeTitle">Prizes</h2>
 
-        <router-link :to="{ name: 'AddNewPrize'}">Create New Prize</router-link>
+      <router-link :to="{ name: 'AddNewPrize' }">Create New Prize</router-link>
 
-        <div class="prizeSection"></div>
-      </div>
-    </span>
+      <div class="prizeSection"></div>
+    </div>
   </div>
 </template>
 
 <script>
 //import familiesService from '@/services/FamiliesService.js'
 import bookService from "@/services/BookService.js";
-import BookList from '../components/BookList.vue';
+import BookList from "../components/BookList.vue";
 export default {
   components: {
-    BookList
+    BookList,
   },
   name: "home",
   methods: {
@@ -53,6 +53,15 @@ export default {
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #6939c3;
+}
 
 h2 {
   font-family: "Nunito", sans-serif;
@@ -81,7 +90,7 @@ h2 {
   background-color: #a9d3ec;
 }
 
-.twoLines {
+.TitleWithSubLine {
   line-height: 55px;
   margin: 10px 10px 5px 0px;
   border-radius: 0px 20px 20px 0px;
@@ -98,10 +107,10 @@ h2 {
   column-gap: 5px;
   height: 100vh;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "familyNav readingNav readingNav prizeNav";
+  grid-template-areas: "leftNav readingNav readingNav prizeNav";
 }
 
-#joinFamilyButton {
+.leftButton {
   color: white;
   background-color: #6939c3;
   border: 1px solid #6939c3;
@@ -111,7 +120,7 @@ h2 {
   font-size: 16px;
 }
 
-#joinFamilyButton:hover {
+.leftButton:hover {
   color: #6930c3;
   background-color: white;
 }
@@ -128,8 +137,8 @@ h2 {
   display: flex;
 }
 
-#family {
-  grid-area: familyNav;
+#leftBar {
+  grid-area: leftNav;
   display: flex;
   border: none;
   border-radius: 0px 20px 0px 0px;
