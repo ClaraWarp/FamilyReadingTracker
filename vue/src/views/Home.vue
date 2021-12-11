@@ -1,18 +1,18 @@
 <template>
   <div class="home homeNav">
     <div id="leftBar">
-      <div class="TitleWithSubLine">
+      <div class="titleWithSubLine">
         <h2 id="familyTitle">Family</h2>
         <div id="familyDetails">
           <div id="isParent"></div>
           <button class="leftButton">Join Family</button>
         </div>
       </div>
-      <div class="bookSection">
-        <button class="leftButton">
-          <router-link :to="{ name: 'AddNewBook' }">Add New Book</router-link>
-        </button>
-        <book-list />
+      <div id="bookSection">
+          <button class="leftButton" id="addNewBookButton">
+            <router-link :to="{ name: 'AddNewBook' }">Add New</router-link>
+          </button>
+          <book-list />
       </div>
     </div>
     <div id="reading">
@@ -83,14 +83,14 @@ h2 {
   background-color: #f5cb5c;
 }
 
-.bookSection {
+#bookSection {
   flex-grow: 1;
   margin: 5px 10px 10px 0px;
   border-radius: 0px 20px 20px 0px;
   background-color: #a9d3ec;
 }
 
-.TitleWithSubLine {
+.titleWithSubLine {
   line-height: 55px;
   margin: 10px 10px 5px 0px;
   border-radius: 0px 20px 20px 0px;
