@@ -68,7 +68,7 @@ public class AppController {
         return familiesService.getFamilyByName(name);
     }
 
-    @RequestMapping(path = "families/{name}", method = RequestMethod.POST)
+    @RequestMapping(path = "families/{familyName}", method = RequestMethod.POST)
     public void createFamily(@PathVariable String familyName) {
         familiesService.createFamily(familyName);
     }
