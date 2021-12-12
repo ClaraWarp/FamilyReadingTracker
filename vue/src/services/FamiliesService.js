@@ -10,7 +10,7 @@ export default {
         return http.get(`/api/v1/families/${name}`);
     },
 
-    createFamily(familyName) {
-        return http.post(`/api/v1/families/${familyName}`);
+    createFamily(familyName, userID) {
+        return http.post(`/api/v1/families/${familyName}/${userID}`);
     }
 }
