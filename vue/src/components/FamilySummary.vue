@@ -3,13 +3,19 @@
     <h2 id="familyTitle">Family</h2>
     <div id="familyDetails">
       <div id="isParent"></div>
-      <button class="leftButton">Create New Family</button>
+      <button class="leftButton" @click="toggleCreateFamily">Create New Family</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    toggleCreateFamily() {
+      this.$emit('toggleCreateFamily')
+    }
+  }
+};
 </script>
 
 <style scoped>
