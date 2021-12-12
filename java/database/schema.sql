@@ -109,7 +109,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 INSERT INTO users (username,password_hash,role) VALUES ('bookworm','$2a$10$fAUyXwuNZ/aG5cF5.AdasuXgbJaCDeKt845p5O.mps.Lc9vr2nkQO','ROLE_USER');
 
 INSERT INTO families (name) VALUES ('Bookwormton');
-INSERT INTO families_users (fcdamily_id, family_role, user_id) VALUES (1, true, 3);
+INSERT INTO families_users (family_id, family_role, user_id) VALUES (1, true, 3);
 INSERT INTO prizes (name, description, time_requirement, max_prizes, start_date, end_date)
         VALUES ('Gold Star!!!', 'You did it!', 60, 3, '2021-12-1', '2021-12-17');
 INSERT INTO books (isbn, title, author, description) VALUES ('123456790abcdef', 'Book', 'Worm', 'Worth digging into.');
