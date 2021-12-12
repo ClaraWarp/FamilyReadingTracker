@@ -4,7 +4,7 @@
         <form @submit.prevent>
             <label>
                 Enter Family Name:
-                <input type="text">
+                <input type="text" v-model="familyName">
             </label>
             <button>Create</button>
             <button type="button" @click="toggleCreateFamily">Back</button>
@@ -13,7 +13,14 @@
 </template>
 
 <script>
+// import familiesService from '@/services/FamiliesService';
+
 export default {
+    data() {
+        return {
+            familyName: ''
+        }
+    },
     methods: {
         toggleCreateFamily() {
             this.$emit('toggleCreateFamily')
