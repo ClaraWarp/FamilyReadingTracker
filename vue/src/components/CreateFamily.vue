@@ -33,7 +33,7 @@ export default {
       familiesService
         .createFamily(this.familyName, this.user.id)
         .then((response) => {
-          if (response.status === 201) {
+          if (response.status === 200) {
             this.$store.commit("ADD_FAMILY", this.familyName);
           }
         });
