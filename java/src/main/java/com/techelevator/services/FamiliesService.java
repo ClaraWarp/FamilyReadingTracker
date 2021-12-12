@@ -23,8 +23,8 @@ public class FamiliesService {
         return familiesDao.getFamilyByName(name);
     }
 
-    public void createFamily(Family family) {
-        familiesDao.createFamily(family);
+    public void createFamily(String familyName) {
+        familiesDao.createFamily(familyName);
     }
 
     public List<Family> getFamilies() {

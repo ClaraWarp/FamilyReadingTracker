@@ -49,11 +49,11 @@ public class JdbcFamiliesDao implements FamiliesDao {
     }
 
     @Override
-    public void createFamily(Family family) {
+    public void createFamily(String familyName) {
 
-        String newFamily = "INSERT INTO families (family_id, name) VALUES (?, ?)";
+        String sql = "INSERT INTO families (name) VALUES (?)";
 
-        jdbcTemplate.update(newFamily, family.getFamilyId(), family.getName());
+        jdbcTemplate.update(sql, familyName);
     }
 
     public Family mapRowToFamily(SqlRowSet rowSet) {
