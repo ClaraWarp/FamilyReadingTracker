@@ -6,7 +6,8 @@
     />
     <family-summary 
     v-if="!createFamilyToggle" 
-    @toggleCreateFamily="createFamilyToggle = true"/>
+    @toggleCreateFamily="createFamilyToggle = true"
+    />
   </div>
 </template>
 
