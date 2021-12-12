@@ -9,7 +9,7 @@ public interface FamiliesDao {
 
     Family getFamilyByName(String name);
 
-    void createFamily (String familyName);
+    void createFamily (String familyName, int userID);
 
     List<Family> getFamilies();
 
