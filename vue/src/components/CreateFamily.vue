@@ -33,6 +33,7 @@ p {
     padding: 10px 10px 10px 20px;
     margin: 10px 10px 5px -3px;
     border-radius: 0px 20px 20px 0px;
+    color: white;
 }
 
 </style>
