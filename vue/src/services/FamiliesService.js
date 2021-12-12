@@ -11,6 +11,6 @@ export default {
     },
 
     createFamily(familyName) {
-        return http.post('/api/v1/families', familyName);
+        return http.post(`/api/v1/families/${familyName}`);
     }
 }
