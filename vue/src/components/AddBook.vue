@@ -44,6 +44,7 @@ export default {
         description: "",
       },
       showForm: false,
+      user: this.$store.state.user,
     };
   },
   methods: {
@@ -51,14 +52,14 @@ export default {
       this.$emit("toggleAddBook");
     },
     saveBook() {
-      bookService.addBook(this.book).then((response) => {
-        if (response.status === 200) {
-          this.$router.push("/");
+      bookService.addBook(this.book, this.user.id).then((response) => {
+        if (response.status === 201) {
+          this.$store.commit("SET_CURRENT_BOOK", this.book, this.user.id);
           this.resetForm();
         }
       });
     },
-     resetForm() {
+    resetForm() {
       this.book = {};
       this.showForm = false;
     },

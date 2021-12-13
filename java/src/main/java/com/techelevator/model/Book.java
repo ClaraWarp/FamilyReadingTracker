@@ -4,6 +4,7 @@ package com.techelevator.model;
 
 public class Book {
 
+    private int bookID;
     private String title;
     private String author;
     private String isbn;
@@ -11,11 +12,20 @@ public class Book {
 
     public Book(){}
 
-    public Book(String title, String author, String isbn, String description){
+    public Book(int bookID, String title, String author, String isbn, String description){
+        this.bookID = bookID;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.description = description;
+    }
+
+    public int getBookID() {
+        return bookID;
+    }
+
+    public void setBookID(int bookID) {
+        this.bookID = bookID;
     }
 
     public String getTitle() {

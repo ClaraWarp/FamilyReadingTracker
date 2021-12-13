@@ -25,8 +25,8 @@ public class BookService {
         bookDao.addBook(newBook, userID);
     }
 
-    public Book getBookByIsbn(String Isbn){
-        return bookDao.getBookByISBN(Isbn);
+    public Book getBookByID(int bookID){
+        return bookDao.getBookByID(bookID);
     }
 
     public List<Book> getListOfBooksByUserID(int userID) {

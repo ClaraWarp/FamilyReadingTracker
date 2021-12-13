@@ -48,8 +48,9 @@ export default new Vuex.Store({
     SET_BOOK_ISBN(state, bookIsbn){
       state.bookIsbn = bookIsbn;
     },
-    ADD_CURRENT_BOOK(state, currentBook){
+    SET_CURRENT_BOOK(state, currentBook){
       state.currentBook = currentBook;
+      state.user = this.user.currentUser;
     },
     SET_PRIZE(state, prizes) {
       state.prizes = prizes;

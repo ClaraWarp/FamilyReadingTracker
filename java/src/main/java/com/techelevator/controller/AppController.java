@@ -41,9 +41,9 @@ public class AppController {
 
     //Book Methods
 
-    @RequestMapping(path = "books/{isbn}", method = RequestMethod.GET)
-    public Book getBookByIsbn(@PathVariable String isbn) {
-        return bookService.getBookByIsbn(isbn);
+    @RequestMapping(path = "books/{userID}", method = RequestMethod.GET)
+    public Book getBookByID(@PathVariable int userID) {
+        return bookService.getBookByID(userID);
     }
 
     @RequestMapping(path = "books/{userID}", method = RequestMethod.POST)

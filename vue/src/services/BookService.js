@@ -6,8 +6,8 @@ const http = axios.create({
 
 export default {
 
-    getBook(isbn){
-        return http.get(`/api/v1/books/${isbn}`);
+    getBook(bookID){
+        return http.get(`/api/v1/books/${bookID}`);
     },
 
     addBook(book, userID){
