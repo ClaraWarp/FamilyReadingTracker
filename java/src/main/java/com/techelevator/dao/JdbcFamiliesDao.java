@@ -51,7 +51,7 @@ public class JdbcFamiliesDao implements FamiliesDao {
 
     @Override
     public FamilyUserSum getFamilyByUser(int userID) {
-        String sql = "SELECT name, family_role FROM families f " +
+        String sql = "SELECT name, family_role, f.family_id FROM families f " +
                 "JOIN families_users fu ON f.family_id = fu.family_id " +
                 "WHERE user_id = ? LIMIT 1";
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, userID);
@@ -59,6 +59,7 @@ public class JdbcFamiliesDao implements FamiliesDao {
         if (result.next()) {
             familyUserSum.setFamilyRole(result.getBoolean("family_role"));
             familyUserSum.setFamilyName(result.getString("name"));
+            familyUserSum.setFamilyId(result.getInt("family_id"));
         }
         return familyUserSum;
     }
