@@ -47,8 +47,8 @@ public class AppController {
     }
 
     @RequestMapping(path = "books/{userID}", method = RequestMethod.POST)
-    public boolean addBook(@RequestBody Book book, @PathVariable int userID) {
-        return bookService.addBook(book,userID);
+    public void addBook(@RequestBody Book book, @PathVariable int userID) {
+      bookService.addBook(book,userID);
     }
 
     @RequestMapping(path = "books", method = RequestMethod.GET)

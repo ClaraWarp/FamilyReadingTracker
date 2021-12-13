@@ -21,8 +21,8 @@ public class BookService {
         this.bookDao = bookDao;
     }
 
-    public boolean addBook(Book newBook, int userID) {
-        return bookDao.addBook(newBook, userID);
+    public void addBook(Book newBook, int userID) {
+        bookDao.addBook(newBook, userID);
     }
 
     public Book getBookByIsbn(String Isbn){

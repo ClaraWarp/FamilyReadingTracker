@@ -25,6 +25,7 @@ export default new Vuex.Store({
       name: null,
       role: null
     },
+    currentBook: null,
 
     token: currentToken || '',
     user: currentUser || {}
@@ -46,6 +47,9 @@ export default new Vuex.Store({
     },
     SET_BOOK_ISBN(state, bookIsbn){
       state.bookIsbn = bookIsbn;
+    },
+    ADD_CURRENT_BOOK(state, currentBook){
+      state.currentBook = currentBook;
     },
     SET_PRIZE(state, prizes) {
       state.prizes = prizes;

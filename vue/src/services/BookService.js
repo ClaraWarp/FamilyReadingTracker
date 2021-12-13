@@ -10,8 +10,8 @@ export default {
         return http.get(`/api/v1/books/${isbn}`);
     },
 
-    addBook(book){
-        return http.post('/api/v1/books', book);
+    addBook(book, userID){
+        return http.post(`/api/v1/books/${userID}`, book);
     },
 
     getBookByUserId(id){

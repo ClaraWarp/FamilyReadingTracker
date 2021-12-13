@@ -8,7 +8,7 @@ public interface BookDao {
 
     Book getBookByISBN(String isbn);
 
-    boolean addBook(Book book, int userID);
+    void addBook(Book book, int userID);
 
     List<Book> getListOfBooksByUserID(int userID);
 
