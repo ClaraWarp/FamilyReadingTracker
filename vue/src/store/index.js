@@ -23,7 +23,8 @@ export default new Vuex.Store({
     prizes: [],
     family: {
       name: null,
-      role: null
+      role: null,
+      id: null
     },
     currentBook: null,
 
@@ -41,6 +42,9 @@ export default new Vuex.Store({
     },
     ADD_FAMILY_ROLE(state, familyRole) {
       state.family.role = familyRole
+    },
+    ADD_FAMILY_ID(state, familyId) {
+      state.family.id = familyId;
     },
     SET_BOOK(state, books){
       state.books = books;

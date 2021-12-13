@@ -56,7 +56,8 @@ export default {
         if (response.status === 200) {
           if (response.data.familyName != null) {
             this.$store.commit("ADD_FAMILY", response.data.familyName);
-            this.$store.commit("ADD_FAMILY_ROLE", response.data.familyRole)
+            this.$store.commit("ADD_FAMILY_ROLE", response.data.familyRole);
+            this.$store.commit("ADD_FAMILY_ID", response.data.familyId);
           }
         }
       }
