@@ -3,7 +3,7 @@
     <h2 id="familyTitle">{{curFamilyName}} Family</h2>
     <div id="familyDetails">
       <div id="isParent">{{isParent}}</div>
-      <button class="leftButton">Add Family Member</button>
+      <button class="leftButton" @click="toggleUserList">Add Family Member</button>
     </div>
   </div>
 </template>
@@ -21,7 +21,9 @@ export default {
     }
   },
   methods: {
-
+    toggleUserList() {
+      this.$emit("toggleUserList")
+    }
   }
 };
 </script>
