@@ -35,7 +35,7 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             this.$store.commit("ADD_FAMILY", this.familyName);
-            this.toggleCreateFamily();
+            this.$emit("toggleFamilySummary");
           }
         });
     },

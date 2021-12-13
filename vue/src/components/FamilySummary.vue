@@ -1,9 +1,9 @@
 <template>
   <div class="titleWithSubLine">
-    <h2 id="familyTitle">Family</h2>
+    <h2 id="familyTitle">{{curFamilyName}} Family</h2>
     <div id="familyDetails">
-      <div id="isParent"></div>
-      <button class="leftButton" @click="toggleCreateFamily">Create New Family</button>
+      <div id="isParent">{{isParent}}</div>
+      <button class="leftButton">Add Family Member</button>
     </div>
   </div>
 </template>
@@ -12,16 +12,16 @@
 export default {
   data() {
     return {
-      
+      curFamilyName: this.$store.state.family.name
     }
   },
   computed: {
-    
+    isParent() {
+        return this.$store.state.family.role === true ? 'parent' : 'child'
+    }
   },
   methods: {
-    toggleCreateFamily() {
-      this.$emit('toggleCreateFamily')
-    }
+
   }
 };
 </script>
