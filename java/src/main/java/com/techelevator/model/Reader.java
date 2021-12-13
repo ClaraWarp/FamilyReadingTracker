@@ -53,4 +53,6 @@ public class Reader {
         readingBank += readingMinutes;
     }
 
+    public void subtractFromReadingBank(int readingMinutes) {readingBank -= readingMinutes;}
+
 }
