@@ -1,5 +1,5 @@
 <template>
-  <form id="prizeForm" @submit.prevent="savePrize">
+  <form id="prizeForm" @submit.prevent="resetForm">
     <input
       class="name-input"
       type="text"
@@ -42,7 +42,8 @@
       v-model="prizes.endDate"
     />
     <br />
-    <button type="submit" id="submit-button">Create Prize</button>
+    <button type="submit" id="submit-button"  @submit.prevent="savePrize">Create Prize</button>
+    <button type="button" @click="toggleCreatePrize">Back</button>
   </form>
 </template>
 
@@ -69,9 +70,17 @@ export default {
       prizeService.createPrize(this.prizes).then(response => {
         if (response.status === 201) {
           this.$router.push("/prizes");
+          this.resetForm();
         }
       });
     },
+    resetForm() {
+      this.prizes = {};
+      this.showForm = false;
+    },
+    toggleCreatePrize() {
+      this.$emit("toggleCreatePrize");
+    }
   },
 };
 </script>

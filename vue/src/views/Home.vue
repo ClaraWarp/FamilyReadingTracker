@@ -15,9 +15,10 @@
     <div id="prizes">
       <h2 class="prizeTitle">Prizes</h2>
 
-      <router-link :to="{ name: 'AddNewPrize' }">Create New Prize</router-link>
+      <!-- <router-link :to="{ name: 'AddNewPrize' }">Create New Prize</router-link> -->
 
       <div class="prizeSection">
+        <prize-view/>
         <prize-list/>
       </div>
     </div>
@@ -31,6 +32,7 @@ import BookList from "../components/BookList.vue";
 import FamilyWell from "@/components/FamilyWell.vue";
 import BookView from "@/components/BookView.vue";
 import PrizeList from '../components/PrizeList.vue';
+import PrizeView from '../components/PrizeView.vue';
 
 export default {
   components: {
@@ -38,8 +40,9 @@ export default {
     FamilyWell,
     BookView,
     PrizeList,
+    PrizeView,
   },
-  name: "home",
+  name:"home",
   methods: {
     addBook() {
       const dummyBook = {
