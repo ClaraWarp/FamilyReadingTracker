@@ -42,7 +42,7 @@
       v-model="prizes.endDate"
     />
     <br />
-    <button type="submit" id="submit-button" @click="savePrize()">Create Prize</button>
+    <button type="submit" id="submit-button">Create Prize</button>
   </form>
 </template>
 
@@ -66,7 +66,7 @@ export default {
 
   methods: {
     savePrize() {
-      prizeService.createPrize(this.prize).then(response => {
+      prizeService.createPrize(this.prizes).then(response => {
         if (response.status === 201) {
           this.$router.push("/prizes");
         }

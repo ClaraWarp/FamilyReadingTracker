@@ -18,6 +18,7 @@ export default {
     color: #d4cb2a;
     font-weight: bolder;
     text-decoration: underline;
+    /* text-decoration-style: wavy; */
 }
 
 /* .wavy {

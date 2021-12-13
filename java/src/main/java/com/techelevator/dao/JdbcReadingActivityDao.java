@@ -30,6 +30,8 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
 
         jdbcTemplate.update(newActivity, readingActivity.getActivityId(), readingActivity.getUserId(), readingActivity.getIsbn(), readingActivity.getFormat()
                 , readingActivity.getTimeRead()) ;
+
+        // queryforobject instead of update
     }
 
     @Override
