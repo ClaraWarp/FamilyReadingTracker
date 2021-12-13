@@ -19,6 +19,10 @@ public class FamiliesService {
         this.familiesDao = familiesDao;
     }
 
+    public String getFamilyByUser(int userID) {
+        return familiesDao.getFamilyByUser(userID);
+    }
+
     public Family getFamilyByName(String name) {
         return familiesDao.getFamilyByName(name);
     }

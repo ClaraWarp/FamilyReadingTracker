@@ -73,6 +73,11 @@ public class AppController {
         familiesService.createFamily(familyName, userID);
     }
 
+    @RequestMapping(path = "{userID}/family", method = RequestMethod.GET)
+    public String getFamilyByUser(@PathVariable int userID) {
+        return familiesService.getFamilyByUser(userID);
+    };
+
     //Prize Methods
 
     @RequestMapping(path = "prizes/family/{familyId}", method = RequestMethod.GET)
@@ -154,9 +159,6 @@ public class AppController {
     public User findByUsername(@PathVariable String username) {
         return userService.findByUsername(username);
     }
-
-
-
 
 
 }

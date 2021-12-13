@@ -13,5 +13,7 @@ public interface FamiliesDao {
 
     List<Family> getFamilies();
 
+    String getFamilyByUser(int userID);
+
 //    boolean addUserToFamily(User accountHolder, User accountToAdd);
 }

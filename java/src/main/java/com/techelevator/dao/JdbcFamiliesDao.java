@@ -49,6 +49,14 @@ public class JdbcFamiliesDao implements FamiliesDao {
     }
 
     @Override
+    public String getFamilyByUser(int userID) {
+        String sql = "SELECT name FROM families f " +
+                "JOIN families_users fu ON f.family_id = fu.family_id " +
+                "WHERE user_id = ? LIMIT 1";
+        return jdbcTemplate.queryForObject(sql, String.class, userID);
+    }
+
+    @Override
     public void createFamily(String familyName, int userID) {
 
         String sql = "INSERT INTO families (name) VALUES (?) RETURNING family_id";
