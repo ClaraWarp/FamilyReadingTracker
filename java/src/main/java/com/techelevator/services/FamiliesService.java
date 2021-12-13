@@ -2,6 +2,7 @@ package com.techelevator.services;
 
 import com.techelevator.dao.FamiliesDao;
 import com.techelevator.model.Family;
+import com.techelevator.model.FamilyUserSum;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class FamiliesService {
         this.familiesDao = familiesDao;
     }
 
-    public String getFamilyByUser(int userID) {
+    public FamilyUserSum getFamilyByUser(int userID) {
         return familiesDao.getFamilyByUser(userID);
     }
 

@@ -74,9 +74,9 @@ public class AppController {
     }
 
     @RequestMapping(path = "{userID}/family", method = RequestMethod.GET)
-    public String getFamilyByUser(@PathVariable int userID) {
+    public FamilyUserSum getFamilyByUser(@PathVariable int userID) {
         return familiesService.getFamilyByUser(userID);
-    };
+    }
 
     //Prize Methods
 

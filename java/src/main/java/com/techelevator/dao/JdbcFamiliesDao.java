@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Family;
+import com.techelevator.model.FamilyUserSum;
 import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -49,11 +50,17 @@ public class JdbcFamiliesDao implements FamiliesDao {
     }
 
     @Override
-    public String getFamilyByUser(int userID) {
-        String sql = "SELECT name FROM families f " +
+    public FamilyUserSum getFamilyByUser(int userID) {
+        String sql = "SELECT name, family_role FROM families f " +
                 "JOIN families_users fu ON f.family_id = fu.family_id " +
                 "WHERE user_id = ? LIMIT 1";
-        return jdbcTemplate.queryForObject(sql, String.class, userID);
+        SqlRowSet result = jdbcTemplate.queryForRowSet(sql, userID);
+        FamilyUserSum familyUserSum = new FamilyUserSum();
+        if (result.next()) {
+            familyUserSum.setFamilyRole(result.getBoolean("family_role"));
+            familyUserSum.setFamilyName(result.getString("name"));
+        }
+        return familyUserSum;
     }
 
     @Override
