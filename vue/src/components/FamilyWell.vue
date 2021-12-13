@@ -9,7 +9,12 @@
     @toggleCreateFamily="toggleCreateFamily" 
     @toggleFamilySummary="toggleFamilySummary"
     />
-    <family-summary v-if="familySummaryToggle || isInFamily"/>
+    <family-summary v-if="familySummaryToggle || isInFamily" 
+      @toggleUserList="toggleUserList"
+    />
+    <users-list v-if="userListToggle"
+      @toggleUserList="toggleUserList"
+    />
   </div>
 </template>
 
@@ -18,12 +23,14 @@ import familiesService from "@/services/FamiliesService";
 import CreateFamily from "./CreateFamily.vue";
 import NoFamilySummary from "./NoFamilySummary.vue";
 import FamilySummary from './FamilySummary.vue';
+import UsersList from './UsersList.vue';
 export default {
-  components: { CreateFamily, NoFamilySummary, FamilySummary },
+  components: { CreateFamily, NoFamilySummary, FamilySummary, UsersList },
   data() {
     return {
       createFamilyToggle: false,
-      familySummaryToggle: false
+      familySummaryToggle: false,
+      userListToggle: false
     }
   },
   computed: {
@@ -38,6 +45,9 @@ export default {
     toggleFamilySummary() {
       this.familySummaryToggle = true;
       this.createFamilyToggle = false;
+    },
+    toggleUserList() {
+      this.userListToggle = !this.userListToggle
     }
   },
   beforeMount() {

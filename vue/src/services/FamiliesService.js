@@ -16,5 +16,9 @@ export default {
 
     getFamilyByUser(userID) {
         return http.get(`/api/v1/${userID}/family`);
+    },
+
+    getUsers() {
+        return http.get('/api/v1/users/');
     }
 }
