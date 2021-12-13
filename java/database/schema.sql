@@ -37,6 +37,12 @@ CREATE SEQUENCE seq_family_id
   NO MINVALUE
   CACHE 1;
 
+CREATE SEQUENCE seq_book_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
 
 CREATE TABLE families (
     family_id int DEFAULT nextval('seq_family_id'::regclass) NOT NULL,
@@ -79,22 +85,23 @@ CREATE TABLE families_prizes (
 );
 
 CREATE TABLE books (
-    isbn varchar(16) NOT NULL,
+    book_id int DEFAULT nextval('seq_book_id'::regclass) NOT NULL,
     title varchar(100) NOT NULL,
     author varchar(100),
+    isbn    varchar(16),
     description varchar(400),
-    CONSTRAINT PK_isbn            PRIMARY KEY (isbn)
+    CONSTRAINT PK_book_id            PRIMARY KEY (book_id)
 );
 
 CREATE TABLE reading_activity_log (
     activity_id int DEFAULT nextval('seq_activity_id'::regclass) NOT NULL,
     user_id int NOT NULL,
-    isbn varchar(16) NOT NULL,
+    book_id int NOT NULL,
     format varchar(20),
     time_read int DEFAULT 0,
     CONSTRAINT PK_activity_id     PRIMARY KEY (activity_id),
     CONSTRAINT FK_user_id         FOREIGN KEY (user_id) REFERENCES users (user_id),
-    CONSTRAINT FK_isbn            FOREIGN KEY (isbn) REFERENCES books (isbn)
+    CONSTRAINT FK_book_id            FOREIGN KEY (book_id) REFERENCES books (book_id)
 );
 
 /* this would normally just be attached to user */
@@ -112,8 +119,8 @@ INSERT INTO families (name) VALUES ('Bookwormton');
 INSERT INTO families_users (family_id, family_role, user_id) VALUES (1, true, 3);
 INSERT INTO prizes (name, description, time_requirement, max_prizes, start_date, end_date)
         VALUES ('Gold Star!!!', 'You did it!', 60, 3, '2021-12-1', '2021-12-17');
-INSERT INTO books (isbn, title, author, description) VALUES ('123456790abcdef', 'Book', 'Worm', 'Worth digging into.');
+INSERT INTO books (book_id, title, author, isbn, description) VALUES (default,'123456790abcdef', 'Book', 'Worm', 'Worth digging into.');
 INSERT INTO families_prizes (family_id, prize_id) VALUES (1, 1);
-INSERT INTO reading_activity_log (user_id, isbn, format, time_read) VALUES (3, '123456790abcdef', 'paper', 20);
+INSERT INTO reading_activity_log (user_id, book_id, format, time_read) VALUES (3, 1, 'paper', 20);
 
 COMMIT TRANSACTION;

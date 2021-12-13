@@ -44,7 +44,7 @@ public class JdbcBookDao implements BookDao {
         String bookCreated = jdbcTemplate.queryForObject(insertBook, String.class, book.getIsbn(),book.getTitle(), book.getAuthor(),
                 book.getDescription());
 
-        String sql = "INSERT INTO reading_activity_log(user_id, isbn) values (?, ?)";
+        String sql = "INSERT INTO reading_activity_log(user_id, isbn) values (?,  ?)";
 
         jdbcTemplate.update(sql, userID, bookCreated);
 
