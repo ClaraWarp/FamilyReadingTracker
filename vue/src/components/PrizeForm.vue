@@ -24,6 +24,7 @@ export default {
   padding: 2px 7px;
   margin: 2px 5px 5px 0px;
   font-size: 16px;
+  
 }
 
 .leftButton:hover {

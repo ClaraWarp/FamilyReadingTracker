@@ -28,16 +28,22 @@
       v-model="prizes.maxPrizes"
     />
     <br />
+    <label id="startDateLabel" for="startDate">Start Date:</label>
+    <br/>
     <input
+      id="startDate"
       class="start-date-input"
-      type="text"
+      type="date"
       placeholder="Start Date"
       v-model="prizes.startDate"
     />
     <br />
+    <label  id="endDateLabel" for="endDate">End Date:</label>
+    <br/>
     <input
+      id="endDate"
       class="end-date-input"
-      type="text"
+      type="date"
       placeholder="End Date"
       v-model="prizes.endDate"
     />
@@ -88,7 +94,6 @@ export default {
 <style scoped>
 
 #prizeForm{
-    padding: 10px;
     text-align: center;
 }
 
@@ -132,6 +137,16 @@ export default {
     font-size: 20px;
     margin: 5px;
     padding: 5px;
+}
+
+#endDateLabel {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#startDateLabel {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 </style>
