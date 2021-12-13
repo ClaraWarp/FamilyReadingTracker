@@ -17,7 +17,9 @@
 
       <router-link :to="{ name: 'AddNewPrize' }">Create New Prize</router-link>
 
-      <div class="prizeSection"></div>
+      <div class="prizeSection">
+        <prize-list/>
+      </div>
     </div>
   </div>
 </template>
@@ -28,12 +30,14 @@ import bookService from "@/services/BookService.js";
 import BookList from "../components/BookList.vue";
 import FamilyWell from "@/components/FamilyWell.vue";
 import BookView from "@/components/BookView.vue";
+import PrizeList from '../components/PrizeList.vue';
 
 export default {
   components: {
     BookList,
     FamilyWell,
     BookView,
+    PrizeList,
   },
   name: "home",
   methods: {
