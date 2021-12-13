@@ -37,13 +37,17 @@ public class JdbcBookDao implements BookDao {
     }
 
     @Override
-    public boolean addBook(Book book) {
+    public boolean addBook(Book book, int userID) {
         boolean bookCreated = false;
 
         String insertBook = "insert into books(title, author, isbn, description) values(?, ?, ?, ?)";
 
         bookCreated = jdbcTemplate.update(insertBook, book.getTitle(), book.getAuthor(), book.getIsbn(),
                 book.getDescription()) == 1;
+
+        String sql = "INSERT INTO reading_activity_log(user_id, isbn) values (?, ?)";
+
+        jdbcTemplate.update(sql, userID, book.getIsbn());
 
         return bookCreated;
     }

@@ -46,9 +46,9 @@ public class AppController {
         return bookService.getBookByIsbn(isbn);
     }
 
-    @RequestMapping(path = "books", method = RequestMethod.POST)
-    public boolean addBook(@RequestBody Book book) {
-        return bookService.addBook(book);
+    @RequestMapping(path = "books/{userID}", method = RequestMethod.POST)
+    public boolean addBook(@RequestBody Book book, @PathVariable int userID) {
+        return bookService.addBook(book,userID);
     }
 
     @RequestMapping(path = "books", method = RequestMethod.GET)

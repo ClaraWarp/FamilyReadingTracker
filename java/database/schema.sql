@@ -90,7 +90,7 @@ CREATE TABLE reading_activity_log (
     activity_id int DEFAULT nextval('seq_activity_id'::regclass) NOT NULL,
     user_id int NOT NULL,
     isbn varchar(16) NOT NULL,
-    format varchar(20) NOT NULL,
+    format varchar(20),
     time_read int DEFAULT 0,
     CONSTRAINT PK_activity_id     PRIMARY KEY (activity_id),
     CONSTRAINT FK_user_id         FOREIGN KEY (user_id) REFERENCES users (user_id),
