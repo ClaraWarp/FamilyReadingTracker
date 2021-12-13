@@ -48,6 +48,9 @@ export default {
       });
     },
   },
+  beforeMount() {
+    this.$store.commit('CLEAR_FAMILY');
+  }
 };
 </script>
 <style scoped>

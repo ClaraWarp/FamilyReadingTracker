@@ -30,8 +30,13 @@ export default new Vuex.Store({
     user: currentUser || {}
   },
   mutations: {
+    CLEAR_FAMILY(state) {
+      state.family.name = null;
+      state.family.role = null;
+    },
     ADD_FAMILY(state, familyName) {
       state.family.name = familyName;
+      state.family.role = true;
     },
     ADD_FAMILY_ROLE(state, familyRole) {
       state.family.role = familyRole
