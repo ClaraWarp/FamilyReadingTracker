@@ -1,6 +1,6 @@
 <template>
   <div class="titleWithSubLine">
-    <h2 id="familyTitle">Family</h2>
+    <h2 id="familyTitle">{{curFamilyName}} Family</h2>
     <div id="familyDetails">
       <div id="isParent"></div>
       <button class="leftButton" @click="toggleCreateFamily">Create New Family</button>
@@ -10,6 +10,14 @@
 
 <script>
 export default {
+  data() {
+    return {
+      curFamilyName: this.$store.state.family.name
+    }
+  },
+  computed: {
+    
+  },
   methods: {
     toggleCreateFamily() {
       this.$emit('toggleCreateFamily')

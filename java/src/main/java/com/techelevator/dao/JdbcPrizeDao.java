@@ -63,7 +63,7 @@ public class JdbcPrizeDao implements PrizeDao {
     @Override
     public boolean addPrize(Prize prize){
         boolean prizeCreated = false;
-        String sql = "INSERT INTO prizes ('name', 'description', 'time_requirement', 'max_prizes', 'start_date', 'end_date') VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO prizes (name, description, time_requirement, max_prizes, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?)";
 
         //This line checks the number of rows affected by the jdbcTemplate.update(). It should affect 1 row if executed correctly.
         prizeCreated = jdbcTemplate.update(sql, prize.getName(), prize.getDescription(), prize.getTimeRequirement(),
