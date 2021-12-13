@@ -12,5 +12,9 @@ export default {
 
     createFamily(familyName, userID) {
         return http.post(`/api/v1/families/${familyName}/${userID}`);
+    },
+
+    getFamilyByUser(userID) {
+        return http.get(`/api/v1/${userID}/family`);
     }
 }

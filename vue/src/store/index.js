@@ -22,7 +22,8 @@ export default new Vuex.Store({
     bookIsbn: null,
     prizes: [],
     family: {
-      name: ''
+      name: null,
+      role: null
     },
 
     token: currentToken || '',
@@ -31,6 +32,9 @@ export default new Vuex.Store({
   mutations: {
     ADD_FAMILY(state, familyName) {
       state.family.name = familyName;
+    },
+    ADD_FAMILY_ROLE(state, familyRole) {
+      state.family.role = familyRole
     },
     SET_BOOK(state, books){
       state.books = books;
