@@ -68,9 +68,9 @@ public class AppController {
         return familiesService.getFamilyByName(name);
     }
 
-    @RequestMapping(path = "families", method = RequestMethod.POST)
-    public void createFamily(@RequestBody Family family) {
-        familiesService.createFamily(family);
+    @RequestMapping(path = "families/{familyName}/{userID}", method = RequestMethod.POST)
+    public void createFamily(@PathVariable String familyName, @PathVariable int userID) {
+        familiesService.createFamily(familyName, userID);
     }
 
     //Prize Methods

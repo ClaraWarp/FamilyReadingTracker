@@ -21,15 +21,17 @@ export default new Vuex.Store({
     books: [],
     bookIsbn: null,
     prizes: [],
-    // families: [],
+    family: {
+      name: ''
+    },
 
     token: currentToken || '',
     user: currentUser || {}
   },
   mutations: {
-    // SET_FAMILIES(state, ){
-
-    // },
+    ADD_FAMILY(state, familyName) {
+      state.family.name = familyName;
+    },
     SET_BOOK(state, books){
       state.books = books;
     },
