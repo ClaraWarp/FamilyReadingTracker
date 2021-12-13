@@ -3,10 +3,10 @@
     <div id="leftBar">
       <family-well />
       <div id="bookSection">
-          <button class="leftButton" id="addNewBookButton">
-            <router-link :to="{ name: 'AddNewBook' }">Add New</router-link>
-          </button>
-          <book-list />
+        <div class="bookForm">
+          <book-view />
+      </div>
+        <book-list />
       </div>
     </div>
     <div id="reading">
@@ -27,11 +27,13 @@
 import bookService from "@/services/BookService.js";
 import BookList from "../components/BookList.vue";
 import FamilyWell from "@/components/FamilyWell.vue";
+import BookView from "@/components/BookView.vue";
 
 export default {
   components: {
     BookList,
-    FamilyWell
+    FamilyWell,
+    BookView,
   },
   name: "home",
   methods: {
@@ -97,21 +99,6 @@ h2 {
   height: 100vh;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas: "leftNav readingNav readingNav prizeNav";
-}
-
-.leftButton {
-  color: white;
-  background-color: #6939c3;
-  border: 1px solid #6939c3;
-  border-radius: 5px;
-  padding: 2px 7px;
-  margin: 2px 5px 5px 0px;
-  font-size: 16px;
-}
-
-.leftButton:hover {
-  color: #6930c3;
-  background-color: white;
 }
 
 #leftBar {
