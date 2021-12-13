@@ -52,8 +52,8 @@ export default {
     },
     saveBook() {
       bookService.addBook(this.book).then((response) => {
-        if (response.status === 201) {
-          this.$router.push("/books");
+        if (response.status === 200) {
+          this.$router.push("/");
           this.resetForm();
         }
       });
