@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+//This class holds information for a book.
+
 public class Book {
 
     private String title;

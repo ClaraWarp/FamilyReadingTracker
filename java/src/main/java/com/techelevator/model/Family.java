@@ -1,6 +1,7 @@
 package com.techelevator.model;
 
 //This class stores information about a family, a group of users that share reading goals and progress.
+
 public class Family {
     int familyId;
     String name;

@@ -13,4 +13,6 @@ public interface ReadingActivityDao {
 
     List<ReadingActivity> getListOfActivitiesByUserId(int userId);
 
+    //ReadingActivity getReadingActivityByBook(String isbn)
+
 }

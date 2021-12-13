@@ -2,6 +2,8 @@ package com.techelevator.model;
 
 import java.util.Date;
 
+//This class holds information about a prize. Prizes can be redeemed by a family or a single reader.
+
 public class Prize {
 
     private Integer prizeId;

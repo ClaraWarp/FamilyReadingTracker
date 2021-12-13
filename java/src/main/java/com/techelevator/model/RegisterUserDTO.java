@@ -2,6 +2,8 @@ package com.techelevator.model;
 
 import javax.validation.constraints.NotEmpty;
 
+//Information about user that is sent to the server; provides constraints for login requirements.
+
 public class RegisterUserDTO {
 
     @NotEmpty

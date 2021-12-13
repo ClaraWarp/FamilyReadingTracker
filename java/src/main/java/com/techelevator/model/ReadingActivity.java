@@ -1,6 +1,8 @@
 package com.techelevator.model;
 
-//This class holds data for Reading Projects to be retrieved via DAO
+//This class holds data for Reading Activities to be retrieved via DAO
+//
+
 public class ReadingActivity {
     int activityId;
     int userId;
@@ -18,9 +20,7 @@ public class ReadingActivity {
         this.timeRead = timeRead;
     }
 
-    public ReadingActivity() {
-
-    }
+    public ReadingActivity() {}
 
     public int getActivityId() { return activityId; }
 

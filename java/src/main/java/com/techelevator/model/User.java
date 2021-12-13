@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+//This class holds information about a user; holds security information mainly for login.
+
 public class User {
 
    private Long id;

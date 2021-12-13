@@ -67,6 +67,8 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
         return readingActivities;
     }
 
+
+
     private ReadingActivity mapRowToReadingActivity(SqlRowSet rowSet) {
         ReadingActivity readingActivity = new ReadingActivity();
 
