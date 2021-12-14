@@ -10,7 +10,11 @@
       <label for="isParent-false">As Child</label>
     </form>
     <ul>
-      <li v-for="(user, i) in filteredList" :key="i" :class="{ disabled: user.familyId != 0 }">
+      <li
+        v-for="(user, i) in filteredList"
+        :key="i"
+        :class="{ disabled: user.familyId != 0 }"
+      >
         {{ user.username }}
       </li>
       <li>...</li>
@@ -22,58 +26,53 @@
 <script>
 import familiesService from "@/services/FamiliesService";
 export default {
-    data() {
-        return {
-            users: [],
-            chosenUser: ''
-        }
-    },
-    computed: {
-        filteredList() {
-            let filteredUsers = this.users;
-            filteredUsers.reverse();
-            if (this.chosenUser != '') {
-                filteredUsers = filteredUsers.filter((user) =>
-                    user.username.toLowerCase().includes(this.chosenUser.toLowerCase()))}
-            return filteredUsers.slice(0,3);   
-        }
-    },
-    methods: {
-        toggleUserList() {
-            this.$emit("toggleUserList")
-        },
-        addUserToFamily() {
-            // use familesService to add to relational table
-        },
-        disablingUsers() {
-            
-        }
-    },
-    created() {
-        familiesService.getUsers().then(
-            (response) => {
-                if (response.status === 200) {
-                    this.users = response.data;
-                    this.users.forEach(user => {
-                        familiesService.getFamilyByUser(user.id).then(
-                            response => {
-                                if (response.status === 200) {
-                                    user.familyId = response.data.familyId
-                        }
-                    }
-                )
-            })
-                }
-            }
+  data() {
+    return {
+      users: [],
+      chosenUser: ""
+    };
+  },
+  computed: {
+    filteredList() {
+      let filteredUsers = this.users;
+      filteredUsers.reverse();
+      if (this.chosenUser != "") {
+        filteredUsers = filteredUsers.filter((user) =>
+          user.username.toLowerCase().includes(this.chosenUser.toLowerCase())
         );
-        // need to ask Yoav about this
-        
-    }
-}
+      }
+      return filteredUsers.slice(0, 3);
+    },
+  },
+  methods: {
+    toggleUserList() {
+      this.$emit("toggleUserList");
+    },
+    addUserToFamily() {
+      // use familesService to add to relational table
+    },
+    disablingUsers() {},
+  },
+  created() {
+    familiesService.getUsers().then((response) => {
+      if (response.status === 200) {
+        let tempUsers = response.data;
+        tempUsers.forEach((user) => {
+          familiesService.getFamilyByUser(user.id).then((response) => {
+            if (response.status === 200) {
+              user.familyId = response.data.familyId;
+            }
+          });
+        });
+        this.users = tempUsers;
+      }
+    });
+  }
+};
 </script>
 
 <style scoped>
 .disabled {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 </style>

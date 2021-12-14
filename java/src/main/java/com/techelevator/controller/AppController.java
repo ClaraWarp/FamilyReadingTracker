@@ -150,7 +150,7 @@ public class AppController {
     @RequestMapping(path = "users/", method = RequestMethod.GET)
     public List<User> findAll() {
         return userService.findAll();
-    } //Not sure what method is for
+    }
 
     @RequestMapping(path = "users/{id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable Long id) {
