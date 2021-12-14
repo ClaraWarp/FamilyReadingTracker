@@ -10,7 +10,7 @@
       <label for="isParent-false">As Child</label>
     </form>
     <ul>
-      <li v-for="(user, i) in filteredList" :key="i">
+      <li v-for="(user, i) in filteredList" :key="i" :class="{ disabled: user.familyId != 0 }">
         {{ user.username }}
       </li>
       <li>...</li>
@@ -44,6 +44,9 @@ export default {
         },
         addUserToFamily() {
             // use familesService to add to relational table
+        },
+        disablingUsers() {
+            
         }
     },
     beforeMount() {
@@ -53,11 +56,23 @@ export default {
                     this.users = response.data;
                 }
             }
-        )
+        );
+        // need to ask Yoav about this
+        // this.users.forEach(user => {
+        //         familiesService.getFamilyByUser(user.id).then(
+        //             response => {
+        //                 if (response.status === 200) {
+        //                     user.familyId = response.data.familyId
+        //                 }
+        //             }
+        //         )
+        //     })
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+.disabled {
+    text-decoration: line-through;
+}
 </style>
