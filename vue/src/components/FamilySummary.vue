@@ -3,6 +3,7 @@
     <h2 id="familyTitle">{{curFamilyName}} Family</h2>
     <div id="familyDetails">
       <div id="isParent">{{isParent}}</div>
+      <button>My Family</button>
       <button class="leftButton" @click="toggleUserList">Add Family Member</button>
     </div>
   </div>

@@ -29,9 +29,13 @@ export default new Vuex.Store({
     currentBook: null,
 
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    userList: []
   },
   mutations: {
+    ADD_USER_LIST(state, userList) {
+      state.userList = userList;
+    },
     CLEAR_FAMILY(state) {
       state.family.name = null;
       state.family.role = null;
