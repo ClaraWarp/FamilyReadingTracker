@@ -78,6 +78,8 @@ public class AppController {
         return familiesService.getFamilyByUser(userID);
     }
 
+    // TO DO: AT A METHOD TO INSERT INTO FAMILIES_USERS TO ADD SOMEONE TO A FAMILY
+
     //Prize Methods
 
     @RequestMapping(path = "prizes/family/{familyId}", method = RequestMethod.GET)
@@ -148,7 +150,7 @@ public class AppController {
     @RequestMapping(path = "users/", method = RequestMethod.GET)
     public List<User> findAll() {
         return userService.findAll();
-    } //Not sure what method is for
+    }
 
     @RequestMapping(path = "users/{id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable Long id) {

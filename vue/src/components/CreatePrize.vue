@@ -68,14 +68,15 @@ export default {
         startDate: "",
         endDate: "",
       },
+      family: this.$store.state.family.id
     };
   },
 
   methods: {
     savePrize() {
-      prizeService.createPrize(this.prizes).then(response => {
+      prizeService.createPrize(this.prizes, this.family).then(response => {
         if (response.status === 201) {
-          this.$router.push("/prizes");
+          this.$store.commit("SET_PRIZE", this.prizes, this.family);
         }
       });
     },
