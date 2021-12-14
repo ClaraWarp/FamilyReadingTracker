@@ -1,6 +1,7 @@
 package com.techelevator.services;
 
 
+import com.techelevator.dao.BookDao;
 import com.techelevator.dao.ReadingActivityDao;
 
 import com.techelevator.model.ReadingActivity;
@@ -13,12 +14,15 @@ import java.util.List;
 public class ReadingActivityService {
 
     private ReadingActivityDao readingActivityDao;
+    private BookDao bookDao;
 
-    public ReadingActivityService(ReadingActivityDao readingActivityDao) {
+    public ReadingActivityService(ReadingActivityDao readingActivityDao, BookDao bookDao) {
         this.readingActivityDao = readingActivityDao;
+        this.bookDao = bookDao;
     }
 
-    public void addActivity(ReadingActivity readingActivity) { readingActivityDao.addActivity(readingActivity);};
+    public void addActivity(ReadingActivity readingActivity) {
+        readingActivityDao.addActivity(readingActivity);};
 
     public ReadingActivity getActivityByUserId (int userId) {
         return readingActivityDao.getActivityByUserId(userId);

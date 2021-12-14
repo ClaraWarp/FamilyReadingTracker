@@ -28,10 +28,10 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
         String newActivity = "INSERT INTO reading_activity_log (user_id, isbn, format, time_read) values (?, ?, ?, ?) \n" +
                 " RETURNING activity_id";
 
-        jdbcTemplate.update(newActivity, readingActivity.getActivityId(), readingActivity.getUserId(), readingActivity.getIsbn(), readingActivity.getFormat()
+        jdbcTemplate.queryForObject(newActivity, ReadingActivity.class, readingActivity.getActivityId(), readingActivity.getUserId(), readingActivity.getIsbn(), readingActivity.getFormat()
                 , readingActivity.getTimeRead()) ;
 
-        // queryforobject instead of update
+
     }
 
     @Override
