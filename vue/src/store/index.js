@@ -23,24 +23,38 @@ export default new Vuex.Store({
     prizes: [],
     family: {
       name: null,
-      role: null
+      role: null,
+      id: null
     },
+    currentBook: null,
 
     token: currentToken || '',
     user: currentUser || {}
   },
   mutations: {
+    CLEAR_FAMILY(state) {
+      state.family.name = null;
+      state.family.role = null;
+    },
     ADD_FAMILY(state, familyName) {
       state.family.name = familyName;
+      state.family.role = true;
     },
     ADD_FAMILY_ROLE(state, familyRole) {
       state.family.role = familyRole
+    },
+    ADD_FAMILY_ID(state, familyId) {
+      state.family.id = familyId;
     },
     SET_BOOK(state, books){
       state.books = books;
     },
     SET_BOOK_ISBN(state, bookIsbn){
       state.bookIsbn = bookIsbn;
+    },
+    SET_CURRENT_BOOK(state, currentBook){
+      state.currentBook = currentBook;
+      state.user = this.user.currentUser;
     },
     SET_PRIZE(state, prizes) {
       state.prizes = prizes;

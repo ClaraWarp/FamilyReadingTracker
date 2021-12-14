@@ -20,6 +20,8 @@ public class FamiliesService {
         this.familiesDao = familiesDao;
     }
 
+    // TO DO: AT A METHOD TO INSERT INTO FAMILIES_USERS TO ADD SOMEONE TO A FAMILY
+
     public FamilyUserSum getFamilyByUser(int userID) {
         return familiesDao.getFamilyByUser(userID);
     }

@@ -21,12 +21,12 @@ public class BookService {
         this.bookDao = bookDao;
     }
 
-    public boolean addBook(Book newBook) {
-        return bookDao.addBook(newBook);
+    public void addBook(Book newBook, int userID) {
+        bookDao.addBook(newBook, userID);
     }
 
-    public Book getBookByIsbn(String Isbn){
-        return bookDao.getBookByISBN(Isbn);
+    public Book getBookByID(int bookID){
+        return bookDao.getBookByID(bookID);
     }
 
     public List<Book> getListOfBooksByUserID(int userID) {

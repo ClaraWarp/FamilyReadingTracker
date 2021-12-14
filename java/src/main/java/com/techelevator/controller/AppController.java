@@ -41,14 +41,14 @@ public class AppController {
 
     //Book Methods
 
-    @RequestMapping(path = "books/{isbn}", method = RequestMethod.GET)
-    public Book getBookByIsbn(@PathVariable String isbn) {
-        return bookService.getBookByIsbn(isbn);
+    @RequestMapping(path = "books/{userID}", method = RequestMethod.GET)
+    public Book getBookByID(@PathVariable int userID) {
+        return bookService.getBookByID(userID);
     }
 
-    @RequestMapping(path = "books", method = RequestMethod.POST)
-    public boolean addBook(@RequestBody Book book) {
-        return bookService.addBook(book);
+    @RequestMapping(path = "books/{userID}", method = RequestMethod.POST)
+    public void addBook(@RequestBody Book book, @PathVariable int userID) {
+      bookService.addBook(book,userID);
     }
 
     @RequestMapping(path = "books", method = RequestMethod.GET)
@@ -77,6 +77,8 @@ public class AppController {
     public FamilyUserSum getFamilyByUser(@PathVariable int userID) {
         return familiesService.getFamilyByUser(userID);
     }
+
+    // TO DO: AT A METHOD TO INSERT INTO FAMILIES_USERS TO ADD SOMEONE TO A FAMILY
 
     //Prize Methods
 
