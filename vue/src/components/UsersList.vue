@@ -24,14 +24,14 @@
 </template>
 
 <script>
-import familiesService from "@/services/FamiliesService";
+// import familiesService from "@/services/FamiliesService";
 export default {
   data() {
     return {
-      users: [],
       chosenUser: ""
     };
   },
+  props: ['users'],
   computed: {
     filteredList() {
       let filteredUsers = this.users;
@@ -52,21 +52,6 @@ export default {
       // use familesService to add to relational table
     },
     disablingUsers() {},
-  },
-  created() {
-    familiesService.getUsers().then((response) => {
-      if (response.status === 200) {
-        let tempUsers = response.data;
-        tempUsers.forEach((user) => {
-          familiesService.getFamilyByUser(user.id).then((response) => {
-            if (response.status === 200) {
-              user.familyId = response.data.familyId;
-            }
-          });
-        });
-        this.users = tempUsers;
-      }
-    });
   }
 };
 </script>

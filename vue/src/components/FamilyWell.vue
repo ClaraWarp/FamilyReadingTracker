@@ -13,7 +13,8 @@
       @toggleUserList="toggleUserList"
     />
     <users-list v-if="userListToggle" 
-      @toggleUserList="toggleUserList"
+      @toggleUserList="toggleUserList" 
+      :users="users"
     />
   </div>
 </template>
@@ -30,7 +31,8 @@ export default {
     return {
       createFamilyToggle: false,
       familySummaryToggle: false,
-      userListToggle: false
+      userListToggle: false, 
+      users: []
     }
   },
   computed: {
@@ -50,6 +52,21 @@ export default {
       this.userListToggle = !this.userListToggle;
       this.$emit("toggleBookSection")
     }
+  },
+  created() {
+    familiesService.getUsers().then((response) => {
+      if (response.status === 200) {
+        let tempUsers = response.data;
+        tempUsers.forEach((user) => {
+          familiesService.getFamilyByUser(user.id).then((response) => {
+            if (response.status === 200) {
+              user.familyId = response.data.familyId;
+            }
+          });
+        });
+        this.users = tempUsers;
+      }
+    });
   },
   beforeMount() {
     familiesService.getFamilyByUser(this.$store.state.user.id).then(
