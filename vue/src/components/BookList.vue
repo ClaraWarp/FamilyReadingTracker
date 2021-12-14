@@ -65,6 +65,7 @@ export default {
 }
 .bookForm{
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   margin: 10px 10px 10px 10px;
 
