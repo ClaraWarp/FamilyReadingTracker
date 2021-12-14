@@ -23,6 +23,8 @@ public class JdbcFamiliesDao implements FamiliesDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    // TO DO: AT A METHOD TO INSERT INTO FAMILIES_USERS TO ADD SOMEONE TO A FAMILY
+
     @Override
     public Family getFamilyByName(String name) {
 

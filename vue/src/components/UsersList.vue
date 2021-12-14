@@ -1,8 +1,8 @@
 <template>
     <div>
-        <form>
+        <form @submit.prevent="">
             <input type="text" v-model="choseUser"/>
-            <button>Add</button>
+            <button>Add User</button>
             <br/>
             <input type="radio" name="isParent" value="true" id="isParent-true">
             <label for="isParent-true">As Parent</label>
@@ -36,6 +36,9 @@ export default {
     methods: {
         toggleUserList() {
             this.$emit("toggleUserList")
+        },
+        addUserToFamily() {
+            // use familesService to add to relational table
         }
     },
     beforeMount() {
