@@ -49,24 +49,25 @@ export default {
             
         }
     },
-    beforeMount() {
+    created() {
         familiesService.getUsers().then(
             (response) => {
                 if (response.status === 200) {
                     this.users = response.data;
+                    this.users.forEach(user => {
+                        familiesService.getFamilyByUser(user.id).then(
+                            response => {
+                                if (response.status === 200) {
+                                    user.familyId = response.data.familyId
+                        }
+                    }
+                )
+            })
                 }
             }
         );
         // need to ask Yoav about this
-        // this.users.forEach(user => {
-        //         familiesService.getFamilyByUser(user.id).then(
-        //             response => {
-        //                 if (response.status === 200) {
-        //                     user.familyId = response.data.familyId
-        //                 }
-        //             }
-        //         )
-        //     })
+        
     }
 }
 </script>
