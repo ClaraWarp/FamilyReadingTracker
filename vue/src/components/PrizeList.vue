@@ -6,7 +6,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="prize in prizes" v-bind:key="prize.prizeId" class="prize">
+      <tr v-for="prize in $store.state.prizes" v-bind:key="prize.prizeId" class="prize">
         <td class="prize-details">
           {{ prizes.name }}<br />{{ prizes.description }}<br />
           {{prizes.timeRequirement }} <br /> {{ prizes.maxPrizes }} <br />
