@@ -78,6 +78,8 @@ public class AppController {
         return familiesService.getFamilyByUser(userID);
     }
 
+    // TO DO: AT A METHOD TO INSERT INTO FAMILIES_USERS TO ADD SOMEONE TO A FAMILY
+
     //Prize Methods
 
     @RequestMapping(path = "prizes/family/{familyId}", method = RequestMethod.GET)
