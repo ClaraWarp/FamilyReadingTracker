@@ -1,12 +1,12 @@
 <template>
   <div class="home homeNav">
     <div id="leftBar">
-      <family-well />
-      <div id="bookSection">
+      <family-well @toggleBookSection="toggleBookSection"/>
+      <div id="bookSection" v-if="bookSectionToggle">
         <div class="bookForm">
           <book-view />
-      </div>
-        <book-list />
+          <book-list />
+        </div>
       </div>
     </div>
     <div id="reading">
@@ -18,8 +18,8 @@
       <!-- <router-link :to="{ name: 'AddNewPrize' }">Create New Prize</router-link> -->
 
       <div class="prizeSection">
-        <prize-view/>
-        <prize-list/>
+        <prize-view />
+        <prize-list />
       </div>
     </div>
   </div>
@@ -31,8 +31,8 @@ import bookService from "@/services/BookService.js";
 import BookList from "../components/BookList.vue";
 import FamilyWell from "@/components/FamilyWell.vue";
 import BookView from "@/components/BookView.vue";
-import PrizeList from '../components/PrizeList.vue';
-import PrizeView from '../components/PrizeView.vue';
+import PrizeList from "../components/PrizeList.vue";
+import PrizeView from "../components/PrizeView.vue";
 
 export default {
   components: {
@@ -42,7 +42,12 @@ export default {
     PrizeList,
     PrizeView,
   },
-  name:"home",
+  name: "home",
+  data() {
+    return {
+      bookSectionToggle: true
+    }
+  },
   methods: {
     addBook() {
       const dummyBook = {
@@ -54,10 +59,13 @@ export default {
         console.log(response.data);
       });
     },
+    toggleBookSection() {
+      this.bookSectionToggle = !this.bookSectionToggle
+    }
   },
   beforeMount() {
-    this.$store.commit('CLEAR_FAMILY');
-  }
+    this.$store.commit("CLEAR_FAMILY");
+  },
 };
 </script>
 <style scoped>

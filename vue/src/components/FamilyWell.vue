@@ -12,7 +12,7 @@
     <family-summary v-if="familySummaryToggle || isInFamily" 
       @toggleUserList="toggleUserList"
     />
-    <users-list v-if="userListToggle"
+    <users-list v-if="userListToggle" 
       @toggleUserList="toggleUserList"
     />
   </div>
@@ -47,7 +47,8 @@ export default {
       this.createFamilyToggle = false;
     },
     toggleUserList() {
-      this.userListToggle = !this.userListToggle
+      this.userListToggle = !this.userListToggle;
+      this.$emit("toggleBookSection")
     }
   },
   beforeMount() {
