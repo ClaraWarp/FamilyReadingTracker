@@ -1,16 +1,17 @@
 <template>
-<table>
-  <thead>
+<table class ="table">
+  <thead class="tableHead">
     <tr>
       <th>
-        Book In Progress
-      </th>
+        Book(s) In Progress
+      </th><br>
     </tr>
   </thead>
-  <tbody>
-    <tr v-for="book in books" v-bind:key="book.isbn"  class="book">
-      <td class="book-font">
-        <i class="fas fa-book"></i>
+  <tbody class="book">
+    <tr v-for="book in books" v-bind:key="book.isbn"  class="tableRow">
+      <td class="book-covers">
+        <!-- <i class="fas fa-book"></i> -->
+        <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'"/>
       </td>
       <td class="book-info">{{book.title}}<br>{{book.author}}<br>{{book.isbn}}<br>{{book.description}}</td>
     </tr>
@@ -46,4 +47,57 @@ export default {
 </script>
 
 <style>
+.table{
+  display: flex;
+  flex-direction: column;
+  
+}
+.tableHead{
+  display: flex;
+  font-size: 1.5em;
+  justify-content: center;
+  color: #7400B8;
+  padding: 15px 0px 0px 0px;
+}
+.header{
+  display: flex;
+  background-color: white;
+}
+.bookForm{
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 10px 10px 10px;
+
+}
+ .bookview{
+   display: flex;
+   flex-grow: 1;
+   justify-content: space-between;
+ }
+/* .fas {
+  font-size: 25px;
+} */
+/* .book{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  font-size: 20px;
+} */
+.tableRow{
+  display: flex;
+  font-size: 25px;
+  
+}
+ .book-covers{
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 25px;
+  justify-content: space-;
+}
+.book-info{
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 25px;
+  justify-content: space-;
+}
 </style>

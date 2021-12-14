@@ -24,8 +24,8 @@
       placeholder="Description"
       v-model="book.description"
     /><br />
-    <button type="submit" v-on:click="saveBook">Add Book</button>&nbsp;
-    <button type="button" @click="toggleAddBook">Back</button>
+    <button class="addBook" type="submit" v-on:click="saveBook">Add Book</button>&nbsp;
+    <button type="button" @click="toggleAddBook">Close Form</button>
   </form>
 </template>
 
@@ -51,10 +51,14 @@ export default {
     toggleAddBook() {
       this.$emit("toggleAddBook");
     },
+    update(){
+      this.$mount();
+    },
     saveBook() {
       bookService.addBook(this.book, this.user.id).then((response) => {
         if (response.status === 201) {
           this.$store.commit("SET_CURRENT_BOOK", this.book, this.user.id);
+          this.update();
           this.resetForm();
         }
       });
