@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>Select 'Parent' or 'Child' and enter person's full username below:</p>
     <form @submit.prevent="">
       <input type="text" v-model="chosenUser" />
       <button>Add User</button>
