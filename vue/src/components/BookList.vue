@@ -28,8 +28,25 @@
           >{{ book.author }}<br /><strong>ISBN:&nbsp;</strong>{{ book.isbn
           }}<br /><strong>Description:&nbsp;</strong>{{ book.description
           }}<br />
+
+          <button
+            class="mark-read"
+            v-show="read === false"
+            v-bind:book="book.isbn"
+            v-on:click="toggle"
+          >
+            Mark Read
+          </button>
+          <button
+            class="mark-unread"
+            v-show="read === true"
+            v-bind:book="book.isbn"
+            v-on:click="toggle"
+          >
+            Mark Unread
+          </button>
         </td>
-        <br/>
+        <br />
       </tr>
     </tbody>
   </table>
