@@ -1,5 +1,5 @@
 <template>
-  <form id="prizeForm" @submit.prevent="resetForm">
+  <form id="prizeForm" @submit="resetForm">
     <input
       class="name-input"
       type="text"
@@ -48,7 +48,7 @@
       v-model="prizes.endDate"
     />
     <br />
-    <button type="submit" id="submit-button"  @click.prevent="savePrize">Create Prize</button>
+    <button type="submit" id="submit-button" @click.prevent="savePrize">Create Prize</button>
     <button type="button" @click="toggleCreatePrize">Back</button>
   </form>
 </template>
@@ -77,6 +77,7 @@ export default {
       prizeService.createPrize(this.prizes, this.family).then(response => {
         if (response.status === 201) {
           this.$store.commit("SET_PRIZE", this.prizes);
+          this.resetForm();
         }
       });
     },

@@ -15,7 +15,7 @@ export default {
     },
 
     createPrize(prize, familyId){
-        return http.post(`/api/v1/prizes?familyId=${familyId}`, prize);
+        return http.post(`/api/v1/prizes/${familyId}`, prize);
     },
 
     deletePrize(id) {
