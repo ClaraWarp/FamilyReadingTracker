@@ -72,10 +72,10 @@ export default {
               this.$emit("toggleUserList");
             }
           });
-      } else if (this.isParent != null) {
-        instructions.innerHTML = 'That user is already in a family!';
-      } else {
+      } else if (chosenUserSum.familyId === 0) {
         instructions.innerHTML = 'Please add them as a Parent or a Child'
+      } else {
+        instructions.innerHTML = 'That user is already in a family!';
       }
     },
   },
