@@ -48,6 +48,13 @@ public class JdbcBookDao implements BookDao {
     }
 
     @Override
+    public int updateReadStatus(int id, boolean status) {
+        String sql = "UPDATE books SET read = ? WHERE book_id = ?";
+
+        return jdbcTemplate.update(sql,status,id);
+    }
+
+    @Override
     public List<Book> getListOfBooksByUserID(int userID) {
 
         String sql = "SELECT * FROM books b " +
@@ -78,6 +85,8 @@ public class JdbcBookDao implements BookDao {
         return bookList;
     }
 
+
+
     private Book mapRowToBook(SqlRowSet rs) {
         Book book = new Book();
         book.setBookID(rs.getInt("book_id"));
@@ -85,6 +94,7 @@ public class JdbcBookDao implements BookDao {
         book.setAuthor(rs.getString("author"));
         book.setIsbn(rs.getString("isbn"));
         book.setDescription(rs.getString("description"));
+        book.setRead(rs.getBoolean("read"));
 
         return book;
     }

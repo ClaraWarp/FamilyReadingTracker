@@ -62,6 +62,11 @@ public class AppController {
         return bookService.getListOfBooksByUserID(userID);
     }
 
+    @RequestMapping(path = "books/{id}", method = RequestMethod.PUT)
+    public int updateReadStatus(@RequestBody Book book, @PathVariable Integer id){
+        return bookService.updateReadStatus(book);
+    }
+
     //Families Methods
 
     @RequestMapping(path = "families/{name}", method = RequestMethod.GET)

@@ -10,6 +10,8 @@ public interface BookDao {
 
     void addBook(Book book, int userID);
 
+    int updateReadStatus(int id, boolean status);
+
     List<Book> getListOfBooksByUserID(int userID);
 
     List<Book> getAllBooks();

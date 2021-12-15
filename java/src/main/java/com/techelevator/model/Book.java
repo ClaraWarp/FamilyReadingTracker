@@ -9,15 +9,17 @@ public class Book {
     private String author;
     private String isbn;
     private String description;
+    private boolean read;
 
     public Book(){}
 
-    public Book(int bookID, String title, String author, String isbn, String description){
+    public Book(int bookID, String title, String author, String isbn, String description, Boolean read){
         this.bookID = bookID;
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.description = description;
+        this.read = read;
     }
 
     public int getBookID() {
@@ -58,5 +60,13 @@ public class Book {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isRead() {
+        return read;
+    }
+
+    public void setRead(boolean read) {
+        this.read = read;
     }
 }
