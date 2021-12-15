@@ -61,14 +61,17 @@ public class JdbcPrizeDao implements PrizeDao {
     }
 
     @Override
-    public boolean addPrize(Prize prize){
-        boolean prizeCreated = false;
-        String sql = "INSERT INTO prizes (name, description, time_requirement, max_prizes, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?)";
+    public Prize addPrize(Prize prize){
+        String sql = "INSERT INTO prizes (name, description, time_requirement, max_prizes, start_date, end_date) VALUES (?, ?, ?, ?, ?, ?) " +
+                "RETURNING prize_id";
 
         //This line checks the number of rows affected by the jdbcTemplate.update(). It should affect 1 row if executed correctly.
-        prizeCreated = jdbcTemplate.update(sql, prize.getName(), prize.getDescription(), prize.getTimeRequirement(),
-                prize.getMaxPrize(), prize.getStartDate(), prize.getEndDate()) == 1;
-        return prizeCreated;
+        Integer prizeId = jdbcTemplate.queryForObject(sql, Integer.class, prize.getName(), prize.getDescription(), prize.getTimeRequirement(),
+                prize.getMaxPrize(), prize.getStartDate(), prize.getEndDate());
+
+        prize.setPrizeId(prizeId);
+
+        return prize;
     }
 
     @Override
@@ -91,6 +94,16 @@ public class JdbcPrizeDao implements PrizeDao {
         prizeDeleted = jdbcTemplate.update(sql, id) == 1;
         return prizeDeleted;
     }
+
+    @Override
+    public void addPrizeToFamily(Integer prizeId, Integer familyId) {
+
+        String sql = "INSERT INTO families_prizes (prize_id, family_id) VALUES (?, ?);\n";
+
+        jdbcTemplate.update(sql, prizeId, familyId);
+
+    }
+
 
     private Prize mapRowToPrize(SqlRowSet rs){
         Prize prize = new Prize();

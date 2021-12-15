@@ -7,7 +7,6 @@ import com.techelevator.model.User;
 import java.util.List;
 
 public interface FamiliesDao {
-    // TO DO: AT A METHOD TO INSERT INTO FAMILIES_USERS TO ADD SOMEONE TO A FAMILY
 
     Family getFamilyByName(String name);
 
@@ -17,5 +16,8 @@ public interface FamiliesDao {
 
     FamilyUserSum getFamilyByUser(int userID);
 
-//    boolean addUserToFamily(User accountHolder, User accountToAdd);
+
+// TO DO: AT A METHOD TO INSERT INTO FAMILIES_USERS TO ADD SOMEONE TO A FAMILY
+//    boolean addUserToFamily(User accountHolder, User acCountToAdd);
+    void addUserToFamily(int userIdForFamily, int userIdToAdd, boolean isParent);
 }

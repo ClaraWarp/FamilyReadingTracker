@@ -25,8 +25,10 @@ public class PrizeService {
         return prizeDao.getPrizeById(id);
     }
 
-    public boolean addPrize(Prize prize) {
-        return prizeDao.addPrize(prize);
+    public Prize addPrize(Prize prize, Integer familyId) {
+         Prize savedPrize = prizeDao.addPrize(prize);
+         prizeDao.addPrizeToFamily(savedPrize.getPrizeId(), familyId);
+         return savedPrize;
     }
 
     public boolean editPrize(Prize prize) {
@@ -36,6 +38,7 @@ public class PrizeService {
     public boolean removePrize(int id) {
         return prizeDao.removePrize(id);
     }
+
 
 
 

@@ -21,6 +21,7 @@ public class FamiliesService {
     }
 
     // TO DO: AT A METHOD TO INSERT INTO FAMILIES_USERS TO ADD SOMEONE TO A FAMILY
+    public void addUserToFamily(int userIdForFamily, int userIdToAdd, boolean isParent) { familiesDao.addUserToFamily(userIdForFamily, userIdToAdd, isParent); }
 
     public FamilyUserSum getFamilyByUser(int userID) {
         return familiesDao.getFamilyByUser(userID);
