@@ -16,6 +16,14 @@ export default {
 
     createPrize(prize){
         return http.post('/api/v1/prizes', prize);
+    },
+
+    deletePrize(id) {
+        return http.delete(`api/v1/prizes/${id}`);
+    },
+
+    editPrize(prize) {
+        return http.put('api/v1/prizes', prize);
     }
 
 }
