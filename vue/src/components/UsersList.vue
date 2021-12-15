@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="titleWithSubLine">
     <p id="instructions">Select 'Parent' or 'Child' and enter person's full username below:</p>
     <form @submit.prevent="addUserToFamily">
       <input type="text" v-model="chosenUser" />
@@ -86,5 +86,14 @@ export default {
 <style scoped>
 .disabled {
   text-decoration: line-through;
+}
+
+.titleWithSubLine {
+  line-height: 55px;
+  margin: 10px 10px 5px 0px;
+  border-radius: 0px 20px 20px 0px;
+  padding: 5px;
+  background-color: #a9d3ec;
+  display: flex-column;
 }
 </style>

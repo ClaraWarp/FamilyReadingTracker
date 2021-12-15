@@ -68,7 +68,7 @@ export default {
 #familyDetails {
   display: flex;
   line-height: 16px;
-  margin: 5px 0px 0px 0px
+  margin: 15px 0px 0px 0px
 }
 
 .leftButton {
