@@ -17,7 +17,7 @@
       @toggleUserList="toggleUserList" 
       :users="users"
     />
-    <family-list :users="users"/>
+    <!-- <family-list :users="users"/> -->
   </div>
 </template>
 
@@ -27,9 +27,9 @@ import CreateFamily from "./CreateFamily.vue";
 import NoFamilySummary from "./NoFamilySummary.vue";
 import FamilySummary from './FamilySummary.vue';
 import UsersList from './UsersList.vue';
-import FamilyList from './FamilyList.vue';
+// import FamilyList from './FamilyList.vue';
 export default {
-  components: { CreateFamily, NoFamilySummary, FamilySummary, UsersList, FamilyList },
+  components: { CreateFamily, NoFamilySummary, FamilySummary, UsersList },
   data() {
     return {
       createFamilyToggle: false,
@@ -89,7 +89,7 @@ export default {
           }
         }
       }
-    )
+    );
   }
 };
 </script>
