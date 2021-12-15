@@ -69,6 +69,11 @@ export default new Vuex.Store({
     SET_PRIZES(state, prizes) {
       state.prizes = prizes;
     },
+    DELETE_PRIZE(state, prizeToDelete) {
+      state.prizes = state.prizes.filter((prize ) => {
+        return prize.id !== prizeToDelete;
+      })
+    },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
