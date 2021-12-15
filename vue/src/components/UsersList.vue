@@ -1,14 +1,14 @@
 <template>
   <div>
-    <p>Select 'Parent' or 'Child' and enter person's full username below:</p>
+    <p id="instructions">Select 'Parent' or 'Child' and enter person's full username below:</p>
     <form @submit.prevent="addUserToFamily">
       <input type="text" v-model="chosenUser" />
-      <button>Add User</button>
       <br />
-      <input type="radio" name="isParent" value="true" id="isParent-true" />
+      <input type="radio" name="isParent" value="true" id="isParent-true" v-model="isParent" />
       <label for="isParent-true">As Parent</label>
-      <input type="radio" name="isParent" value="false" id="isParent-false" />
+      <input type="radio" name="isParent" value="false" id="isParent-false" v-model="isParent" />
       <label for="isParent-false">As Child</label>
+      <button>Add User</button>
     </form>
     <ul>
       <li
@@ -30,12 +30,12 @@ export default {
   data() {
     return {
       chosenUser: "",
-      userIdForFamily: null,
       userIdToAdd: null,
-      isParent: null
+      isParent: null,
+      filteredUsers: []
     };
   },
-  props: ['users'],
+  props: ["users"],
   computed: {
     filteredList() {
       let filteredUsers = this.users;
@@ -47,23 +47,39 @@ export default {
       }
       return filteredUsers;
     },
-  },
-  methods: {
     slicedFilteredList() {
       return this.filteredList.slice(0, 3);
-    },
+    }
+  },
+  methods: {
     toggleUserList() {
       this.$emit("toggleUserList");
     },
     addUserToFamily() {
-
-      familiesService.addUserToFamily(this.userIdForFamily, this.userIdToAdd, this.isParent).then(response => {
-        if (response.status === 200) {
-          return;
-        }
-      })
-    }
-  }
+      let chosenUserSum = this.users.find((user) => {
+        return (user.username.toLowerCase() == this.chosenUser.toLowerCase());
+      });
+      let instructions = document.getElementById('instructions');
+      if (chosenUserSum != undefined && chosenUserSum.familyId === 0 && this.isParent != null) {
+        familiesService
+          .addUserToFamily(
+            this.$store.state.user.id,
+            chosenUserSum.id,
+            this.isParent
+          )
+          .then((response) => {
+            if (response.status === 200) {
+              this.$emit("AddedUser", chosenUserSum.id)
+              this.$emit("toggleUserList");
+            }
+          });
+      } else if (this.isParent != null) {
+        instructions.innerHTML = '*** That user is already in a family! ***';
+      } else {
+        instructions.innerHTML = '*** Please add them as a Parent or a Child ***'
+      }
+    },
+  },
 };
 </script>
 

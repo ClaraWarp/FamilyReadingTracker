@@ -9,6 +9,7 @@ import com.techelevator.services.PrizeService;
 import com.techelevator.services.ReadingActivityService;
 import com.techelevator.services.UserService;
 import com.techelevator.services.ReaderService;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -102,6 +103,7 @@ public class AppController {
     }
 
     @RequestMapping(path = "prizes", method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.CREATED)
     public Prize addPrize(@RequestBody Prize prize, @RequestParam Integer familyId) {
         return prizeService.addPrize(prize, familyId);
     }
