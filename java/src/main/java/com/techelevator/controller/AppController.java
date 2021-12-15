@@ -107,9 +107,9 @@ public class AppController {
         return prizeService.getPrizeById(id);
     }
 
-    @RequestMapping(path = "prizes", method = RequestMethod.POST)
+    @RequestMapping(path = "prizes/{familyId}", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Prize addPrize(@RequestBody Prize prize, @RequestParam Integer familyId) {
+    public Prize addPrize(@RequestBody Prize prize, @PathVariable Integer familyId) {
         return prizeService.addPrize(prize, familyId);
     }
 

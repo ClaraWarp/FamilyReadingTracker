@@ -17,6 +17,7 @@
       @toggleUserList="toggleUserList" 
       :users="users"
     />
+    <!-- <family-list :users="users"/> -->
   </div>
 </template>
 
@@ -26,6 +27,7 @@ import CreateFamily from "./CreateFamily.vue";
 import NoFamilySummary from "./NoFamilySummary.vue";
 import FamilySummary from './FamilySummary.vue';
 import UsersList from './UsersList.vue';
+// import FamilyList from './FamilyList.vue';
 export default {
   components: { CreateFamily, NoFamilySummary, FamilySummary, UsersList },
   data() {
@@ -42,11 +44,10 @@ export default {
     }
   },
   methods: {
-    markUserUnavailable(userId) {
+    markUserUnavailable(userId, familyId) {
       this.users.forEach(user => {
         if (userId === user.id) {
-          user.familyId = 1;
-          // 1 is just a placeholder family
+          user.familyId = familyId;
         }
       })
     },
@@ -88,7 +89,7 @@ export default {
           }
         }
       }
-    )
+    );
   }
 };
 </script>
