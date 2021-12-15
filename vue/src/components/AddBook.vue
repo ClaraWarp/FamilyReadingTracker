@@ -1,5 +1,5 @@
 <template>
-  <form class="book-form" v-on:submit.prevent="resetForm">
+  <form class="book-form" v-on:submit="resetForm">
     <input
       class="title-input"
       type="text"
@@ -18,7 +18,7 @@
       placeholder="ISBN"
       v-model="book.isbn"
     /><br />
-    <input
+    <textarea rows="5" cols="20"
       class="description-input"
       type="text"
       placeholder="Description"
@@ -51,14 +51,10 @@ export default {
     toggleAddBook() {
       this.$emit("toggleAddBook");
     },
-    update(){
-      this.$mount();
-    },
     saveBook() {
       bookService.addBook(this.book, this.user.id).then((response) => {
         if (response.status === 201) {
           this.$store.commit("SET_CURRENT_BOOK", this.book, this.user.id);
-          this.update();
           this.resetForm();
         }
       });
@@ -72,4 +68,11 @@ export default {
 </script>
 
 <style>
+
+.description-input{
+  margin: 20px 0px 0px 0px ;
+  max-width: 165px;
+  max-height: 150px;
+  min-height: 17px;
+}
 </style>

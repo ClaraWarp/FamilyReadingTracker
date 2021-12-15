@@ -13,7 +13,8 @@
         <!-- <i class="fas fa-book"></i> -->
         <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'"/>
       </td>
-      <td class="book-info">{{book.title}}<br>{{book.author}}<br>{{book.isbn}}<br>{{book.description}}</td>
+      <td class="book-info">Title:&nbsp;{{book.title}}<br>Author:&nbsp;{{book.author}}<br>ISBN:&nbsp;{{book.isbn}}<br>Description:&nbsp;{{book.description}}<br></td>
+    <br>
     </tr>
   </tbody>
 </table>
@@ -54,19 +55,16 @@ export default {
 }
 .tableHead{
   display: flex;
-  font-size: 1.5em;
+  font-size: 1.25em;
   justify-content: center;
   color: #7400B8;
-  padding: 15px 0px 0px 0px;
+  margin: 30px 0px -30px 0px;
 }
-.header{
-  display: flex;
-  background-color: white;
-}
+
 .bookForm{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 10px 10px 10px 10px;
 
 }
@@ -75,30 +73,12 @@ export default {
    flex-grow: 1;
    justify-content: space-between;
  }
-/* .fas {
-  font-size: 25px;
-} */
-/* .book{
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  font-size: 20px;
-} */
+
 .tableRow{
   display: flex;
-  font-size: 25px;
-  
-}
- .book-covers{
-  display: flex;
-  flex-wrap: nowrap;
-  font-size: 25px;
-  justify-content: space-;
-}
-.book-info{
-  display: flex;
-  flex-wrap: nowrap;
-  font-size: 25px;
-  justify-content: space-;
-}
+  flex-direction: column;
+  align-items: center;
+  font-size: 17px;
+  color: purple;
+  }
 </style>
