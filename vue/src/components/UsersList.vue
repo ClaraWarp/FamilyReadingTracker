@@ -12,7 +12,7 @@
     </form>
     <ul>
       <li
-        v-for="(user, i) in filteredList"
+        v-for="(user, i) in slicedFilteredList"
         :key="i"
         :class="{ disabled: user.familyId != 0 }"
       >
@@ -25,11 +25,14 @@
 </template>
 
 <script>
-// import familiesService from "@/services/FamiliesService";
+import familiesService from "@/services/FamiliesService";
 export default {
   data() {
     return {
-      chosenUser: ""
+      chosenUser: "",
+      userIdForFamily: null,
+      userIdToAdd: null,
+      isParent: null
     };
   },
   props: ['users'],
@@ -42,15 +45,23 @@ export default {
           user.username.toLowerCase().includes(this.chosenUser.toLowerCase())
         );
       }
-      return filteredUsers.slice(0, 3);
+      return filteredUsers;
     },
   },
   methods: {
+    slicedFilteredList() {
+      return this.filteredList.slice(0, 3);
+    },
     toggleUserList() {
       this.$emit("toggleUserList");
     },
     addUserToFamily() {
-      // use familesService to add to relational table
+
+      familiesService.addUserToFamily(this.userIdForFamily, this.userIdToAdd, this.isParent).then(response => {
+        if (response.status === 200) {
+          return;
+        }
+      })
     }
   }
 };
