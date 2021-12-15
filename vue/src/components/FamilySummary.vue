@@ -54,7 +54,11 @@ export default {
 }
 
 #familyTitle {
-  margin: 20px 20px 5px 20px;
+  margin: 10px 10px 5px 10px;
+  /* white-space: nowrap; */
+  /* max-width: 200px;
+  font-size: 1.25em; */
+  max-width: max-content;
 }
 
 #familyDetails {
