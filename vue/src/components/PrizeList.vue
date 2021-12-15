@@ -7,7 +7,7 @@
     </thead>
     <tbody>
       <tr
-        v-for="prize in $store.state.prizes"
+        v-for="prize in this.$store.state.prizes"
         v-bind:key="prize.prizeId"
         class="prize"
       >
