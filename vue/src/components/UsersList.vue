@@ -69,6 +69,7 @@ export default {
           )
           .then((response) => {
             if (response.status === 200) {
+              this.$emit("AddedUser", chosenUserSum.id)
               this.$emit("toggleUserList");
             }
           });

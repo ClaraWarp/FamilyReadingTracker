@@ -13,6 +13,7 @@
       @toggleUserList="toggleUserList"
     />
     <users-list v-if="userListToggle" 
+      @AddedUser="markUserUnavailable"
       @toggleUserList="toggleUserList" 
       :users="users"
     />
@@ -41,6 +42,14 @@ export default {
     }
   },
   methods: {
+    markUserUnavailable(userId) {
+      this.users.forEach(user => {
+        if (userId === user.id) {
+          user.familyId = 1;
+          // 1 is just a placeholder family
+        }
+      })
+    },
     toggleCreateFamily() {
       this.createFamilyToggle = !this.createFamilyToggle;
     },
