@@ -1,6 +1,6 @@
 <template>
-  <table>
-    <thead>
+  <table id="prizeTable">
+    <thead id="tableHead">
       <tr>
         <th id="list">Active Prizes</th>
       </tr>
@@ -8,7 +8,9 @@
     <tbody>
       <tr v-for="prize in $store.state.prizes" v-bind:key="prize.prizeId" class="prize">
         <td class="prize-details">
-          {{ prize.name }}<br />{{ prize.description }}<br />
+         
+         Prize Name: {{ prize.name }}<br />
+        {{ prize.description }}<br />
           {{prize.timeRequirement }} <br /> {{ prize.maxPrizes }} <br />
           {{ prize.startDate }} <br /> {{ prize.endDate }}
         </td>
@@ -31,7 +33,7 @@ export default {
   },
   created() {
     prizeService.getListOfPrizesByFamily(this.$store.state.family.id).then((response) => {
-        if (response.status === 200) {
+        if (response.status === 201) {
           this.$store.commit("SET_PRIZES", response.data);
           }
       });
@@ -59,4 +61,24 @@ export default {
 #list {
   text-align: center;
 }
+
+#prizeTable {
+  display: flex;
+  flex-direction: column;
+}
+
+#tableHead {
+  display: flex;
+  font-size: 1.25em;
+  justify-content: center;
+  margin: 30px 0px 0px 0px;
+}
+
+.prize {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+}
+
 </style>
