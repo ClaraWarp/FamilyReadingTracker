@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>Select 'Parent' or 'Child' and enter person's full username below:</p>
-    <form @submit.prevent="">
+    <form @submit.prevent="addUserToFamily">
       <input type="text" v-model="chosenUser" />
       <button>Add User</button>
       <br />
@@ -51,8 +51,7 @@ export default {
     },
     addUserToFamily() {
       // use familesService to add to relational table
-    },
-    disablingUsers() {},
+    }
   }
 };
 </script>

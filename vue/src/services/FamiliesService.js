@@ -20,7 +20,10 @@ export default {
 
     getUsers() {
         return http.get('/api/v1/users/');
-    }
+    },
 
     // add post for relational table
+    addUserToFamily() {
+        return (http.get('/api/v1/'))
+    }
 }
