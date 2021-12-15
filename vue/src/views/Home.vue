@@ -12,6 +12,7 @@
     <div id="reading">
       <h2>Reading Activity</h2>
     </div>
+      
     <div id="prizes">
       <h2 class="prizeTitle">Prizes</h2>
 
