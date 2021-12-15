@@ -60,7 +60,10 @@ export default new Vuex.Store({
       state.currentBook = currentBook;
       state.user = this.user.currentUser;
     },
-    SET_PRIZE(state, prizes) {
+    SET_PRIZE(state, prize) {
+      state.prizes.push(prize);
+    },
+    SET_PRIZES(state, prizes) {
       state.prizes = prizes;
     },
     SET_AUTH_TOKEN(state, token) {

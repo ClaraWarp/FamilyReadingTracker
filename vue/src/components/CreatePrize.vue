@@ -76,7 +76,7 @@ export default {
     savePrize() {
       prizeService.createPrize(this.prizes, this.family).then(response => {
         if (response.status === 201) {
-          this.$store.commit("SET_PRIZE", "ADD_FAMILY_ID", this.prizes, this.family);
+          this.$store.commit("SET_PRIZE", this.prizes);
         }
       });
     },

@@ -9,6 +9,7 @@ import com.techelevator.services.PrizeService;
 import com.techelevator.services.ReadingActivityService;
 import com.techelevator.services.UserService;
 import com.techelevator.services.ReaderService;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -79,6 +80,10 @@ public class AppController {
     }
 
     // TO DO: AT A METHOD TO INSERT INTO FAMILIES_USERS TO ADD SOMEONE TO A FAMILY
+    @RequestMapping(path = "post/{userIdToAdd}/family/{userIdForFamily}/{isParent}")
+    public void addUserToFamily(@PathVariable int userIdForFamily, @PathVariable int userIdToAdd, @PathVariable boolean isParent) {
+        familiesService.addUserToFamily(userIdForFamily, userIdToAdd, isParent);
+    }
 
     //Prize Methods
 
@@ -98,8 +103,9 @@ public class AppController {
     }
 
     @RequestMapping(path = "prizes", method = RequestMethod.POST)
-    public boolean addPrize(@RequestBody Prize prize) {
-        return prizeService.addPrize(prize);
+    @ResponseStatus(value = HttpStatus.CREATED)
+    public Prize addPrize(@RequestBody Prize prize, @RequestParam Integer familyId) {
+        return prizeService.addPrize(prize, familyId);
     }
 
     @RequestMapping(path = "prizes", method = RequestMethod.PUT)
@@ -150,7 +156,7 @@ public class AppController {
     @RequestMapping(path = "users/", method = RequestMethod.GET)
     public List<User> findAll() {
         return userService.findAll();
-    } //Not sure what method is for
+    }
 
     @RequestMapping(path = "users/{id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable Long id) {

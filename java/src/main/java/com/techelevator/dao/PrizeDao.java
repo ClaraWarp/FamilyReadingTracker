@@ -13,10 +13,12 @@ public interface PrizeDao {
 
     Prize getPrizeById(Integer prizeId);
 
-    boolean addPrize(Prize prize);
+    Prize addPrize(Prize prize);
 
     boolean editPrize(Prize prize);
 
     boolean removePrize(int id);
+
+    void addPrizeToFamily(Integer prizeId, Integer familyId);
 
 }

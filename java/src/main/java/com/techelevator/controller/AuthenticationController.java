@@ -47,6 +47,8 @@ public class AuthenticationController {
         
         User user = userDao.findByUsername(loginDto.getUsername());
 
+        //inject family dao to get family
+
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
         return new ResponseEntity<>(new LoginResponse(jwt, user), httpHeaders, HttpStatus.OK);

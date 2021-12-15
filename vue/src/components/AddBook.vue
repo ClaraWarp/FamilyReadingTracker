@@ -1,5 +1,5 @@
 <template>
-  <form class="book-form" v-on:submit.prevent="resetForm">
+  <form class="book-form" v-on:submit="resetForm">
     <input
       class="title-input"
       type="text"
@@ -18,14 +18,14 @@
       placeholder="ISBN"
       v-model="book.isbn"
     /><br />
-    <input
+    <textarea rows="5" cols="20"
       class="description-input"
       type="text"
       placeholder="Description"
       v-model="book.description"
     /><br />
-    <button type="submit" v-on:click="saveBook">Add Book</button>&nbsp;
-    <button type="button" @click="toggleAddBook">Back</button>
+    <button class="addBook" type="submit" v-on:click="saveBook">Add Book</button>&nbsp;
+    <button type="button" @click="toggleAddBook">Close Form</button>
   </form>
 </template>
 
@@ -68,4 +68,11 @@ export default {
 </script>
 
 <style>
+
+.description-input{
+  margin: 20px 0px 0px 0px ;
+  max-width: 165px;
+  max-height: 150px;
+  min-height: 17px;
+}
 </style>
