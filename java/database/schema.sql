@@ -88,7 +88,8 @@ CREATE TABLE books (
     book_id int DEFAULT nextval('seq_book_id'::regclass) NOT NULL,
     title varchar(100) NOT NULL,
     author varchar(100),
-    isbn    varchar(16),
+    isbn    varchar(16) NOT NULL,
+    read    boolean DEFAULT 'FALSE',
     description varchar(400),
     CONSTRAINT PK_book_id            PRIMARY KEY (book_id)
 );

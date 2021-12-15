@@ -32,6 +32,10 @@ export default new Vuex.Store({
     userList: []
   },
   mutations: {
+    UPDATE_BOOK_STATUS(state, book){
+      let bookToUpdate = state.books.find(curBook => curBook.bookID == book.bookID)
+      bookToUpdate.read = book.read;
+    },
     ADD_USER_LIST(state, userList) {
       state.userList = userList;
     },

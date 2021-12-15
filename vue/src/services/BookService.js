@@ -16,7 +16,10 @@ export default {
 
     getBookByUserId(id){
         return http.get(`/api/v1/${id}/books`);
-    }
+    },
 
+    updateReadStatus(book){
+        return http.put(`/api/v1/books/${book.bookID}`, book);
+    }
 
 }
