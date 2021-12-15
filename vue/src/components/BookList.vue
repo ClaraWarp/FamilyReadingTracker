@@ -13,7 +13,7 @@
         <!-- <i class="fas fa-book"></i> -->
         <img v-if="book.isbn" v-bind:src="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-M.jpg'"/>
       </td>
-      <td class="book-info">Title:&nbsp;{{book.title}}<br>Author:&nbsp;{{book.author}}<br>ISBN:&nbsp;{{book.isbn}}<br>Description:&nbsp;{{book.description}}<br></td>
+      <td class="book-info"><br><strong>Title:&nbsp;</strong>{{book.title}}<br><strong>Author:&nbsp;</strong>{{book.author}}<br><strong>ISBN:&nbsp;</strong>{{book.isbn}}<br><strong>Description:&nbsp;</strong>{{book.description}}<br></td>
     <br>
     </tr>
   </tbody>
@@ -78,7 +78,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 17px;
+  font-size: 15px;
   color: purple;
   }
 </style>
