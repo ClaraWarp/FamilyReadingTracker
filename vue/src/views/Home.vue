@@ -10,7 +10,9 @@
       </div>
     </div>
     <div id="reading">
-      <h2>Reading Activity</h2>
+      <h2>Reading Activity</h2><br/>
+      <h3 id="greeting">Welcome back, {{$store.state.user.username}}!</h3>
+      <reading-activity-view/>
     </div>
       
     <div id="prizes">
@@ -34,6 +36,7 @@ import FamilyWell from "@/components/FamilyWell.vue";
 import BookView from "@/components/BookView.vue";
 import PrizeList from "../components/PrizeList.vue";
 import PrizeView from "../components/PrizeView.vue";
+import ReadingActivityView from '../components/ReadingActivityView.vue';
 
 export default {
   components: {
@@ -42,6 +45,7 @@ export default {
     BookView,
     PrizeList,
     PrizeView,
+    ReadingActivityView,
   },
   name: "home",
   data() {
@@ -85,6 +89,12 @@ h2 {
   font-family: "Nunito", sans-serif;
   text-align: center;
   margin: 20px;
+}
+
+#greeting {
+  font-family: "Nunito", sans-serif;
+  margin: 20px;
+  font-size: 2vw;
 }
 
 .prizeTitle {
@@ -136,9 +146,27 @@ h2 {
   display: flex;
   border: none;
   border-radius: 20px;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: #53a6d9;
   font-size: 35px;
+  flex-direction: column;
+
+  grid-template-areas: "h2 h2"
+                       ". ."
+                       "h3 h3"
+                       ". ."
+                      "readingBankBar readingBankBar"
+                      ". logReadings"
+                      ". logReadings";
+
+}
+
+#reading > h3 {
+  display: grid;
+  text-align: center;
+
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "greeting logActivity";
 }
 
 #prizes {

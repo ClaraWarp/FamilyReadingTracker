@@ -19,10 +19,10 @@
     <!-- need to switch to radio type which gives choices (maybe) -->
     <br/>
 
-    <label id="timeReadLabel" for="time-read-input">Time Spent Reading:</label>
+    <label id="timeReadLabel" for="time-read-input">Time Spent Reading(in minutes):</label>
     <input
       class="time-read-input"
-      type="number"
+      type="number" 
       placeholder="Time Spent Reading"
       v-model="readingActivity.timeRead"
     />
@@ -38,8 +38,8 @@
     <!-- need to switch to radio with options of all books that user added -->
     <br/>
 
-    <button type="submit" id="submit-button"  @click.prevent="saveActivity">Log Activity</button>
-    <button type="button" @click="toggleLogActivity">Back</button>
+    <button type="submit" id="submit-button"  @click.prevent="saveActivity">Save Activity</button>
+    <button type="button" @click="toggleCreateActivity">Back</button>
  </form>
 
 </template>
@@ -48,14 +48,14 @@
 import ReadingActivityService from "@/services/ReadingActivityService";
 
 export default {
-  name: "CreatePrize",
+  name: "logActivity",
   data() {
     return {
       readingActivity : {
-        accountForName: "",
-        formatType: "",
-        timeRead: "",
-        bookNameToAdd: "",
+        accountForName: '',
+        formatType: '',
+        timeRead: '',
+        bookNameToAdd: '',
     
       },
     //   family: this.$store.state.family.id
@@ -63,8 +63,8 @@ export default {
   },
 
   methods: {
-    logActivity() {
-      ReadingActivityService.createActivity(this.prizes ).then(response => {
+    createActivity() {
+      ReadingActivityService.createActivity(this.readingActivity ).then(response => {
         if (response.status === 201) {
           this.$store.commit("SET_ACTIVITY", this.readingActivity);
         }
@@ -74,7 +74,7 @@ export default {
       this.readingActivity = {};
       this.showForm = false;
     },
-    toggleLogActivity() {
+    toggleCreateActivity() {
       this.$emit("toggleCreateActivity");
     }
   },
