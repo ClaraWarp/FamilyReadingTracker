@@ -123,4 +123,15 @@ export default {
   font-size: 15px;
   color: purple;
 }
+
+.mark-read,.mark-unread {
+  color: white;
+  background-color: #6939c3;
+  border: 1px solid #6939c3;
+  border-radius: 15px;
+  padding: 2px 7px;
+  margin: 2px 5px 5px 0px;
+  font-size: 16px;
+}
+
 </style>
