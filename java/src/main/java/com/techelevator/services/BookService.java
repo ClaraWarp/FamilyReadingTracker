@@ -29,6 +29,10 @@ public class BookService {
         return bookDao.getBookByID(bookID);
     }
 
+    public int updateReadStatus(Book book){
+        return bookDao.updateReadStatus(book.getBookID(),book.isRead());
+    }
+
     public List<Book> getListOfBooksByUserID(int userID) {
         return bookDao.getListOfBooksByUserID(userID);
     }

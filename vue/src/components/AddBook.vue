@@ -25,7 +25,7 @@
       v-model="book.description"
     /><br />
     <button class="addBook" type="submit" v-on:click="saveBook">Add Book</button>&nbsp;
-    <button type="button" @click="toggleAddBook">Close Form</button>
+    <button class="closeForm" type="button" @click="toggleAddBook">Close Form</button>
   </form>
 </template>
 
@@ -68,6 +68,21 @@ export default {
 </script>
 
 <style>
+
+.addBook, .closeForm{
+  color: white;
+  background-color: #6939c3;
+  border: 1px solid #6939c3;
+  border-radius: 15px;
+  padding: 2px 7px;
+  margin: 2px 5px 5px 0px;
+  font-size: 12px;
+}
+
+.addBook:hover,.closeForm:hover {
+  color: #6930c3;
+  background-color: white;
+}
 
 .description-input{
   margin: 20px 0px 0px 0px ;

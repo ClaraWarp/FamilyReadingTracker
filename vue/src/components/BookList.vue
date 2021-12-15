@@ -31,17 +31,17 @@
 
           <button
             class="mark-read"
-            v-show="read === false"
-            v-bind:book="book.isbn"
-            v-on:click="toggle"
+            v-if="!book.read"
+            v-bind:book="book.read"
+            v-on:click="toggle(book)"
           >
             Mark Read
           </button>
           <button
             class="mark-unread"
-            v-show="read === true"
-            v-bind:book="book.isbn"
-            v-on:click="toggle"
+            v-if="book.read"
+            v-bind:book="book.read"
+            v-on:click="toggle(book)"
           >
             Mark Unread
           </button>
@@ -57,17 +57,24 @@ import bookService from "@/services/BookService";
 
 export default {
   name: "book-list",
+  props: {book: Object,},
 
   data() {
     return {
       user: this.$store.state.user,
-      read: false,
+
     };
   },
   methods: {
-    toggle() {
-      this.read = !this.read;
+    toggle(book) {
+      book.read = !book.read;
+      bookService.updateReadStatus(book).then((response) => {
+        if(response.status === 200){
+          this.$store.commit("UPDATE_BOOK_STATUS", book);
+        }
+      });
     },
+    
   },
   created() {
     bookService.getBookByUserId(this.user.id).then((response) => {
@@ -116,4 +123,15 @@ export default {
   font-size: 15px;
   color: purple;
 }
+
+.mark-read,.mark-unread {
+  color: white;
+  background-color: #6939c3;
+  border: 1px solid #6939c3;
+  border-radius: 15px;
+  padding: 2px 7px;
+  margin: 2px 5px 5px 0px;
+  font-size: 16px;
+}
+
 </style>
