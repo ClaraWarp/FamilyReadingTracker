@@ -98,8 +98,8 @@ public class AppController {
     }
 
     @RequestMapping(path = "prizes", method = RequestMethod.POST)
-    public boolean addPrize(@RequestBody Prize prize) {
-        return prizeService.addPrize(prize);
+    public Prize addPrize(@RequestBody Prize prize, @RequestParam Integer familyId) {
+        return prizeService.addPrize(prize, familyId);
     }
 
     @RequestMapping(path = "prizes", method = RequestMethod.PUT)
