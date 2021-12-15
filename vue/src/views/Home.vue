@@ -46,7 +46,7 @@ export default {
   name: "home",
   data() {
     return {
-      bookSectionToggle: true
+      bookSectionToggle: true,
     }
   },
   methods: {

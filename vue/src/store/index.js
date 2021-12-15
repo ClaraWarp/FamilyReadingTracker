@@ -27,7 +27,6 @@ export default new Vuex.Store({
       id: null
     },
     currentBook: null,
-
     token: currentToken || '',
     user: currentUser || {},
     userList: []
