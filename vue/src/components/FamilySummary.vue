@@ -3,8 +3,8 @@
     <h2 id="familyTitle">{{curFamilyName}} Family</h2>
     <div id="familyDetails">
       <div id="isParent">{{isParent}}</div>
-      <button>My Family</button>
-      <button class="leftButton" @click="toggleUserList">Add Family Member</button>
+      <button class="leftButton">My Family</button>&nbsp;
+      <button class="leftButton" @click="toggleUserList" v-if="isParent == 'parent'">Add Family Member</button>
     </div>
   </div>
 </template>
@@ -47,18 +47,28 @@ export default {
   border-radius: 0px 20px 20px 0px;
   padding: 5px;
   background-color: #a9d3ec;
+  display: flex-column;
 }
 
 #isParent {
-  flex-grow: 3;
+  flex-grow: 2;
+  margin: 0px 10px 10px 20px;
+
 }
 
 #familyTitle {
-  margin: 20px 20px 5px 20px;
+  margin: 10px 10px 5px 10px;
+  /* white-space: nowrap; */
+  /* max-width: 200px;
+  font-size: 1.25em; */
+  max-width: max-content;
+  flex-grow: 1;
 }
 
 #familyDetails {
   display: flex;
+  line-height: 16px;
+  margin: 15px 0px 0px 0px
 }
 
 .leftButton {
