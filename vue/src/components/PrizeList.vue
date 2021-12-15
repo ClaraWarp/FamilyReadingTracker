@@ -54,6 +54,25 @@ export default {
         return this.$store.state.family.id;
       }
     },
+    methods: {
+      retrievePrize() {
+        prizeService
+        .getPrizeById(this.$route.params.id)
+        .then(response => {
+          this.$store.commit("SET_PRIZE", response.data);
+        });
+      },
+      deletePrize() {
+        prizeService
+        .deletePrize(this.prizes)
+        .then(response => {
+          if (response.status === 200) {
+            alert("Prize successfully deleted");
+            // this.$router.push{{ name: }}
+          }
+        })
+      }
+    }
 };
 </script>
 
