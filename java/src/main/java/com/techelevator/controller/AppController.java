@@ -79,6 +79,10 @@ public class AppController {
     }
 
     // TO DO: AT A METHOD TO INSERT INTO FAMILIES_USERS TO ADD SOMEONE TO A FAMILY
+    @RequestMapping(path = "post/{userIdToAdd}/family/{userIdForFamily}/{isParent}")
+    public void addUserToFamily(@PathVariable int userIdForFamily, @PathVariable int userIdToAdd, @PathVariable boolean isParent) {
+        familiesService.addUserToFamily(userIdForFamily, userIdToAdd, isParent);
+    }
 
     //Prize Methods
 
