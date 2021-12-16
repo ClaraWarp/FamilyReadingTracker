@@ -74,11 +74,11 @@ export default {
         this.$store.commit("SET_PRIZE", response.data);
       });
     },
-    deletePrize(prizeId, familyId) {
-      prizeService.deletePrize(prizeId, familyId).then((response) => {
+    deletePrize(prizeId) {
+      prizeService.deletePrize(prizeId, this.$store.state.family.id).then((response) => {
         if (response.status === 200 || response.status === 204) {
           alert("Prize successfully deleted.");
-          this.$store.commit("DELETE_PRIZE", prizeId, familyId);
+          this.$store.commit("DELETE_PRIZE", prizeId);
         }
       });
     },

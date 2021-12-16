@@ -72,7 +72,7 @@ export default new Vuex.Store({
     },
     DELETE_PRIZE(state, prizeToDelete) {
       state.prizes = state.prizes.filter((prize ) => {
-        return prize.id !== prizeToDelete;
+        return prize.prizeId !== prizeToDelete;
       })
     },
     SET_AUTH_TOKEN(state, token) {
