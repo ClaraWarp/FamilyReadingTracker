@@ -3,7 +3,7 @@
     <h2 id="familyTitle">{{curFamilyName}} Family</h2>
     <div id="familyDetails">
       <div id="isParent">{{isParent}}</div>
-      <button class="leftButton">My Family</button>&nbsp;
+      <button class="leftButton" @click="toggleMyFamily">My Family</button>&nbsp;
       <button class="leftButton" @click="toggleUserList" v-if="isParent == 'parent'">Add Family Member</button>
     </div>
   </div>
@@ -24,6 +24,9 @@ export default {
   methods: {
     toggleUserList() {
       this.$emit("toggleUserList")
+    },
+    toggleMyFamily() {
+      this.$emit("toggleMyFamily")
     }
   }
 };
