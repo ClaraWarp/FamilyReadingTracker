@@ -19,9 +19,8 @@
           <strong> Total Winners: </strong> {{ prize.maxPrizes }} <br />
           <strong> Start Date: </strong> {{ prize.startDate }} <br />
           <strong> End Date: </strong> {{ prize.endDate }} <br />
-          <router-link class="editPrize" to="AddNewPrize" tag="button"
-            >Edit Prize</router-link
-          >
+          <!-- <router-link class="editPrize" to="AddNewPrize" tag="button"
+            >Edit Prize</router-link > -->
           <button class="deletePrize" v-on:click="deletePrize(prize.prizeId)">
             <span class="buttons">Delete Prize</span>
           </button>
