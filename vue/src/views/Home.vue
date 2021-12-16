@@ -98,7 +98,7 @@ h2 {
 }
 
 .prizeTitle {
-  background-color: #f5cb5c;
+  background-color: #f1d78f;
   border-radius: 20px 0px 0px 20px;
   margin: 10px 0px 5px 10px;
   padding: 24px;
@@ -108,7 +108,8 @@ h2 {
   flex-grow: 1;
   margin: 5px 0px 10px 10px;
   border-radius: 20px 0px 0px 20px;
-  background-color: #f5cb5c;
+  background-color: #f1d78f;
+  /* color: #6939c3; */
 }
 
 #bookSection {
@@ -174,7 +175,7 @@ h2 {
   display: flex;
   border: none;
   border-radius: 20px 0px 0px 0px;
-  background-color: #353535;
+  background-color: #6939c3;
   font-size: 35px;
   justify-content: flex-start;
   flex-direction: column;
@@ -182,8 +183,8 @@ h2 {
 
 #createPrizeButton {
   color: white;
-  background-color: #353535;
-  border: 1px solid #353535;
+  background-color: #6939c3;
+  border: 1px solid #6939c3;
   border-radius: 5px;
   padding: 2px 7px;
   margin: 2px 5px 5px 0px;
