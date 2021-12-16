@@ -35,8 +35,8 @@ public class PrizeService {
         return prizeDao.editPrize(prize);
     }
 
-    public boolean removePrize(int id) {
-        return prizeDao.removePrize(id);
+    public boolean removePrize(Integer prizeId, Integer familyId) {
+        return prizeDao.removePrize(prizeId, familyId);
     }
 
 

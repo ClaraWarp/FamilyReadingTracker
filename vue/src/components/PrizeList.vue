@@ -12,15 +12,19 @@
         class="prize"
       >
         <td class="prize-details">
-         <strong> Prize Name: </strong> {{ prize.name }}<br />
-         <strong> Description: </strong> {{ prize.description }}<br />
-         <strong> Time Read Requirement: </strong> {{ prize.timeRequirement }} <br />
-         <strong> Total Winners: </strong> {{ prize.maxPrizes }} <br />
-         <strong> Start Date: </strong> {{ prize.startDate }} <br />
-         <strong> End Date: </strong> {{ prize.endDate }} <br/>
-         <router-link class="editPrize" to="AddNewPrize" tag="button">Edit Prize</router-link>
-          <button class="deletePrize" v-on:click="deletePrize"><span class="buttons">Delete Prize</span>
-           </button>
+          <strong> Prize Name: </strong> {{ prize.name }}<br />
+          <strong> Description: </strong> {{ prize.description }}<br />
+          <strong> Time Read Requirement: </strong> {{ prize.timeRequirement }}
+          <br />
+          <strong> Total Winners: </strong> {{ prize.maxPrizes }} <br />
+          <strong> Start Date: </strong> {{ prize.startDate }} <br />
+          <strong> End Date: </strong> {{ prize.endDate }} <br />
+          <router-link class="editPrize" to="AddNewPrize" tag="button"
+            >Edit Prize</router-link
+          >
+          <button class="deletePrize" v-on:click="deletePrize(prize.prizeId)">
+            <span class="buttons">Delete Prize</span>
+          </button>
         </td>
       </tr>
     </tbody>
@@ -41,7 +45,6 @@ export default {
     };
   },
   created() {
-    console.log(this.$store.state.user.id);
     familiesService
       .getFamilyByUser(this.$store.state.user.id)
       .then((famResponse) => {
@@ -56,14 +59,7 @@ export default {
         }
       });
   },
-  // editPrize(prize) {
-  // I need to access the id of the selected prize, router link to an edit page,
-  // and use a put method to change that informtion
-  // },
-  // delete(prize) {
-  // I also need to access the targeted prize, push the delete service using the router,
-  // but I think both of these need params defined? Where do I define params??
-  // },
+  props: ["users"],
   computed: {
     prizes() {
       return this.$store.state.prizes;
@@ -78,17 +74,17 @@ export default {
         this.$store.commit("SET_PRIZE", response.data);
       });
     },
-    deletePrize() {
-      prizeService.deletePrize(this.prizes).then((response) => {
+    deletePrize(prizeId, familyId) {
+      prizeService.deletePrize(prizeId, familyId).then((response) => {
         if (response.status === 200 || response.status === 204) {
           alert("Prize successfully deleted.");
-          this.$store.commit("DELETE_PRIZE", this.prizes);
+          this.$store.commit("DELETE_PRIZE", prizeId, familyId);
         }
       });
     },
     editPrize() {
-      <router-link to="AddNewPrize"/>
-    }
+      <router-link to="AddNewPrize" />;
+    },
   },
 };
 </script>
@@ -121,7 +117,7 @@ export default {
   background-color: royalblue;
 } */
 
-.deletePrize{
+.deletePrize {
   background-color: #e64d27;
 }
 

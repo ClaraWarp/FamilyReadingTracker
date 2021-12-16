@@ -26,6 +26,7 @@ export default new Vuex.Store({
       role: null,
       id: null
     },
+    newFamily:[],
     currentBook: null,
     token: currentToken || '',
     user: currentUser || {},

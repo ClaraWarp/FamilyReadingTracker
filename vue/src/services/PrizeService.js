@@ -18,8 +18,8 @@ export default {
         return http.post(`/api/v1/prizes/${familyId}`, prize);
     },
 
-    deletePrize(id) {
-        return http.delete(`api/v1/prizes/${id}`);
+    deletePrize(prizeId, familyId) {
+        return http.delete(`api/v1/prizes/${prizeId}/${familyId}`);
     },
 
     editPrize(prize) {

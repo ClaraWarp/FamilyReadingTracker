@@ -86,12 +86,13 @@ public class JdbcPrizeDao implements PrizeDao {
     }
 
     @Override
-    public boolean removePrize(int id){
+    public boolean removePrize(Integer prizeId, Integer familyId){
         boolean prizeDeleted = false;
-        String sql = "DELETE FROM prizes WHERE prize_id = ?";
+        String sql = "DELETE FROM families_prizes WHERE prize_id = ? AND family_id = ?;" +
+                "DELETE FROM prizes WHERE prize_id = ?;";
 
         //This line checks the number of rows affected by the jdbcTemplate.update(). It should affect 1 row if executed correctly.
-        prizeDeleted = jdbcTemplate.update(sql, id) == 1;
+        prizeDeleted = jdbcTemplate.update(sql, prizeId, familyId, prizeId) == 1;
         return prizeDeleted;
     }
 

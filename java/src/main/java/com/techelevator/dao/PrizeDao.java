@@ -17,7 +17,7 @@ public interface PrizeDao {
 
     boolean editPrize(Prize prize);
 
-    boolean removePrize(int id);
+    boolean removePrize(Integer prizeId, Integer familyId);
 
     void addPrizeToFamily(Integer prizeId, Integer familyId);
 

@@ -118,9 +118,9 @@ public class AppController {
         return prizeService.editPrize(prize);
     }
 
-    @RequestMapping(path = "prizes/{id}", method = RequestMethod.DELETE)
-    public boolean removePrize(@PathVariable int id) {
-        return prizeService.removePrize(id);
+    @RequestMapping(path = "prizes/{prizeId}/{familyId}", method = RequestMethod.DELETE)
+    public boolean removePrize(@PathVariable Integer prizeId, @PathVariable Integer familyId) {
+        return prizeService.removePrize(prizeId, familyId);
     }
 
     //Reading Activity Methods
