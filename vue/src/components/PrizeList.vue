@@ -29,6 +29,7 @@
 
 <script>
 import prizeService from "@/services/PrizeService.js";
+import familiesService from "@/services/FamiliesService.js";
 
 export default {
   name: "prize-list",
@@ -40,11 +41,18 @@ export default {
     };
   },
   created() {
-    prizeService
-      .getListOfPrizesByFamily(this.$store.state.family.id)
-      .then((response) => {
-        if (response.status === 201) {
-          this.$store.commit("SET_PRIZES", response.data);
+    console.log(this.$store.state.user.id);
+    familiesService
+      .getFamilyByUser(this.$store.state.user.id)
+      .then((famResponse) => {
+        if (famResponse.status === 200) {
+          prizeService
+            .getListOfPrizesByFamily(famResponse.data.familyId)
+            .then((response) => {
+              if (response.status === 200) {
+                this.$store.commit("SET_PRIZES", response.data);
+              }
+            });
         }
       });
   },
