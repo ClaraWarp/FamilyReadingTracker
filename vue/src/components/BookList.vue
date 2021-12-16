@@ -57,7 +57,6 @@ import bookService from "@/services/BookService";
 
 export default {
   name: "book-list",
-  props: {book: Object,},
 
   data() {
     return {
