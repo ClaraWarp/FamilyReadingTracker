@@ -116,10 +116,11 @@ h2 {
   flex-grow: 1;
   margin: 5px 10px 10px 0px;
   border-radius: 0px 20px 20px 0px;
-  background-image: url("../assets/booksection.jpg");
+  background-color: #f1d78f;
+  /* background-image: url("../assets/booksection.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 20px;
+  border-radius: 20px; */
 }
 
 .home {
@@ -139,7 +140,7 @@ h2 {
   display: flex;
   border: none;
   border-radius: 0px 20px 0px 0px;
-  /* background-color: #6939c3; */
+  background-color: #6939c3;
   font-size: 35px;
   justify-content: flex-start;
   flex-direction: column;

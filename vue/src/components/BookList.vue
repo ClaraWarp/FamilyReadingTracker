@@ -99,7 +99,7 @@ export default {
   display: flex;
   font-size: 1.25em;
   justify-content: center;
-  color: #7400b8;
+  /* color: #7400b8; */
   margin: 30px 0px -30px 0px;
 }
 
@@ -120,7 +120,7 @@ export default {
   flex-direction: column;
   align-items: center;
   font-size: 15px;
-  color: purple;
+  /* color: purple; */
 }
 
 .mark-read,.mark-unread {
