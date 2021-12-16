@@ -26,6 +26,7 @@ export default {
 
 <style scoped>
 .readingActivityView {
-  display: 
+  display: grid;
+  
 }
 </style>

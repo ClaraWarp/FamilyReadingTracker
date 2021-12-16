@@ -5,6 +5,7 @@ import com.techelevator.model.ReadingActivity;
 import com.techelevator.model.ReadingActivity;
 import com.techelevator.model.User;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -25,11 +26,19 @@ public class JdbcReadingActivityDao implements ReadingActivityDao {
     @Override
     public void addActivity (ReadingActivity readingActivity) {
 
-        String newActivity = "INSERT INTO reading_activity_log (user_id, isbn, format, time_read) values (?, ?, ?, ?) \n" +
-                " RETURNING activity_id";
+        String bookSql = "SELECT book_id FROM books WHERE title = ?";
 
-        jdbcTemplate.queryForObject(newActivity, ReadingActivity.class, readingActivity.getActivityId(), readingActivity.getUserId(), readingActivity.getIsbn(), readingActivity.getFormat()
-                , readingActivity.getTimeRead()) ;
+        try {
+            Integer bookId = jdbcTemplate.queryForObject(bookSql, Integer.class, readingActivity.getBookNameToAdd());
+
+            String newActivity = "INSERT INTO reading_activity_log (user_id, book_id, format, time_read) values (?, ?, ?, ?) \n" +
+                    " RETURNING activity_id";
+
+            jdbcTemplate.queryForObject(newActivity, Integer.class, readingActivity.getUserId(), bookId, readingActivity.getFormat()
+                    , readingActivity.getTimeRead());
+        } catch (EmptyResultDataAccessException ex) {
+            System.out.println("book not found.");
+        }
 
 
     }

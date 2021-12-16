@@ -10,7 +10,19 @@ export default {
     toggleCreateActivity() {
       this.$emit('toggleCreateActivity')
     }
+  },
+  data() {
+    return {
+      readingActivity: {
+        accountForName: "",
+        formatType: "",
+        timeRead: "",
+        bookNameToAdd: "",
+        note: "",
+      },
+    };
   }
+
 };
 </script>
 

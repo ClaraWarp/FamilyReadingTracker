@@ -4,11 +4,21 @@ package com.techelevator.model;
 //
 
 public class ReadingActivity {
-    int activityId;
+    private int activityId;
     int userId;
     String isbn;
     String format;
     int timeRead;
+
+    public String getBookNameToAdd() {
+        return bookNameToAdd;
+    }
+
+    public void setBookNameToAdd(String bookNameToAdd) {
+        this.bookNameToAdd = bookNameToAdd;
+    }
+
+    String bookNameToAdd;
 
 // add setter for activity ID
 
