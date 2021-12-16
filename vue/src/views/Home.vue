@@ -1,3 +1,4 @@
+
 <template>
   <div class="home homeNav">
     <div id="leftBar">
@@ -116,7 +117,11 @@ h2 {
   flex-grow: 1;
   margin: 5px 10px 10px 0px;
   border-radius: 0px 20px 20px 0px;
-  background-color: #a9d3ec;
+  background-color: #f1d78f;
+  /* background-image: url("../assets/booksection.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px; */
 }
 
 .home {
@@ -190,4 +195,10 @@ h2 {
   margin: 2px 5px 5px 0px;
   font-size: 16px;
 }
+/* .bookForm{
+  background-image: url("../assets/booksection.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+} */
 </style>

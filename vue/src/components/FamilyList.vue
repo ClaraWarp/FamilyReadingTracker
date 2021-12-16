@@ -13,6 +13,9 @@ export default {
               return user.familyId === this.$store.state.family.id;
           })
       }
+  },
+  created() {
+    this.$emit("RefreshUsers")
   }
 };
 </script>

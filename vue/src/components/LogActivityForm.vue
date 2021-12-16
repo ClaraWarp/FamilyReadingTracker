@@ -1,6 +1,6 @@
 <template>
   <div>
-      <button class="logActivityButton" @click="toggleCreateActivity">Log Activity</button>
+      <!-- <button class="logActivityButton" @click="toggleCreateActivity">Log Activity</button> -->
   </div>
 </template>
 
@@ -10,7 +10,19 @@ export default {
     toggleCreateActivity() {
       this.$emit('toggleCreateActivity')
     }
+  },
+  data() {
+    return {
+      readingActivity: {
+        accountForName: "",
+        formatType: "",
+        timeRead: "",
+        bookNameToAdd: "",
+        note: "",
+      },
+    };
   }
+
 };
 </script>
 

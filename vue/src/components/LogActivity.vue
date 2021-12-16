@@ -27,7 +27,7 @@
         name="format"
         size="1"
         placeholder="--Please choose format--"
-        v-model="readingActivity.formatType"
+        v-model="readingActivity.format"
       >
         <option value="Select A Format" selected>
           --Please choose format--
@@ -65,7 +65,7 @@
         class="saveActivity"
         type="submit"
         id="submit-button"
-        @click.prevent="saveActivity"
+        @click.prevent="createActivity"
       >
         Save Activity</button
       ><br />
@@ -85,17 +85,18 @@ export default {
     return {
       readingActivity: {
         accountForName: "",
-        formatType: "",
+        userId: null,
+        format: "",
         timeRead: "",
         bookNameToAdd: "",
         note: "",
       },
-      //   family: this.$store.state.family.id
     };
   },
 
   methods: {
     createActivity() {
+      this.readingActivity.userId= this.$store.state.user.id;
       ReadingActivityService.createActivity(this.readingActivity).then(
         (response) => {
           if (response.status === 201) {
@@ -119,8 +120,9 @@ export default {
 #activityForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  font-size:20px;
 }
 
 .saveActivity,
