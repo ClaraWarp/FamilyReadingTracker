@@ -90,7 +90,6 @@ export default {
         bookNameToAdd: "",
         note: "",
       },
-      //   family: this.$store.state.family.id
     };
   },
 

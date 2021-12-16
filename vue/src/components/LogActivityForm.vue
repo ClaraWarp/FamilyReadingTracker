@@ -1,6 +1,6 @@
 <template>
   <div>
-      <button class="logActivityButton" @click="toggleCreateActivity">Log Activity</button>
+      <!-- <button class="logActivityButton" @click="toggleCreateActivity">Log Activity</button> -->
   </div>
 </template>
 
