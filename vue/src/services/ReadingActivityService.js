@@ -12,6 +12,10 @@ export default {
 
     createActivity(readingActivity) {
         return http.post('/api/v1/activity', readingActivity);
+    },
+
+    getTotalMinutesRead(userId) {
+        return http.get(`/api/v1/${userId}/activities/readingBank`);
     }
 
 }

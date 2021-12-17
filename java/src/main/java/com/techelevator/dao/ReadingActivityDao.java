@@ -13,6 +13,9 @@ public interface ReadingActivityDao {
 
     List<ReadingActivity> getListOfActivitiesByUserId(int userId);
 
+    int getTotalMinutesRead(int userId);
+
+
     //ReadingActivity getReadingActivityByBook(String isbn)
 
 }

@@ -1,5 +1,5 @@
 <template>
-  <form class="book-form" v-on:submit="resetForm">
+  <form class="book-form" v-on:submit="resetForm()">
     <input
       class="title-input"
       type="text"

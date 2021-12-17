@@ -1,24 +1,49 @@
 <template>
   <div class="container">
     <div class="progress-bar"></div>
-    <span class= "readingBankMinutes">0 Minutes Banked</span>
+    <span class= "readingBankMinutes">{{totalMinutesRead}} Minutes Banked</span>
 </div>
 </template>
 
 <script>
+import ReadingActivityService from "@/services/ReadingActivityService.js";
+
 export default {
-  
+  created() {
+    this.readingBank();
+  }, 
+
+  computed() {
+      this.readingBank();
+  },
+
+  data() {
+    return {
+      totalMinutesRead: 0,
+      userId: this.$store.state.user.id
+    }
+  },
+
+  methods: {
+    readingBank() {
+      ReadingActivityService.getTotalMinutesRead(this.userId).then((response) => {
+        if (response.status == 200) {
+          this.totalMinutesRead = response.data;
+        } 
+      });
+    }
+  }
 }
 </script>
 
 <style>
 .container {
-  margin: 100px;
+  margin: 80px;
   height: 50px;
-  background-color: green;
+  background-color: #6939c3;
   position: relative;
   border-radius: 7px;
-  border: 1px solid black;
+  border: 2px solid black;
   
 }
 
@@ -27,14 +52,13 @@ export default {
   height: 100%;
   border-radius: 7px;
   background-color: rgb(125, 44, 255);
-  width: 50%;
-  /* animation: progress-animation 5s infinite; */
 }
 
 .container .readingBankMinutes {
   position: absolute;
   top: 50%;
-  right: 5px;
+  right: 25px;
+  
   transform: translateY(-50%);
   font: bold 14px "Quicksand", sans-serif;
   color: white;

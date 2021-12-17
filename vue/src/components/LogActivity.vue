@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div >
     <form id="activityForm">
-      <label id="accountNameLabel" for="name-input">Reader:</label>
+      <label class="form-Label" for="name-input">Reader:</label>
       <input
-        class="name-input"
+        class="form-input"
         type="text"
         placeholder="Username"
         v-model="readingActivity.accountForName"
       />
       <br />
 
-      <label id="bookNameLabel" for="book-name-input">Name of book:</label>
+      <label class="form-Label" for="book-name-input">Name of book:</label>
       <input
-        class="book-name-input"
+        class="form-input"
         type="text"
         placeholder="Book title"
         v-model="readingActivity.bookNameToAdd"
@@ -20,9 +20,9 @@
       <!-- need to switch to radio with options of all books that user added -->
       <br />
 
-      <label id="readingFormatLabel" for="reading-format-input">Format:</label>
+      <label class="form-Label" for="reading-format-input">Format:</label>
       <select
-        class="reading-format-input"
+        class="form-input"
         id="format"
         name="format"
         size="1"
@@ -42,16 +42,16 @@
       <!-- need to switch to radio type which gives choices (maybe) -->
       <br />
 
-      <label id="timeReadLabel" for="time-read-input"
+      <label class="form-Label" for="time-read-input"
         >Time Spent Reading(in minutes):</label
       >
       <input
-        class="time-read-input"
+        class="form-input"
         type="number"
         placeholder="Time Spent Reading"
         v-model="readingActivity.timeRead"
       />
-      <label id="notes" for="notes">Notes:</label>
+      <label class="form-Label" for="notes">Notes:</label>
       <textarea
         rows="5"
         cols="30"
@@ -65,13 +65,13 @@
         class="saveActivity"
         type="submit"
         id="submit-button"
-        @click.prevent="createActivity"
+        v-on:click.prevent="createActivity()"
       >
         Save Activity</button
       ><br />
-      <button class="backButton" type="button" @click="toggleCreateActivity">
+      <!-- <button class="backButton" type="button" @click="toggleCreateActivity">
         Back
-      </button>
+      </button> -->
     </form>
   </div>
 </template>
@@ -117,12 +117,27 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap");
+
+.form-Label {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
+
 #activityForm {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  font-size:20px;
+  font-size:30px;
+
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+}
+
+
+.form-input {
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .saveActivity,
@@ -133,7 +148,7 @@ export default {
   border-radius: 3px;
   padding: 2px 7px;
   margin: 2px 5px 5px 0px;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .saveActivity:hover,

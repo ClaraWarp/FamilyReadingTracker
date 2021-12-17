@@ -31,4 +31,8 @@ public class ReadingActivityService {
     public List<ReadingActivity> getListOfActivitiesByUserId(int userId) {
         return readingActivityDao.getListOfActivitiesByUserId(userId);
     }
+
+    public int getTotalMinutesRead(int userId) {
+        return readingActivityDao.getTotalMinutesRead(userId);
+    }
 }

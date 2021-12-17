@@ -140,6 +140,11 @@ public class AppController {
         return readingActivityService.getListOfActivitiesByUserId(userId);
     }
 
+    @RequestMapping(path = "{userId}/activities/readingBank", method = RequestMethod.GET)
+    public int getTotalMinutesRead(@PathVariable int userId) {
+        return readingActivityService.getTotalMinutesRead(userId);
+    }
+
     //Reader Methods
 
     //getTotalReadTimeById(int userId)
