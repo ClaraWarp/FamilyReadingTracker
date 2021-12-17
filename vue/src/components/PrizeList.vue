@@ -14,7 +14,7 @@
         <td class="prize-details">
           <strong> Prize Name: </strong> {{ prize.name }}<br />
           <strong> Description: </strong> {{ prize.description }}<br />
-          <strong> Time Read Requirement: </strong> {{ prize.timeRequirement }}
+          <strong> Time Required (Minutes): </strong> {{ prize.timeRequirement }}
           <br />
           <strong> Total Winners: </strong> {{ prize.maxPrizes }} <br />
           <strong> Start Date: </strong> {{ prize.startDate }} <br />
@@ -114,7 +114,7 @@ export default {
   flex-direction: column;
   align-items: center;
   font-size: 15px;
-  border: dashed 3px #6939c3;
+  border: dashed 3px black;
   margin: 30px 70px;
 }
 
@@ -124,6 +124,7 @@ export default {
 
 .deletePrize {
   background-color: #e64d27;
+  
 }
 
 .buttons {
