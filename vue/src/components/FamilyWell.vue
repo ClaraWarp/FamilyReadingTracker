@@ -39,6 +39,7 @@ export default {
     UsersList,
     FamilyList,
   },
+  props: ['bookSectionToggle'],
   data() {
     return {
       createFamilyToggle: false,
@@ -56,16 +57,23 @@ export default {
   methods: {
     toggleMyFamily() {
       this.refreshUsers();
+      if (this.bookSectionToggle == this.myFamilyToggle) {
+        this.$emit("toggleBookSection")
+      }
     },
     refreshUsers() {
+      let i = 0;
       this.users.forEach((user) => {
         familiesService.getFamilyByUser(user.id).then((response) => {
           if (response.status === 200) {
             user.familyId = response.data.familyId;
+            i++;
+            if (i == this.users.length) {
+              this.myFamilyToggle = !this.myFamilyToggle;
+            }
           }
-        })
+        });
       });
-      this.myFamilyToggle = !this.myFamilyToggle;
     },
     markUserUnavailable(userId, familyId) {
       this.users.forEach((user) => {
