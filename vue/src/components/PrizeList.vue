@@ -74,11 +74,15 @@ export default {
       });
     },
     deletePrize(prizeId) {
-      prizeService.deletePrize(prizeId, this.$store.state.family.id).then((response) => {
-        if (response.status === 200 || response.status === 204) {
-          alert("Prize successfully deleted.");
-          this.$store.commit("DELETE_PRIZE", prizeId);
-        }
+        prizeService
+          .deletePrize(prizeId, this.$store.state.family.id)
+          .then((response) => {
+            if (response.status === 200 || response.status === 204) {
+              if (confirm("Do you want to delete this prize?")) {
+              alert("Prize successfully deleted.");
+              this.$store.commit("DELETE_PRIZE", prizeId);
+            }
+          }
       });
     },
     editPrize() {
@@ -110,6 +114,8 @@ export default {
   flex-direction: column;
   align-items: center;
   font-size: 15px;
+  border: dashed 3px   #6939c3;
+  margin: 30px 70px;
 }
 
 /* .editPrize{
@@ -122,5 +128,9 @@ export default {
 
 .buttons {
   color: black;
+}
+
+.prizeDetails {
+  border: solid 2px black;
 }
 </style>
