@@ -114,7 +114,7 @@ export default {
   flex-direction: column;
   align-items: center;
   font-size: 15px;
-  border: dashed 3px   #6939c3;
+  border: dashed 3px #6939c3;
   margin: 30px 70px;
 }
 
